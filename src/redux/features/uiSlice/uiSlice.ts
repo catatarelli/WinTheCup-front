@@ -5,6 +5,7 @@ import openModalReducer from "./reducers/openModalReducer/openModalReducer";
 
 const uiInitialState: UiState = {
   modal: "",
+  isError: false,
 };
 
 const uiSlice = createSlice({

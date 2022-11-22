@@ -1,3 +1,4 @@
-export type UiState = {
+export interface UiState {
   modal: string;
-};
+  isError: boolean;
+}
