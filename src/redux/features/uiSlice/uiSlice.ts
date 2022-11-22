@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { type UiState } from "../../../types/uiTypes";
-import closeModalreducer from "./reducers/closeModalReducer/closeModalreducer";
+import closeModalReducer from "./reducers/closeModalReducer/closeModalReducer";
 import openModalReducer from "./reducers/openModalReducer/openModalReducer";
 
 const uiInitialState: UiState = {
@@ -12,7 +12,7 @@ const uiSlice = createSlice({
   initialState: uiInitialState,
   reducers: {
     openModalReducer,
-    closeModalreducer,
+    closeModalReducer,
   },
 });
 
@@ -20,5 +20,5 @@ export const uiReducer = uiSlice.reducer;
 
 export const {
   openModalReducer: openModalActionCreator,
-  closeModalreducer: closeModalActionCreator,
+  closeModalReducer: closeModalActionCreator,
 } = uiSlice.actions;
