@@ -1,4 +1,4 @@
-import { renderHook } from "@testing-library/react-native";
+import { renderHook } from "@testing-library/react";
 import makeWrapper from "../../mocks/makeWrapper";
 import { registerDataMock } from "../../mocks/userMocks";
 import { openModalActionCreator } from "../../redux/features/uiSlice/uiSlice";
