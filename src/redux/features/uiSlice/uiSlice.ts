@@ -1,4 +1,4 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { type UiState } from "../../../types/uiTypes";
 import closeModalReducer from "./reducers/closeModalReducer/closeModalReducer";
 import openModalReducer from "./reducers/openModalReducer/openModalReducer";

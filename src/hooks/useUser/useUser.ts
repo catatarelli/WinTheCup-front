@@ -13,12 +13,18 @@ const useUser = () => {
       const responseData = await axios.post(`${url}/user/register`, userData);
       if (responseData.status === 201) {
         dispatch(
-          openModalActionCreator("Registered successfully! Please login")
+          openModalActionCreator({
+            modal: "Registered successfully! Please login",
+            isError: false,
+          })
         );
       }
     } catch (error: unknown) {
-      throw new Error(
-        `It's not possible to register: ${(error as Error).message}`
+      dispatch(
+        openModalActionCreator({
+          modal: "There was an error creating a new user",
+          isError: true,
+        })
       );
     }
   };

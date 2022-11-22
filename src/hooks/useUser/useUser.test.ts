@@ -22,7 +22,10 @@ describe("Given the custom hook useUser", () => {
         wrapper: makeWrapper,
       });
 
-      const actionPayload = "Registered successfully! Please login";
+      const actionPayload = {
+        modal: "Registered successfully! Please login",
+        isError: false,
+      };
 
       const newUser = registerDataMock;
 
