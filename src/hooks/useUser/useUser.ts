@@ -9,10 +9,7 @@ const useUser = () => {
 
   const registerUser = async (userData: RegisterData) => {
     try {
-      const responseData = await axios.post(
-        `${REACT_APP_API_URL}/user/register`,
-        userData
-      );
+      await axios.post(`${REACT_APP_API_URL}/user/register`, userData);
       dispatch(
         openModalActionCreator({
           modal: "Registered successfully! Please login",
