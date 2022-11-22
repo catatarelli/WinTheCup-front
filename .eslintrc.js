@@ -13,6 +13,14 @@ module.exports = {
     {
       extends: ["xo-typescript", "prettier"],
       files: ["*.ts", "*.tsx"],
+      rules: {
+        "@typescript-eslint/consistent-type-definitions": [
+          "error",
+          "interface",
+        ],
+        "@typescript-eslint/indent": "off",
+        "@typescript-eslint/no-empty-function": "off",
+      },
     },
   ],
   parserOptions: {
@@ -37,6 +45,7 @@ module.exports = {
         },
       },
     ],
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
     "@typescript-eslint/no-use-before-define": ["off"],
     "@typescript-eslint/no-var-requires": ["warn"],
     "@typescript-eslint/no-empty-function": ["warn"],

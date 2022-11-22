@@ -12,6 +12,7 @@ npm-debug.*
 web-build/
 .vscode
 /coverage
+.env
 
 # macOS
 .DS_Store
