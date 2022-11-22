@@ -2,12 +2,11 @@ import { rest } from "msw";
 import { REACT_APP_API_URL } from "@env";
 import type { RegisterData } from "../types/userTypes";
 
-const url = REACT_APP_API_URL;
-
 export const handlers = [
-  rest.post(`${url}/user/register`, async (req, res, ctx) => {
+  rest.post(`${REACT_APP_API_URL}/user/register`, async (req, res, ctx) => {
     const user = await req.json<RegisterData>();
-    if (!user) {
+
+    if (!user || user.email === "panchito@gmail.com") {
       return res(ctx.status(500));
     }
 

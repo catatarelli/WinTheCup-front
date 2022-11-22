@@ -6,23 +6,23 @@ import type { RegisterData } from "../../types/userTypes";
 
 const useUser = () => {
   const dispatch = useAppDispatch();
-  const url = REACT_APP_API_URL;
 
   const registerUser = async (userData: RegisterData) => {
     try {
-      const responseData = await axios.post(`${url}/user/register`, userData);
-      if (responseData.status === 201) {
-        dispatch(
-          openModalActionCreator({
-            modal: "Registered successfully! Please login",
-            isError: false,
-          })
-        );
-      }
+      const responseData = await axios.post(
+        `${REACT_APP_API_URL}/user/register`,
+        userData
+      );
+      dispatch(
+        openModalActionCreator({
+          modal: "Registered successfully! Please login",
+          isError: false,
+        })
+      );
     } catch (error: unknown) {
       dispatch(
         openModalActionCreator({
-          modal: "There was an error creating a new user",
+          modal: "User is already registered",
           isError: true,
         })
       );
