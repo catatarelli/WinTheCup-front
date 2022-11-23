@@ -22,15 +22,12 @@ describe("Given the custom hook useUser", () => {
       } = renderHook(() => useUser(), {
         wrapper: makeWrapper,
       });
-
       const actionPayload = {
-        modal: "Registered successfully! Please login",
+        modal: "Account created successfully",
         isError: false,
       };
 
-      const newUser = registerDataMock;
-
-      await registerUser(newUser);
+      await registerUser(registerDataMock);
 
       expect(dispatchSpy).toHaveBeenCalledWith(
         openModalActionCreator(actionPayload)

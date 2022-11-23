@@ -4,6 +4,7 @@ const colors = {
   wine: "#8A1538",
   white: "#fff",
   black: "#000",
+  green: "#158A67",
 };
 
 export default colors;

@@ -1,4 +1,4 @@
-import type { UiState } from "../types/uiTypes";
+import type { UiState } from "../redux/features/uiSlice/uiTypes";
 
 export const emptyModalMock: UiState = {
   modal: "",

@@ -1,5 +1,5 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { UiState } from "../../../../../types/uiTypes";
+import type { UiState } from "../../uiTypes";
 
 const openModalReducer = (
   previousUi: UiState,

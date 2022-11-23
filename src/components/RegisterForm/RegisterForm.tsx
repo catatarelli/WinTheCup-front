@@ -1,14 +1,8 @@
-import React, { useEffect, useState } from "react";
-import {
-  SafeAreaView,
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  ImageBackground,
-} from "react-native";
+import React, { useState } from "react";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import useUser from "../../hooks/useUser/useUser";
 import type { RegisterData } from "../../types/userTypes";
+import CustomModal from "../CustomModal/CustomModal";
 import styles from "./RegisterFormStyled";
 
 const RegisterForm = (): JSX.Element => {
@@ -19,7 +13,6 @@ const RegisterForm = (): JSX.Element => {
   };
 
   const [userData, setUserData] = useState(initialUser);
-  const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const { registerUser } = useUser();
 
@@ -29,14 +22,6 @@ const RegisterForm = (): JSX.Element => {
       [identify]: text,
     });
   };
-
-  useEffect(() => {
-    setButtonDisabled(
-      userData.username === "" ||
-        userData.email === "" ||
-        userData.password.length < 7
-    );
-  }, [userData.username, userData.email, userData.password]);
 
   const onSubmit = async () => {
     const newUser = {
@@ -49,6 +34,7 @@ const RegisterForm = (): JSX.Element => {
 
   return (
     <>
+      <CustomModal />
       <View>
         <Text style={styles.title}>WIN THE CUP</Text>
       </View>

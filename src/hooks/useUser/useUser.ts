@@ -12,11 +12,11 @@ const useUser = () => {
       await axios.post(`${REACT_APP_API_URL}/user/register`, userData);
       dispatch(
         openModalActionCreator({
-          modal: "Registered successfully! Please login",
+          modal: "Account created successfully",
           isError: false,
         })
       );
-    } catch (error: unknown) {
+    } catch {
       dispatch(
         openModalActionCreator({
           modal: "User is already registered",

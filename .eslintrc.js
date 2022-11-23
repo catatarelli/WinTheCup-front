@@ -14,6 +14,18 @@ module.exports = {
       extends: ["xo-typescript", "prettier"],
       files: ["*.ts", "*.tsx"],
       rules: {
+        "no-unused-vars": [
+          "error",
+          {
+            vars: "all",
+            args: "after-used",
+            ignoreRestSiblings: true,
+            argsIgnorePattern: /^/.source,
+            caughtErrors: "all",
+            caughtErrorsIgnorePattern: /^$/.source,
+          },
+        ],
+        "no-useless-computed-key": "off",
         "@typescript-eslint/consistent-type-definitions": [
           "error",
           "interface",
@@ -29,6 +41,18 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint", "prettier", "jest"],
   rules: {
+    "no-unused-vars": [
+      "error",
+      {
+        vars: "all",
+        args: "after-used",
+        ignoreRestSiblings: true,
+        argsIgnorePattern: /^/.source,
+        caughtErrors: "all",
+        caughtErrorsIgnorePattern: /^$/.source,
+      },
+    ],
+    "no-useless-computed-key": "off",
     "no-multi-spaces": ["error"],
     "no-multiple-empty-lines": ["error", { max: 1 }],
     "object-curly-spacing": ["error", "always"],

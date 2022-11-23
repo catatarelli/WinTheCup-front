@@ -7,7 +7,7 @@ export const handlers = [
     const user = await req.json<RegisterData>();
 
     if (!user || user.email === "panchito@gmail.com") {
-      return res(ctx.status(500));
+      return res(ctx.status(409));
     }
 
     return res(ctx.status(201), ctx.json({ user }));
