@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "@expo/webpack-config": "^0.17.2",
+    "@fontsource/candal": "^4.5.9",
+    "@fontsource/signika-negative": "^4.5.11",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/stack": "^6.3.4",
@@ -29,7 +31,7 @@
     "cross-env": "^7.0.3",
     "expo": "~47.0.6",
     "expo-status-bar": "~1.4.2",
-    "expo-updates": "~0.15.5",
+    "expo-updates": "^0.15.6",
     "jwt-decode": "^3.1.2",
     "msw": "^0.49.0",
     "react": "18.1.0",
@@ -42,7 +44,8 @@
     "react-native-screens": "~3.18.0",
     "react-native-web": "~0.18.9",
     "react-redux": "^8.0.5",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -51,6 +54,8 @@
     "@types/react": "~18.0.14",
     "@types/react-native": "~0.70.6",
     "@types/react-redux": "^7.1.24",
+    "@types/styled-components": "^5.1.26",
+    "@types/styled-components-react-native": "^5.2.0",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
     "axios": "^0.27.2",
