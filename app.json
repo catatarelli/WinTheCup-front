@@ -16,19 +16,15 @@
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/304ec96b-089a-4bbd-b6ef-d6c3ef9b2061"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.catatarelli.winthecup"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.catatarelli.winthecup"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

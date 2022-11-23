@@ -1,4 +1,4 @@
-import type { UiState } from "../../../../../types/uiTypes";
+import type { UiState } from "../../uiTypes";
 
 const closeModalreducer = (previousUi: UiState) => ({
   ...previousUi,

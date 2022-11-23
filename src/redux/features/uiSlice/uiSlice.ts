@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { type UiState } from "../../../types/uiTypes";
+import { type UiState } from "./uiTypes";
 import closeModalReducer from "./reducers/closeModalReducer/closeModalReducer";
 import openModalReducer from "./reducers/openModalReducer/openModalReducer";
 

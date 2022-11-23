@@ -1,8 +1,4 @@
 import { Dimensions, StyleSheet } from "react-native";
-import colors from "../../styles/colors.styles";
-
-const screenHeight = Dimensions.get("window").height;
-const screenWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
   container: {
@@ -10,8 +6,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    height: screenHeight,
-    width: screenWidth,
+    height: Dimensions.get("window").height,
+    width: Dimensions.get("window").width,
     justifyContent: "center",
     alignItems: "center",
   },

@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 30,
+    zIndex: 1,
   },
   background: {
     backgroundColor: colors.black,
