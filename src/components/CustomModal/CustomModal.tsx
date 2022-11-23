@@ -14,7 +14,9 @@ const CustomModal = (): JSX.Element => {
     <>
       {modal && (
         <View style={isError ? styles.modalError : styles.modalSuccess}>
-          <Text style={styles.modalText}>{modal}</Text>
+          <Text style={styles.modalText} testID="modalMessage">
+            {modal}
+          </Text>
           <TouchableOpacity onPress={() => dispatch(closeModalActionCreator())}>
             <Text>
               <FontAwesomeIcon icon={faSquareXmark} size={30} />

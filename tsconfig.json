@@ -3,5 +3,6 @@
   "compilerOptions": {
     "strict": true
   },
-  "typeRoots": ["./src/types"]
+  "typeRoots": ["./src/types"],
+  "include": ["src"]
 }

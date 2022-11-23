@@ -3,9 +3,12 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/react";
+import "@testing-library/react-native";
+import "@testing-library/jest-dom/extend-expect";
 import { server } from "./mocks/server";
 
 beforeAll(() => {
+  global.setImmediate = jest.useRealTimers as unknown as typeof setImmediate;
   server.listen();
 });
 
