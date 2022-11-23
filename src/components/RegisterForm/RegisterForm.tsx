@@ -82,7 +82,11 @@ const RegisterForm = (): JSX.Element => {
         </View>
 
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText} onPress={onSubmit}>
+          <Text
+            style={styles.buttonText}
+            onPress={onSubmit}
+            testID="submitButton"
+          >
             Join Now
           </Text>
         </TouchableOpacity>
