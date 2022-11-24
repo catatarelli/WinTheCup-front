@@ -18,7 +18,7 @@ const CustomModal = (): JSX.Element => {
             {modal}
           </Text>
           <TouchableOpacity onPress={() => dispatch(closeModalActionCreator())}>
-            <Text>
+            <Text testID="closeButton">
               <FontAwesomeIcon icon={faSquareXmark} size={30} />
             </Text>
           </TouchableOpacity>
