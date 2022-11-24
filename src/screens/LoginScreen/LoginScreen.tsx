@@ -5,7 +5,7 @@ import styles from "../RegisterScreen/RegisterScreenStyled";
 import image from "../../../assets/background-image.jpg";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
-const RegisterScreen = () => (
+const LoginScreen = () => (
   <ScrollView>
     <ImageBackground
       source={image}
@@ -20,4 +20,4 @@ const RegisterScreen = () => (
   </ScrollView>
 );
 
-export default RegisterScreen;
+export default LoginScreen;
