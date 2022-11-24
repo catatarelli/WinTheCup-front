@@ -3,3 +3,17 @@ export const registerDataMock = {
   password: "pepito123",
   email: "pepito@gmail.com",
 };
+
+export const userMock = {
+  id: "asdf234",
+  username: "luis123",
+  token: "",
+  isLogged: false,
+};
+
+export const emptyUserMock = {
+  id: "",
+  username: "",
+  token: "",
+  isLogged: false,
+};
