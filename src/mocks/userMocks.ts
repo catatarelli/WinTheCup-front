@@ -9,7 +9,7 @@ export const registerDataMock = {
 export const userMock = {
   id: "asdf234",
   username: "luis123",
-  token: "token123",
+  token: "testtoken",
   isLogged: false,
 };
 

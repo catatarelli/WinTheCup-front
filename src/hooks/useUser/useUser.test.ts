@@ -2,6 +2,7 @@ import { renderHook } from "@testing-library/react";
 import makeWrapper from "../../mocks/makeWrapper";
 import { registerDataMock } from "../../mocks/userMocks";
 import { openModalActionCreator } from "../../redux/features/uiSlice/uiSlice";
+import { loginUserActionCreator } from "../../redux/features/user/userSlice";
 import { type RegisterData } from "../../redux/features/user/userTypes";
 import { store } from "../../redux/store";
 import useUser from "./useUser";
@@ -11,6 +12,17 @@ beforeEach(() => {
 });
 
 const dispatchSpy = jest.spyOn(store, "dispatch");
+
+jest.mock("@react-native-async-storage/async-storage", () => ({
+  setItem: jest.fn(),
+  getItem: jest.fn(),
+  removeItem: jest.fn(),
+}));
+
+jest.mock("../../utils/decodeToken", () => () => ({
+  id: "23456asdgerts",
+  username: "user1234",
+}));
 
 describe("Given the custom hook useUser", () => {
   describe("When it's method registerUser is invoked with username 'pepito123', email 'pepito@gmail.com' and password 'pepito123'", () => {
@@ -60,6 +72,61 @@ describe("Given the custom hook useUser", () => {
 
       expect(dispatchSpy).toHaveBeenCalledWith(
         openModalActionCreator(actionPayload)
+      );
+    });
+  });
+
+  describe("When its method loginUser is invoked with username 'user1234' and password 'user1234'", () => {
+    test("Then it should call dispatch with a loginUserActionCreator", async () => {
+      const {
+        result: {
+          current: { loginUser },
+        },
+      } = renderHook(() => useUser(), {
+        wrapper: makeWrapper,
+      });
+
+      const user = {
+        username: "user1234",
+        password: "user1234",
+      };
+
+      const expectedUser = {
+        username: "user1234",
+        id: "23456asdgerts",
+        token: "token",
+      };
+
+      await loginUser(user);
+
+      expect(dispatchSpy).toHaveBeenCalledWith(
+        loginUserActionCreator(expectedUser)
+      );
+    });
+  });
+
+  describe("When its method loginUser is invoked with username 'user123' and the wrong password 'testPassword'", () => {
+    test("Then it should call dispatch with a openModalActionCreator", async () => {
+      const {
+        result: {
+          current: { loginUser },
+        },
+      } = renderHook(() => useUser(), {
+        wrapper: makeWrapper,
+      });
+
+      const user = {
+        username: "user1234",
+        password: "testPassword",
+      };
+
+      await loginUser(user);
+
+      expect(dispatchSpy).toHaveBeenCalledWith(
+        openModalActionCreator({
+          modal: "It is not possible to login",
+          isError: true,
+        })
       );
     });
   });
