@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import useUser from "../../hooks/useUser/useUser";
-import type { RegisterData } from "../../types/userTypes";
+import type { RegisterData } from "../../types/types";
 import CustomModal from "../CustomModal/CustomModal";
 import styles from "./RegisterFormStyled";
 

@@ -2,7 +2,7 @@ import axios from "axios";
 import { REACT_APP_API_URL } from "@env";
 import { openModalActionCreator } from "../../redux/features/uiSlice/uiSlice";
 import { useAppDispatch } from "../../redux/hooks";
-import type { RegisterData } from "../../types/userTypes";
+import { RegisterData } from "../../redux/features/user/userTypes";
 
 const useUser = () => {
   const dispatch = useAppDispatch();
