@@ -1,16 +1,12 @@
 import * as React from "react";
-import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import useUser from "../../hooks/useUser/useUser";
 import type { RegisterData } from "../../redux/features/user/userTypes";
 import formStyles from "../../styles/form.styles";
 import CustomModal from "../CustomModal/CustomModal";
-import routes from "../../navigation/routes";
 
 const RegisterForm = (): JSX.Element => {
-  const navigation = useNavigation();
-
   const initialUser: RegisterData = {
     username: "",
     email: "",
@@ -109,11 +105,7 @@ const RegisterForm = (): JSX.Element => {
         </TouchableOpacity>
         <View style={formStyles.loginContainer}>
           <Text style={formStyles.loginText}>Have an account?</Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate(routes.login);
-            }}
-          >
+          <TouchableOpacity onPress={() => {}}>
             <Text style={formStyles.loginLink}>Log in</Text>
           </TouchableOpacity>
         </View>

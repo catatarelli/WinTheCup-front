@@ -5,12 +5,8 @@ import useUser from "../../hooks/useUser/useUser";
 import type { UserCredentials } from "../../redux/features/user/userTypes";
 import formStyles from "../../styles/form.styles";
 import CustomModal from "../CustomModal/CustomModal";
-import { useNavigation } from "@react-navigation/core";
-import routes from "../../navigation/routes";
 
 const LoginForm = (): JSX.Element => {
-  const navigation = useNavigation();
-
   const initialUser: UserCredentials = {
     username: "",
     password: "",
@@ -89,11 +85,7 @@ const LoginForm = (): JSX.Element => {
         </TouchableOpacity>
         <View style={formStyles.loginContainer}>
           <Text style={formStyles.loginText}>Don't have an account?</Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate(routes.register);
-            }}
-          >
+          <TouchableOpacity onPress={() => {}}>
             <Text style={formStyles.loginLink}>Join now</Text>
           </TouchableOpacity>
         </View>
