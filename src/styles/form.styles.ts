@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
-import colors from "../../styles/colors.styles";
+import colors from "./colors.styles";
 
-const styles = StyleSheet.create({
+const formStyles = StyleSheet.create({
   input: {
     height: 54,
     marginVertical: 10,
@@ -26,13 +26,27 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: colors.white,
     color: colors.white,
-    opacity: 0.6,
+    opacity: 1,
+    padding: 10,
+    marginVertical: 25,
+    zIndex: 1,
+  },
+  buttonDisabled: {
+    width: 266,
+    alignItems: "center",
+    justifyContent: "center",
+    height: 57,
+    borderRadius: 20,
+    backgroundColor: colors.white,
+    color: colors.white,
+    opacity: 0.3,
     padding: 10,
     marginVertical: 25,
   },
   buttonText: {
     fontSize: 30,
     zIndex: 1,
+    fontWeight: "500",
   },
   background: {
     backgroundColor: colors.black,
@@ -63,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default styles;
+export default formStyles;

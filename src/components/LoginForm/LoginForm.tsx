@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import useUser from "../../hooks/useUser/useUser";
 import type { UserCredentials } from "../../redux/features/user/userTypes";
 import CustomModal from "../CustomModal/CustomModal";
-import styles from "../RegisterForm/RegisterFormStyled";
+import formStyles from "../../styles/form.styles";
 
 const LoginForm = (): JSX.Element => {
   const initialUser: UserCredentials = {
@@ -13,6 +13,13 @@ const LoginForm = (): JSX.Element => {
   };
 
   const [userData, setUserData] = useState(initialUser);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+
+  useEffect(() => {
+    setButtonDisabled(
+      userData.username.length < 5 || userData.password.length < 7
+    );
+  }, [userData.username, userData.password]);
 
   const { loginUser } = useUser();
 
@@ -35,48 +42,50 @@ const LoginForm = (): JSX.Element => {
     <>
       <CustomModal />
       <View>
-        <Text style={styles.title}>WIN THE CUP</Text>
+        <Text style={formStyles.title}>WIN THE CUP</Text>
       </View>
-      <View style={styles.background}>
+      <View style={formStyles.background}>
         <View>
-          <Text style={styles.label}>Username</Text>
+          <Text style={formStyles.label}>Username</Text>
           <TextInput
             value={userData.username}
             testID="username"
             maxLength={20}
             textContentType="username"
-            style={styles.input}
+            style={formStyles.input}
             onChangeText={(data) => {
               changeUserData(data, "username");
             }}
           />
         </View>
         <View>
-          <Text style={styles.label}>Password</Text>
+          <Text style={formStyles.label}>Password</Text>
           <TextInput
             secureTextEntry={true}
             value={userData.password}
             testID="password"
             maxLength={20}
             textContentType="password"
-            style={styles.input}
+            style={formStyles.input}
             onChangeText={(data) => {
               changeUserData(data, "password");
             }}
           />
         </View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={buttonDisabled ? formStyles.buttonDisabled : formStyles.button}
+        >
           <Text
-            style={styles.buttonText}
+            style={formStyles.buttonText}
             onPress={onSubmit}
             testID="submitButton"
           >
             Log in
           </Text>
         </TouchableOpacity>
-        <View style={styles.loginContainer}>
-          <Text style={styles.loginText}>Don't have an account?</Text>
-          <Text style={styles.loginLink}>Join now</Text>
+        <View style={formStyles.loginContainer}>
+          <Text style={formStyles.loginText}>Don't have an account?</Text>
+          <Text style={formStyles.loginLink}>Join now</Text>
         </View>
       </View>
     </>
