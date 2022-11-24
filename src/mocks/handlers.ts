@@ -1,6 +1,6 @@
 import { rest } from "msw";
 import { REACT_APP_API_URL } from "@env";
-import type { RegisterData } from "../types/userTypes";
+import type { RegisterData } from "../types/types";
 
 export const handlers = [
   rest.post(`${REACT_APP_API_URL}/user/register`, async (req, res, ctx) => {

@@ -7,3 +7,12 @@ export interface UserLoginData {
 export interface UserState extends UserLoginData {
   isLogged: boolean;
 }
+
+export interface UserCredentials {
+  username: string;
+  password: string;
+}
+
+export interface RegisterData extends UserCredentials {
+  email: string;
+}
