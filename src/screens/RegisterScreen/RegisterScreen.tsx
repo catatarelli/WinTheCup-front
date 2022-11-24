@@ -7,7 +7,12 @@ import image from "../../../assets/background-image.jpg";
 
 const RegisterScreen = () => (
   <ScrollView>
-    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+    <ImageBackground
+      source={image}
+      resizeMode="cover"
+      style={styles.image}
+      testID="backgroudImage"
+    >
       <SafeAreaView style={styles.container}>
         <RegisterForm />
       </SafeAreaView>
