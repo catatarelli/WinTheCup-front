@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
   loginContainer: {
     display: "flex",
     flexDirection: "row",
-    gap: 15,
   },
   loginText: {
     fontSize: 24,
     color: colors.white,
+    marginRight: 15,
   },
   loginLink: {
     fontSize: 24,
