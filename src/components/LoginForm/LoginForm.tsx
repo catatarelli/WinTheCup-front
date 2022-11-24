@@ -1,20 +1,20 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import useUser from "../../hooks/useUser/useUser";
-import type { RegisterData } from "../../redux/features/user/userTypes";
+import type { UserCredentials } from "../../redux/features/user/userTypes";
 import CustomModal from "../CustomModal/CustomModal";
-import styles from "./RegisterFormStyled";
+import styles from "../RegisterForm/RegisterFormStyled";
 
-const RegisterForm = (): JSX.Element => {
-  const initialUser: RegisterData = {
+const LoginForm = (): JSX.Element => {
+  const initialUser: UserCredentials = {
     username: "",
-    email: "",
     password: "",
   };
 
   const [userData, setUserData] = useState(initialUser);
 
-  const { registerUser } = useUser();
+  const { loginUser } = useUser();
 
   const changeUserData = (text: string, identify: string) => {
     setUserData({
@@ -26,10 +26,9 @@ const RegisterForm = (): JSX.Element => {
   const onSubmit = async () => {
     const newUser = {
       username: userData.username,
-      email: userData.email.toLowerCase(),
       password: userData.password,
     };
-    await registerUser(newUser);
+    await loginUser(newUser);
   };
 
   return (
@@ -66,37 +65,22 @@ const RegisterForm = (): JSX.Element => {
             }}
           />
         </View>
-        <View>
-          <Text style={styles.label}>Email</Text>
-          <TextInput
-            accessibilityLabel="email"
-            value={userData.email}
-            testID="email"
-            maxLength={25}
-            textContentType="emailAddress"
-            style={styles.input}
-            onChangeText={(data) => {
-              changeUserData(data, "email");
-            }}
-          />
-        </View>
-
         <TouchableOpacity style={styles.button}>
           <Text
             style={styles.buttonText}
             onPress={onSubmit}
             testID="submitButton"
           >
-            Join Now
+            Log in
           </Text>
         </TouchableOpacity>
         <View style={styles.loginContainer}>
-          <Text style={styles.loginText}>Have an account?</Text>
-          <Text style={styles.loginLink}>Log in</Text>
+          <Text style={styles.loginText}>Don't have an account?</Text>
+          <Text style={styles.loginLink}>Join now</Text>
         </View>
       </View>
     </>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

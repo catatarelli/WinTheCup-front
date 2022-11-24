@@ -3,7 +3,7 @@ import decodeToken from "./decodeToken";
 
 describe("Given a decodeToken funcion", () => {
   describe("When it's called with a token", () => {
-    test("Then it shoudl return an object", () => {
+    test("Then it should return an object with the user data", () => {
       const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzN2U3MTBiM2I4MWFkN2E1OWNlNDNkNSIsInVzZXJuYW1lIjoiY2F0YXRhcmVsbGkiLCJpYXQiOjE2NjkyOTczNzQsImV4cCI6MTY2OTQ3MDE3NH0.0fXvVrEnfQ1v2mllcdL9aKHCBBKj5s-VWjFKuA9-eQM";
 
