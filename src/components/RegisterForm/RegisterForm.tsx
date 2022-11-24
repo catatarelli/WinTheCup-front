@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React, { useEffect, useState } from "react";
+import * as React from "react";
+import { useEffect, useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import useUser from "../../hooks/useUser/useUser";
 import type { RegisterData } from "../../redux/features/user/userTypes";
-import CustomModal from "../CustomModal/CustomModal";
 import formStyles from "../../styles/form.styles";
+import CustomModal from "../CustomModal/CustomModal";
 
 const RegisterForm = (): JSX.Element => {
   const initialUser: RegisterData = {
@@ -105,7 +105,9 @@ const RegisterForm = (): JSX.Element => {
         </TouchableOpacity>
         <View style={formStyles.loginContainer}>
           <Text style={formStyles.loginText}>Have an account?</Text>
-          <Text style={formStyles.loginLink}>Log in</Text>
+          <TouchableOpacity onPress={() => {}}>
+            <Text style={formStyles.loginLink}>Log in</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </>

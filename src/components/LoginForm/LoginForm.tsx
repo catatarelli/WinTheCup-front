@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import useUser from "../../hooks/useUser/useUser";
 import type { UserCredentials } from "../../redux/features/user/userTypes";
-import CustomModal from "../CustomModal/CustomModal";
 import formStyles from "../../styles/form.styles";
+import CustomModal from "../CustomModal/CustomModal";
 
 const LoginForm = (): JSX.Element => {
   const initialUser: UserCredentials = {
@@ -85,7 +85,9 @@ const LoginForm = (): JSX.Element => {
         </TouchableOpacity>
         <View style={formStyles.loginContainer}>
           <Text style={formStyles.loginText}>Don't have an account?</Text>
-          <Text style={formStyles.loginLink}>Join now</Text>
+          <TouchableOpacity onPress={() => {}}>
+            <Text style={formStyles.loginLink}>Join now</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </>

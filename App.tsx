@@ -1,12 +1,17 @@
 import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 import { store } from "./src/redux/store";
 import { Provider } from "react-redux";
 import RegisterScreen from "./src/screens/RegisterScreen/RegisterScreen";
 
-export default function App() {
+const App = () => {
   return (
     <Provider store={store}>
-      <RegisterScreen />
+      <NavigationContainer>
+        <RegisterScreen />
+      </NavigationContainer>
     </Provider>
   );
-}
+};
+
+export default App;
