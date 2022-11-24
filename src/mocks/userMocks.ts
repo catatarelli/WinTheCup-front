@@ -1,4 +1,4 @@
-import { UserState } from "../redux/features/user/userTypes";
+import type { UserState } from "../redux/features/user/userTypes";
 
 export const registerDataMock = {
   username: "pepito123",

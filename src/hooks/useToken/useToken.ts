@@ -15,9 +15,10 @@ const useToken = () => {
     }
   }, [dispatch]);
 
-  const removeToken = () => {
-    AsyncStorage.removeItem("token");
+  const removeToken = async () => {
+    await AsyncStorage.removeItem("token");
   };
+
   return { checkToken, removeToken };
 };
 

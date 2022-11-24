@@ -2,8 +2,8 @@ import { renderHook } from "@testing-library/react";
 import makeWrapper from "../../mocks/makeWrapper";
 import { registerDataMock } from "../../mocks/userMocks";
 import { openModalActionCreator } from "../../redux/features/uiSlice/uiSlice";
+import { type RegisterData } from "../../redux/features/user/userTypes";
 import { store } from "../../redux/store";
-import type { RegisterData } from "../../types/types";
 import useUser from "./useUser";
 
 beforeEach(() => {
