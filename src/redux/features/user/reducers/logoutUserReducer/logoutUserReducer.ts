@@ -1,5 +1,8 @@
-import { userInitialState } from "../../userSlice";
-
-const logoutUserReducer = () => ({ ...userInitialState });
+const logoutUserReducer = () => ({
+  id: "",
+  token: "",
+  username: "",
+  isLogged: false,
+});
 
 export default logoutUserReducer;
