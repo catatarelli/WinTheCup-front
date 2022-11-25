@@ -5,6 +5,7 @@ import RegisterForm from "./RegisterForm";
 import { Provider } from "react-redux";
 import { store } from "../../redux/store";
 import type { RegisterData } from "../../redux/features/user/userTypes";
+import { NavigationContainer } from "@react-navigation/native";
 
 const mockRegisterUser = jest.fn();
 
@@ -19,7 +20,9 @@ describe("Given a RegisterForm component", () => {
 
       render(
         <Provider store={store}>
-          <RegisterForm />
+          <NavigationContainer>
+            <RegisterForm />
+          </NavigationContainer>
         </Provider>
       );
 
@@ -44,7 +47,9 @@ describe("Given a RegisterForm component", () => {
 
       render(
         <Provider store={store}>
-          <RegisterForm />
+          <NavigationContainer>
+            <RegisterForm />
+          </NavigationContainer>
         </Provider>
       );
 

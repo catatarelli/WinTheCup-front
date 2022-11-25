@@ -37,6 +37,7 @@ describe("Given the custom hook useUser", () => {
       const actionPayload = {
         modal: "Account created successfully",
         isError: false,
+        isLoading: false,
       };
 
       await registerUser(registerDataMock);
@@ -66,6 +67,7 @@ describe("Given the custom hook useUser", () => {
       const actionPayload = {
         isError: true,
         modal: "User is already registered",
+        isLoading: false,
       };
 
       await registerUser(newUser);
@@ -124,8 +126,9 @@ describe("Given the custom hook useUser", () => {
 
       expect(dispatchSpy).toHaveBeenCalledWith(
         openModalActionCreator({
-          modal: "It is not possible to login",
+          modal: "Wrong credentials",
           isError: true,
+          isLoading: false,
         })
       );
     });

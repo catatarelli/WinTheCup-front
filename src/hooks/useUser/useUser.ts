@@ -11,9 +11,13 @@ import type {
 import { type JwtCustomPayload } from "../../types/types";
 import decodeToken from "../../utils/decodeToken";
 import { loginUserActionCreator } from "../../redux/features/user/userSlice";
+import { useNavigation } from "@react-navigation/native";
+import type { LoginScreenNavigationProp } from "../../types/navigation.types";
+import Routes from "../../navigation/routes";
 
 const useUser = () => {
   const dispatch = useAppDispatch();
+  const navigation = useNavigation<LoginScreenNavigationProp>();
 
   const registerUser = async (userData: RegisterData) => {
     try {
@@ -22,13 +26,16 @@ const useUser = () => {
         openModalActionCreator({
           modal: "Account created successfully",
           isError: false,
+          isLoading: false,
         })
       );
+      navigation.navigate(Routes.login);
     } catch {
       dispatch(
         openModalActionCreator({
           modal: "User is already registered",
           isError: true,
+          isLoading: false,
         })
       );
     }
@@ -42,7 +49,11 @@ const useUser = () => {
       );
       if (responseData.status === 401) {
         dispatch(
-          openModalActionCreator({ modal: "Wrong credentials", isError: true })
+          openModalActionCreator({
+            modal: "Wrong credentials",
+            isError: true,
+            isLoading: false,
+          })
         );
       }
 
@@ -54,8 +65,9 @@ const useUser = () => {
     } catch {
       dispatch(
         openModalActionCreator({
-          modal: "It is not possible to login",
+          modal: "Wrong credentials",
           isError: true,
+          isLoading: false,
         })
       );
     }

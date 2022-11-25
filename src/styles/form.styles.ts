@@ -27,7 +27,7 @@ const formStyles = StyleSheet.create({
     backgroundColor: colors.white,
     color: colors.white,
     opacity: 1,
-    padding: 10,
+    padding: 6,
     marginVertical: 25,
     zIndex: 1,
   },
@@ -66,12 +66,12 @@ const formStyles = StyleSheet.create({
     flexDirection: "row",
   },
   loginText: {
-    fontSize: 24,
+    fontSize: 20,
     color: colors.white,
     marginRight: 15,
   },
   loginLink: {
-    fontSize: 24,
+    fontSize: 20,
     color: colors.white,
     fontWeight: "bold",
   },

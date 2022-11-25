@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable react/no-unescaped-entities */
 import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
@@ -5,8 +6,14 @@ import useUser from "../../hooks/useUser/useUser";
 import type { UserCredentials } from "../../redux/features/user/userTypes";
 import formStyles from "../../styles/form.styles";
 import CustomModal from "../CustomModal/CustomModal";
+import { useNavigation } from "@react-navigation/native";
+import type { LoginScreenNavigationProp } from "../../types/navigation.types";
+import Routes from "../../navigation/routes";
+import loginStyles from "./LoginFormStyled";
 
 const LoginForm = (): JSX.Element => {
+  const navigation = useNavigation<LoginScreenNavigationProp>();
+
   const initialUser: UserCredentials = {
     username: "",
     password: "",
@@ -44,7 +51,7 @@ const LoginForm = (): JSX.Element => {
       <View>
         <Text style={formStyles.title}>WIN THE CUP</Text>
       </View>
-      <View style={formStyles.background}>
+      <View style={loginStyles.background}>
         <View>
           <Text style={formStyles.label}>Username</Text>
           <TextInput
@@ -73,7 +80,9 @@ const LoginForm = (): JSX.Element => {
           />
         </View>
         <TouchableOpacity
-          style={buttonDisabled ? formStyles.buttonDisabled : formStyles.button}
+          style={
+            buttonDisabled ? loginStyles.buttonDisabled : loginStyles.button
+          }
         >
           <Text
             style={formStyles.buttonText}
@@ -85,7 +94,11 @@ const LoginForm = (): JSX.Element => {
         </TouchableOpacity>
         <View style={formStyles.loginContainer}>
           <Text style={formStyles.loginText}>Don't have an account?</Text>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate(Routes.register);
+            }}
+          >
             <Text style={formStyles.loginLink}>Join now</Text>
           </TouchableOpacity>
         </View>
