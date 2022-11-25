@@ -4,6 +4,7 @@ import { render, screen } from "@testing-library/react-native";
 import WelcomeScreen from "./WelcomeScreen";
 import { Provider } from "react-redux";
 import { store } from "../../redux/store";
+import { NavigationContainer } from "@react-navigation/native";
 
 const mockRegisterUser = jest.fn();
 
@@ -19,7 +20,9 @@ describe("Given a RegisterScreen component", () => {
 
       render(
         <Provider store={store}>
-          <WelcomeScreen />
+          <NavigationContainer>
+            <WelcomeScreen />
+          </NavigationContainer>
         </Provider>
       );
 
@@ -27,7 +30,7 @@ describe("Given a RegisterScreen component", () => {
       const logo = screen.queryByTestId(logoId);
 
       expect(displayedImage).toBeDefined();
-      expect(logoId).toBeDefined();
+      expect(logo).toBeDefined();
     });
   });
 });
