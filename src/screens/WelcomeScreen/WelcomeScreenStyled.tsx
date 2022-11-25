@@ -7,11 +7,11 @@ const welcomeStyles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
   },
-  title: {
-    color: colors.white,
-    fontSize: 40,
-    marginTop: 200,
-    marginBottom: 130,
+  logo: {
+    marginTop: 140,
+    marginBottom: 100,
+    width: 350,
+    height: 50,
   },
   secondaryTitle: {
     color: colors.white,
@@ -27,7 +27,7 @@ const welcomeStyles = StyleSheet.create({
   },
   button: {
     ...formStyles.button,
-    marginTop: 130,
+    marginTop: 80,
     opacity: 0.7,
   },
 });

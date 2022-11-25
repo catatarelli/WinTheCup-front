@@ -13,9 +13,9 @@ jest.mock("../../hooks/useUser/useUser", () => () => ({
 
 describe("Given a RegisterScreen component", () => {
   describe("When it's rendered", () => {
-    test("Then it should show a background image and the title 'WIN THE CUP'", async () => {
+    test("Then it should show a background image and the logo 'WIN THE CUP'", async () => {
       const imageId = "backgroudImage";
-      const expectedText = "WIN THE CUP";
+      const logoId = "logo";
 
       render(
         <Provider store={store}>
@@ -24,10 +24,10 @@ describe("Given a RegisterScreen component", () => {
       );
 
       const displayedImage = screen.queryByTestId(imageId);
-      const title = await screen.getByText(expectedText);
+      const logo = screen.queryByTestId(logoId);
 
       expect(displayedImage).toBeDefined();
-      expect(title).toBeDefined();
+      expect(logoId).toBeDefined();
     });
   });
 });
