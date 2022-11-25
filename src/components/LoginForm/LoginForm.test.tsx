@@ -5,6 +5,7 @@ import LoginFrom from "./LoginForm";
 import { Provider } from "react-redux";
 import { store } from "../../redux/store";
 import type { UserCredentials } from "../../redux/features/user/userTypes";
+import { NavigationContainer } from "@react-navigation/native";
 
 const mockLoginUser = jest.fn();
 
@@ -19,7 +20,9 @@ describe("Given a LoginFrom component", () => {
 
       render(
         <Provider store={store}>
-          <LoginFrom />
+          <NavigationContainer>
+            <LoginFrom />
+          </NavigationContainer>
         </Provider>
       );
 
@@ -42,7 +45,9 @@ describe("Given a LoginFrom component", () => {
 
       render(
         <Provider store={store}>
-          <LoginFrom />
+          <NavigationContainer>
+            <LoginFrom />
+          </NavigationContainer>
         </Provider>
       );
 
