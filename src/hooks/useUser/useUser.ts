@@ -11,9 +11,13 @@ import type {
 import { type JwtCustomPayload } from "../../types/types";
 import decodeToken from "../../utils/decodeToken";
 import { loginUserActionCreator } from "../../redux/features/user/userSlice";
+import { useNavigation } from "@react-navigation/native";
+import type { LoginScreenNavigationProp } from "../../types/navigation.types";
+import Routes from "../../navigation/routes";
 
 const useUser = () => {
   const dispatch = useAppDispatch();
+  const navigation = useNavigation<LoginScreenNavigationProp>();
 
   const registerUser = async (userData: RegisterData) => {
     try {
@@ -25,6 +29,7 @@ const useUser = () => {
           isLoading: false,
         })
       );
+      navigation.navigate(Routes.login);
     } catch {
       dispatch(
         openModalActionCreator({
