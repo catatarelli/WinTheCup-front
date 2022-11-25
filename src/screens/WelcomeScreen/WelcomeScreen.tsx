@@ -29,17 +29,13 @@ const WelcomeScreen = () => (
           WHO'S YOUR CHAMPION?
         </Text>
         <TouchableOpacity style={welcomeStyles.button}>
-          <Text
-            style={formStyles.buttonText}
-            onPress={() => {}}
-            testID="loginButton"
-          >
+          <Text style={formStyles.buttonText} testID="loginButton">
             Log in
           </Text>
         </TouchableOpacity>
         <View style={formStyles.loginContainer}>
           <Text style={formStyles.loginText}>Don't have an account?</Text>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity>
             <Text style={formStyles.loginLink}>Join now</Text>
           </TouchableOpacity>
         </View>
