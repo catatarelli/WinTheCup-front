@@ -20,6 +20,8 @@
     ]
   },
   "dependencies": {
+    "@expo-google-fonts/candal": "^0.2.2",
+    "@expo-google-fonts/signika-negative": "^0.2.2",
     "@expo/webpack-config": "^0.17.2",
     "@fontsource/candal": "^4.5.9",
     "@fontsource/signika-negative": "^4.5.11",
@@ -36,9 +38,12 @@
     "axios": "^0.27.2",
     "cross-env": "^7.0.3",
     "expo": "~47.0.6",
+    "expo-app-loading": "^2.1.1",
+    "expo-font": "~11.0.1",
     "expo-status-bar": "~1.4.2",
     "expo-updates": "^0.15.6",
     "jwt-decode": "^3.1.2",
+    "native-base": "^3.4.22",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
