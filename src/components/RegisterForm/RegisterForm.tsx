@@ -5,8 +5,13 @@ import useUser from "../../hooks/useUser/useUser";
 import type { RegisterData } from "../../redux/features/user/userTypes";
 import formStyles from "../../styles/form.styles";
 import CustomModal from "../CustomModal/CustomModal";
+import { useNavigation } from "@react-navigation/native";
+import type { LoginScreenNavigationProp } from "../../types/navigation.types";
+import Routes from "../../navigation/routes";
 
 const RegisterForm = (): JSX.Element => {
+  const navigation = useNavigation<LoginScreenNavigationProp>();
+
   const initialUser: RegisterData = {
     username: "",
     email: "",
@@ -105,7 +110,11 @@ const RegisterForm = (): JSX.Element => {
         </TouchableOpacity>
         <View style={formStyles.loginContainer}>
           <Text style={formStyles.loginText}>Have an account?</Text>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate(Routes.login);
+            }}
+          >
             <Text style={formStyles.loginLink}>Log in</Text>
           </TouchableOpacity>
         </View>
