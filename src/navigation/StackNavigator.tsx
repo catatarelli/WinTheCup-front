@@ -8,14 +8,14 @@ import WelcomeScreen from "../screens/WelcomeScreen/WelcomeScreen";
 
 const Stack = createNativeStackNavigator();
 
-const StackNavigator = () => {
+const StackNavigator = () => (
   <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen name={routes.welcome} component={WelcomeScreen} />
       <Stack.Screen name={routes.register} component={RegisterScreen} />
       <Stack.Screen name={routes.login} component={LoginScreen} />
     </Stack.Navigator>
-  </NavigationContainer>;
-};
+  </NavigationContainer>
+);
 
 export default StackNavigator;
