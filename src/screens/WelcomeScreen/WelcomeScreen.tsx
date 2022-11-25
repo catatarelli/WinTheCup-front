@@ -10,7 +10,7 @@ import {
   Image,
 } from "react-native";
 import React from "react";
-import image from "../../../assets/background-image.jpg";
+import image from "../../../assets/image.webp";
 import logo from "../../../assets/logo.png";
 import styles from "../RegisterScreen/RegisterScreenStyled";
 import formStyles from "../../styles/form.styles";

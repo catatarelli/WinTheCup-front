@@ -2,7 +2,7 @@
 import { ImageBackground, SafeAreaView, ScrollView } from "react-native";
 import React from "react";
 import styles from "../RegisterScreen/RegisterScreenStyled";
-import image from "../../../assets/background-image.jpg";
+import image from "../../../assets/background-image.webp";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
 const LoginScreen = () => (
