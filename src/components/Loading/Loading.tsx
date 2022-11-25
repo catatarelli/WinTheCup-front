@@ -10,7 +10,6 @@ const Loading = () => (
     animationType={"none"}
     visible={true}
     style={styles.modal}
-    onRequestClose={() => {}}
   >
     <View style={styles.activityIndicatorWrapper}>
       <Image
@@ -18,6 +17,7 @@ const Loading = () => (
         style={styles.gif}
         resizeMode="contain"
         resizeMethod="resize"
+        testID="Loading"
       />
     </View>
   </Modal>
