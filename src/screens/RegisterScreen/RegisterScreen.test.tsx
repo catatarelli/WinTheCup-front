@@ -4,6 +4,7 @@ import { render, screen } from "@testing-library/react-native";
 import RegisterScreen from "./RegisterScreen";
 import { Provider } from "react-redux";
 import { store } from "../../redux/store";
+import { NavigationContainer } from "@react-navigation/native";
 
 const mockRegisterUser = jest.fn();
 
@@ -18,7 +19,9 @@ describe("Given a RegisterScreen component", () => {
 
       render(
         <Provider store={store}>
-          <RegisterScreen />
+          <NavigationContainer>
+            <RegisterScreen />
+          </NavigationContainer>
         </Provider>
       );
 

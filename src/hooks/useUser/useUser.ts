@@ -22,6 +22,7 @@ const useUser = () => {
         openModalActionCreator({
           modal: "Account created successfully",
           isError: false,
+          isLoading: false,
         })
       );
     } catch {
@@ -29,6 +30,7 @@ const useUser = () => {
         openModalActionCreator({
           modal: "User is already registered",
           isError: true,
+          isLoading: false,
         })
       );
     }
@@ -42,7 +44,11 @@ const useUser = () => {
       );
       if (responseData.status === 401) {
         dispatch(
-          openModalActionCreator({ modal: "Wrong credentials", isError: true })
+          openModalActionCreator({
+            modal: "Wrong credentials",
+            isError: true,
+            isLoading: false,
+          })
         );
       }
 
@@ -54,8 +60,9 @@ const useUser = () => {
     } catch {
       dispatch(
         openModalActionCreator({
-          modal: "It is not possible to login",
+          modal: "Wrong credentials",
           isError: true,
+          isLoading: false,
         })
       );
     }
