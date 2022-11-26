@@ -4,6 +4,7 @@
 import { Factory } from "fishery";
 import { faker } from "@faker-js/faker";
 import type { PredictionStructure } from "../redux/features/user/userTypes";
+import type { ImageSourcePropType } from "react-native";
 
 const predictionFactory = Factory.define<PredictionStructure>(() => ({
   match: "Argentina vs England",
@@ -12,9 +13,12 @@ const predictionFactory = Factory.define<PredictionStructure>(() => ({
   redCards: faker.datatype.number(),
   yellowCards: faker.datatype.number(),
   penalties: faker.datatype.number(),
-  picture: faker.image.sports(),
+  picture: faker.image.sports() as ImageSourcePropType,
   backupPicure: faker.image.sports(),
 }));
+
+export const getRandomPrediction = (): PredictionStructure =>
+  predictionFactory.build();
 
 export const getRandomPredictionsList = (
   number: number
