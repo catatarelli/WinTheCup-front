@@ -2,12 +2,12 @@
 import { ImageBackground, SafeAreaView, ScrollView, Image } from "react-native";
 import React from "react";
 import screenStyles from "../../styles/screen.styles";
-import image from "../../../assets/background-image.webp";
-import logo from "../../../assets/logo.png";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import formStyles from "../../styles/form.styles";
+import image from "../../../assets/background-image.webp";
+import logo from "../../../assets/logo.png";
 
-const LoginScreen = () => (
+const LoginScreen = (): JSX.Element => (
   <ScrollView>
     <ImageBackground
       source={image}

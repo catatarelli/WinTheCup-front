@@ -1,8 +1,8 @@
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faSquareXmark } from "@fortawesome/free-solid-svg-icons";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
 import styles from "./CustomModalStyled";
 import { closeModalActionCreator } from "../../redux/features/ui/uiSlice";
 
@@ -19,7 +19,11 @@ const CustomModal = (): JSX.Element => {
           </Text>
           <TouchableOpacity onPress={() => dispatch(closeModalActionCreator())}>
             <Text testID="closeButton">
-              <FontAwesomeIcon icon={faSquareXmark} size={30} />
+              <FontAwesomeIcon
+                icon={faSquareXmark}
+                size={30}
+                style={styles.icon}
+              />
             </Text>
           </TouchableOpacity>
         </View>

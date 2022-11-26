@@ -18,7 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 import type { LoginScreenNavigationProp } from "../../types/navigation.types";
 import Routes from "../../navigation/routes";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = (): JSX.Element => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
   return (

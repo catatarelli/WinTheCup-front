@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
   modalText: {
     fontSize: 24,
   },
+  icon: {
+    color: colors.grey,
+  },
 });
 
 export default styles;
