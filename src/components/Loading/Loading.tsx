@@ -4,7 +4,7 @@ import { View, Modal, Image } from "react-native";
 import gif from "../../../assets/spinning-ball.gif";
 import styles from "./LoadingStyled";
 
-const Loading = () => (
+const Loading = (): JSX.Element => (
   <Modal
     transparent={true}
     animationType={"none"}

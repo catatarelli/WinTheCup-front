@@ -7,7 +7,7 @@ import image from "../../../assets/background-image.webp";
 import logo from "../../../assets/logo.png";
 import formStyles from "../../styles/form.styles";
 
-const RegisterScreen = () => (
+const RegisterScreen = (): JSX.Element => (
   <ScrollView>
     <ImageBackground
       source={image}

@@ -1,11 +1,13 @@
+import type { ImageSourcePropType } from "react-native";
+
 export interface PredictionStructure {
   match: string;
   goalsTeam1: number;
   goalsTeam2: number;
-  redCards: number;
-  yellowCards: number;
-  penalties: number;
-  picture: string;
+  redCards?: number;
+  yellowCards?: number;
+  penalties?: number;
+  picture: ImageSourcePropType;
 }
 
 export interface UserLoginData {
