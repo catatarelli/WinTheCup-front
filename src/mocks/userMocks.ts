@@ -33,3 +33,8 @@ export const loggedInUserStateMock: UserState = {
 export const mockLoadPredictionsResponse: PredictionsResponse = {
   predictions: getRandomPredictionsList(10),
 };
+
+export const mockUserWithPredictions = {
+  ...userMock,
+  predictions: getRandomPredictionsList(5),
+};

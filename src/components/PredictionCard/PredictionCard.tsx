@@ -12,7 +12,7 @@ interface PredictionCardProps {
 const PredictionCard = ({
   prediction: { match, goalsTeam1, goalsTeam2, picture },
 }: PredictionCardProps): JSX.Element => (
-  <View style={styles.container}>
+  <View style={styles.container} testID="predictionCard">
     <Image source={picture} style={styles.image} testID="predictionPicture" />
     <View style={styles.textContainer}>
       <Text style={styles.match}>{match}</Text>

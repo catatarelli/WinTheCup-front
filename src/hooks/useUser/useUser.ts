@@ -74,6 +74,7 @@ const useUser = () => {
 
       dispatch(loginUserActionCreator({ ...loggedUser, token }));
       await AsyncStorage.setItem("token", token);
+      navigation.navigate(Routes.myPredictions);
     } catch {
       dispatch(
         openModalActionCreator({

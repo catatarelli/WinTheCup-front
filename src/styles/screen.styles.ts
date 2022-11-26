@@ -4,9 +4,9 @@ import formStyles from "./form.styles";
 
 const screenStyles = StyleSheet.create({
   container: {
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    alignSelf: "center",
   },
   image: {
     height: Dimensions.get("window").height,
