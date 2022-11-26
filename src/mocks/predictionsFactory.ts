@@ -16,5 +16,6 @@ const predictionFactory = Factory.define<PredictionStructure>(() => ({
   backupPicure: faker.image.sports(),
 }));
 
-export const getRandomPredictionsList = (number: number) =>
-  predictionFactory.buildList(number);
+export const getRandomPredictionsList = (
+  number: number
+): PredictionStructure[] => predictionFactory.buildList(number);
