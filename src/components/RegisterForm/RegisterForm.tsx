@@ -50,9 +50,6 @@ const RegisterForm = (): JSX.Element => {
   return (
     <>
       <CustomModal />
-      <View>
-        <Text style={formStyles.title}>WIN THE CUP</Text>
-      </View>
       <View style={formStyles.background}>
         <View>
           <Text style={formStyles.label}>Username</Text>

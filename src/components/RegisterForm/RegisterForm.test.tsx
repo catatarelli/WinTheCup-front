@@ -32,26 +32,8 @@ jest.mock("@react-navigation/native", () => {
 });
 
 describe("Given a RegisterForm component", () => {
-  describe("When it's rendered", () => {
-    test("Then it should show a title with text 'WIN THE CUP'", async () => {
-      const expectedText = "WIN THE CUP";
-
-      render(
-        <Provider store={store}>
-          <NavigationContainer>
-            <RegisterForm />
-          </NavigationContainer>
-        </Provider>
-      );
-
-      const title = await screen.getByText(expectedText);
-
-      expect(title).toBeDefined();
-    });
-  });
-
-  describe("And the user fills in the form and presses the 'Register' button", () => {
-    test("Then it should call the dispatcher", async () => {
+  describe("When it's rendered and the user fills in the form and presses the 'Join Now' button", () => {
+    test("Then it should call the registerUser function", async () => {
       const usernameInputId = "username";
       const passwordInputId = "password";
       const emailInputId = "email";
@@ -85,7 +67,7 @@ describe("Given a RegisterForm component", () => {
     });
   });
 
-  describe("And the user clicks the 'Log in' button", () => {
+  describe("And when the user clicks the 'Log in' button", () => {
     test("Then the useNavigation should be called with the login page reference", async () => {
       const loginButtonText = "Log in";
 

@@ -1,19 +1,22 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { ImageBackground, SafeAreaView, ScrollView } from "react-native";
+import { ImageBackground, SafeAreaView, ScrollView, Image } from "react-native";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import React from "react";
-import styles from "./RegisterScreenStyled";
+import screenStyles from "../../styles/screen.styles";
 import image from "../../../assets/background-image.webp";
+import logo from "../../../assets/logo.png";
+import formStyles from "../../styles/form.styles";
 
 const RegisterScreen = () => (
   <ScrollView>
     <ImageBackground
       source={image}
       resizeMode="cover"
-      style={styles.image}
+      style={screenStyles.image}
       testID="backgroudImage"
     >
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={screenStyles.container}>
+        <Image source={logo} style={formStyles.logoForm} testID="logo" />
         <RegisterForm />
       </SafeAreaView>
     </ImageBackground>
