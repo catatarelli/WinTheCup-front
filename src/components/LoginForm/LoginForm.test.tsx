@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react-native";
@@ -6,12 +7,29 @@ import { Provider } from "react-redux";
 import { store } from "../../redux/store";
 import type { UserCredentials } from "../../redux/features/user/userTypes";
 import { NavigationContainer } from "@react-navigation/native";
+import Routes from "../../navigation/routes";
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
 
 const mockLoginUser = jest.fn();
 
 jest.mock("../../hooks/useUser/useUser", () => () => ({
   loginUser: mockLoginUser,
 }));
+
+const mockedNavigate = jest.fn();
+
+jest.mock("@react-navigation/native", () => {
+  const actualNav = jest.requireActual("@react-navigation/native");
+  return {
+    ...actualNav,
+    useNavigation: () => ({
+      navigate: mockedNavigate,
+    }),
+  };
+});
 
 describe("Given a LoginFrom component", () => {
   describe("When it's rendered", () => {
@@ -60,6 +78,25 @@ describe("Given a LoginFrom component", () => {
       fireEvent.press(button);
 
       expect(mockLoginUser).toHaveBeenCalledWith(mockUser);
+    });
+  });
+
+  describe("And the user clicks the 'Join now' button", () => {
+    test("Then the useNavigation should be called with the register page reference", async () => {
+      const registerButtonText = "Join now";
+
+      render(
+        <Provider store={store}>
+          <NavigationContainer>
+            <LoginFrom />
+          </NavigationContainer>
+        </Provider>
+      );
+
+      const registerButton = await screen.getByText(registerButtonText);
+      fireEvent(registerButton, "press");
+
+      expect(mockedNavigate).toHaveBeenCalledWith(Routes.register);
     });
   });
 });
