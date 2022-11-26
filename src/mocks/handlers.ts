@@ -4,6 +4,7 @@ import type {
   RegisterData,
   UserCredentials,
 } from "../redux/features/user/userTypes";
+import { mockLoadPredictionsResponse } from "./userMocks";
 
 export const handlers = [
   rest.post(`${REACT_APP_API_URL}/user/register`, async (req, res, ctx) => {
@@ -24,4 +25,15 @@ export const handlers = [
 
     return res(ctx.status(200), ctx.json({ token: "token" }));
   }),
+
+  rest.get(`${REACT_APP_API_URL}/predictions`, async (req, res, ctx) =>
+    res.once(
+      ctx.status(404),
+      ctx.json({ error: "There was an error on the server" })
+    )
+  ),
+
+  rest.get(`${REACT_APP_API_URL}/predictions`, (req, res, ctx) =>
+    res(ctx.status(200), ctx.json(mockLoadPredictionsResponse))
+  ),
 ];

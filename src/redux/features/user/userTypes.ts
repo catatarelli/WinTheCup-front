@@ -31,3 +31,7 @@ export interface RegisterData extends UserCredentials {
 export interface LoginResponse {
   token: string;
 }
+
+export interface PredictionsResponse {
+  predictions: PredictionStructure[];
+}
