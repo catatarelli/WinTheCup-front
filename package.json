@@ -20,10 +20,9 @@
     ]
   },
   "dependencies": {
-    "@faker-js/faker": "^7.6.0",
-    "fishery": "^2.2.2",
     "@expo-google-fonts/signika-negative": "^0.2.2",
     "@expo/webpack-config": "^0.17.2",
+    "@faker-js/faker": "^7.6.0",
     "@fontsource/candal": "^4.5.9",
     "@fontsource/signika-negative": "^4.5.11",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -41,6 +40,7 @@
     "expo": "~47.0.6",
     "expo-status-bar": "~1.4.2",
     "expo-updates": "^0.15.6",
+    "fishery": "^2.2.2",
     "jwt-decode": "^3.1.2",
     "native-base": "^3.4.22",
     "react": "18.1.0",

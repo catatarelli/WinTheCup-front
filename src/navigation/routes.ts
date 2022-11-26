@@ -2,7 +2,7 @@ enum Routes {
   login = "Login",
   register = "Register",
   welcome = "Welcome",
-  myPrections = "MyPredictions",
+  myPredictions = "MyPredictions",
 }
 
 export default Routes;

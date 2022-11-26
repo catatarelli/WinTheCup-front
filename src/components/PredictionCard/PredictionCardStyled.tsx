@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     margin: 10,
+    paddingRight: 10,
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   image: {
-    width: 80,
+    width: 90,
     height: 100,
     borderTopLeftRadius: 15,
     borderBottomLeftRadius: 15,
@@ -30,7 +31,8 @@ const styles = StyleSheet.create({
   textContainer: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
+    paddingVertical: 10,
   },
   match: {
     fontSize: 16,
@@ -39,7 +41,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    width: "100%",
+    width: 160,
   },
   goals: {
     borderColor: colors.grey,
@@ -51,7 +53,6 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     display: "flex",
     justifyContent: "space-around",
-    marginRight: 10,
   },
   icon: {
     color: colors.grey,
