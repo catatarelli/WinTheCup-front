@@ -57,9 +57,17 @@ const formStyles = StyleSheet.create({
     alignItems: "center",
     padding: 15,
   },
-  title: {
-    fontSize: 40,
-    color: colors.white,
+  logo: {
+    marginTop: 140,
+    marginBottom: 100,
+    width: 350,
+    height: 46,
+  },
+  logoForm: {
+    marginTop: 100,
+    marginBottom: 50,
+    width: 350,
+    height: 46,
   },
   loginContainer: {
     display: "flex",

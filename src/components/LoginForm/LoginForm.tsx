@@ -48,9 +48,6 @@ const LoginForm = (): JSX.Element => {
   return (
     <>
       <CustomModal />
-      <View>
-        <Text style={formStyles.title}>WIN THE CUP</Text>
-      </View>
       <View style={loginStyles.background}>
         <View>
           <Text style={formStyles.label}>Username</Text>

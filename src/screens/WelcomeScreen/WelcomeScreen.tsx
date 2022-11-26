@@ -12,9 +12,8 @@ import {
 import React from "react";
 import image from "../../../assets/image.webp";
 import logo from "../../../assets/logo.png";
-import styles from "../RegisterScreen/RegisterScreenStyled";
+import screenStyles from "../../styles/screen.styles";
 import formStyles from "../../styles/form.styles";
-import welcomeStyles from "./WelcomeScreenStyled";
 import { useNavigation } from "@react-navigation/native";
 import type { LoginScreenNavigationProp } from "../../types/navigation.types";
 import Routes from "../../navigation/routes";
@@ -27,17 +26,17 @@ const WelcomeScreen = () => {
       <ImageBackground
         source={image}
         resizeMode="cover"
-        style={styles.image}
+        style={screenStyles.image}
         testID="backgroudImage"
       >
-        <SafeAreaView style={welcomeStyles.container}>
-          <Image source={logo} style={welcomeStyles.logo} testID="logo" />
-          <Text style={welcomeStyles.secondaryTitle}>WORLD CUP PREDICTOR</Text>
-          <Text style={welcomeStyles.complementryTitle}>
+        <SafeAreaView style={screenStyles.container}>
+          <Image source={logo} style={formStyles.logo} testID="logo" />
+          <Text style={screenStyles.secondaryTitle}>WORLD CUP PREDICTOR</Text>
+          <Text style={screenStyles.complementryTitle}>
             WHO'S YOUR CHAMPION?
           </Text>
           <TouchableOpacity
-            style={welcomeStyles.button}
+            style={screenStyles.button}
             onPress={() => {
               navigation.navigate(Routes.login);
             }}
