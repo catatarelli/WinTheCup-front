@@ -3,7 +3,7 @@ import {
   type ThunkAction,
   type Action,
 } from "@reduxjs/toolkit";
-import { uiReducer } from "./features/uiSlice/uiSlice";
+import { uiReducer } from "./features/ui/uiSlice";
 import { userReducer } from "./features/user/userSlice";
 
 export const store = configureStore({

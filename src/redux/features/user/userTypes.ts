@@ -1,3 +1,13 @@
+export interface PredictionStructure {
+  match: string;
+  goalsTeam1: number;
+  goalsTeam2: number;
+  redCards: number;
+  yellowCards: number;
+  penalties: number;
+  picture: string;
+}
+
 export interface UserLoginData {
   id: string;
   token: string;
@@ -6,6 +16,7 @@ export interface UserLoginData {
 
 export interface UserState extends UserLoginData {
   isLogged: boolean;
+  predictions: PredictionStructure[];
 }
 
 export interface UserCredentials {

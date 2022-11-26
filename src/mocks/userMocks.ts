@@ -11,6 +11,7 @@ export const userMock = {
   username: "luis123",
   token: "testtoken",
   isLogged: false,
+  predictions: [],
 };
 
 export const emptyUserMock = {

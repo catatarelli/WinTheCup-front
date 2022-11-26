@@ -1,7 +1,7 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { REACT_APP_API_URL } from "@env";
-import { openModalActionCreator } from "../../redux/features/uiSlice/uiSlice";
+import { openModalActionCreator } from "../../redux/features/ui/uiSlice";
 import { useAppDispatch } from "../../redux/hooks";
 import type {
   LoginResponse,

@@ -1,4 +1,4 @@
-import { closeModalActionCreator, uiReducer } from "../../uiSlice";
+import closeModalReducer from "./closeModalReducer";
 
 describe("Given a closeModalReducer", () => {
   describe("When it recieves an initial state with 'Register was successful'", () => {
@@ -11,7 +11,7 @@ describe("Given a closeModalReducer", () => {
 
       const expectedUiState = { ...currentUiState, modal: "" };
 
-      const newUiState = uiReducer(currentUiState, closeModalActionCreator());
+      const newUiState = closeModalReducer(currentUiState);
 
       expect(newUiState).toStrictEqual(expectedUiState);
     });

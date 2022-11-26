@@ -1,10 +1,10 @@
 import { userMock } from "../../../../../mocks/userMocks";
 import { loginUserActionCreator, userReducer } from "../../userSlice";
-import { UserState } from "../../userTypes";
+import type { UserState } from "../../userTypes";
 
 describe("Given a loginUserReducer", () => {
-  describe("When it recieves an initial state with a user with username: 'luis123'", () => {
-    test("Then it should return a new state with the user and its the property isLogged changed to true", () => {
+  describe("When it recieves an initial state and a payload with username: 'luis123'", () => {
+    test("Then it should return a new state with the user data and its the property isLogged changed to true", () => {
       const currentUserState = userMock;
 
       const expectedUserState: UserState = { ...userMock, isLogged: true };

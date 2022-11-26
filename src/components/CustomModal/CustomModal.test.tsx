@@ -7,7 +7,7 @@ import { render, screen, fireEvent } from "@testing-library/react-native";
 import React from "react";
 import CustomModal from "./CustomModal";
 import { Provider } from "react-redux";
-import { closeModalActionCreator } from "../../redux/features/uiSlice/uiSlice";
+import { closeModalActionCreator } from "../../redux/features/ui/uiSlice";
 
 const dispatchSpy = jest.spyOn(mockInitialStoreSuccessModal, "dispatch");
 
