@@ -1,5 +1,5 @@
 import { mockUiState } from "../../../../../mocks/uiMocks";
-import { hideLoadingActionCreator, uiReducer } from "../../uiSlice";
+import hideLoadingReducer from "./hideLoadingReducer";
 
 describe("Given a hideLoadingReducer", () => {
   describe("When it receives an initial ui state", () => {
@@ -9,7 +9,7 @@ describe("Given a hideLoadingReducer", () => {
         isLoading: false,
       };
 
-      const newUiState = uiReducer(mockUiState, hideLoadingActionCreator());
+      const newUiState = hideLoadingReducer(mockUiState);
 
       expect(newUiState).toStrictEqual(expectedUiState);
     });

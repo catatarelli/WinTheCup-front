@@ -1,5 +1,5 @@
 import { mockUiStateErrorModal } from "../../../../../mocks/uiMocks";
-import { showLoadingActionCreator, uiReducer } from "../../uiSlice";
+import showLoadingReducer from "./showLoadingReducer";
 
 describe("Given a showLoadingReducer", () => {
   describe("When it receives an initial ui state", () => {
@@ -9,10 +9,7 @@ describe("Given a showLoadingReducer", () => {
         isLoading: true,
       };
 
-      const newUiState = uiReducer(
-        mockUiStateErrorModal,
-        showLoadingActionCreator()
-      );
+      const newUiState = showLoadingReducer(mockUiStateErrorModal);
 
       expect(newUiState).toStrictEqual(expectedUiState);
     });

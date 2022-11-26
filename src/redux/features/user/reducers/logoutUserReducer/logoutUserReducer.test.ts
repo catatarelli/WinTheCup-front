@@ -1,6 +1,6 @@
 import { userMock } from "../../../../../mocks/userMocks";
 import { logoutUserActionCreator, userReducer } from "../../userSlice";
-import { UserState } from "../../userTypes";
+import { type UserState } from "../../userTypes";
 
 describe("Given a logoutUserReducer", () => {
   describe("When it recieves an initial state with a user with username: 'luis123'", () => {
@@ -12,6 +12,7 @@ describe("Given a logoutUserReducer", () => {
         username: "",
         token: "",
         isLogged: false,
+        predictions: [],
       };
 
       const newUserState = userReducer(

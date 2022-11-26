@@ -1,4 +1,4 @@
-import { openModalActionCreator, uiReducer } from "../../uiSlice";
+import openModalReducer from "./openModalReducer";
 
 describe("Given an openModalReducer", () => {
   describe("When it recieves an initial state and a payload with 'Register was successful'", () => {
@@ -16,10 +16,10 @@ describe("Given an openModalReducer", () => {
         isError: payload.isError,
       };
 
-      const newUiState = uiReducer(
-        currentUiState,
-        openModalActionCreator(payload)
-      );
+      const newUiState = openModalReducer(currentUiState, {
+        payload,
+        type: "openModalReducer",
+      });
 
       expect(newUiState).toStrictEqual(expectedUiState);
     });

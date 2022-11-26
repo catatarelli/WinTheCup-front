@@ -20,6 +20,8 @@
     ]
   },
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "fishery": "^2.2.2",
     "@expo-google-fonts/signika-negative": "^0.2.2",
     "@expo/webpack-config": "^0.17.2",
     "@fontsource/candal": "^4.5.9",
