@@ -11,7 +11,6 @@ const RegisterScreen = () => (
   <ScrollView>
     <ImageBackground
       source={image}
-      resizeMode="cover"
       style={screenStyles.image}
       testID="backgroudImage"
     >
