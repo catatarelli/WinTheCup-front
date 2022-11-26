@@ -14,6 +14,7 @@ const screenStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flex: 1,
+    resizeMode: "cover",
   },
   secondaryTitle: {
     color: colors.white,
