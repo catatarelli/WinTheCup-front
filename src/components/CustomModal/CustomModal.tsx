@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import styles from "./CustomModalStyled";
-import { closeModalActionCreator } from "../../redux/features/uiSlice/uiSlice";
+import { closeModalActionCreator } from "../../redux/features/ui/uiSlice";
 
 const CustomModal = (): JSX.Element => {
   const { modal, isError } = useAppSelector(({ ui }) => ui);
