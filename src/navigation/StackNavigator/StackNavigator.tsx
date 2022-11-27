@@ -1,16 +1,20 @@
 import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import RegisterScreen from "../screens/RegisterScreen/RegisterScreen";
-import LoginScreen from "../screens/LoginScreen/LoginScreen";
-import Routes from "./routes";
-import WelcomeScreen from "../screens/WelcomeScreen/WelcomeScreen";
-import MyPredictionsScreen from "../screens/MyPredictionsScreen/MyPredictionsScreen";
+import LoginScreen from "../../screens/LoginScreen/LoginScreen";
+import Routes from "../routes";
+import WelcomeScreen from "../../screens/WelcomeScreen/WelcomeScreen";
+import MyPredictionsScreen from "../../screens/MyPredictionsScreen/MyPredictionsScreen";
+import { useAppSelector } from "../../redux/hooks";
+import CustomModal from "../../components/CustomModal/CustomModal";
+import Loading from "../../components/Loading/Loading";
+import RegisterScreen from "../../screens/RegisterScreen/RegisterScreen";
 
 const StackNavigatorExplorer = () => {
   const Stack = createNativeStackNavigator();
+  const { isLoading, modal } = useAppSelector((state) => state.ui);
+
   return (
-    <NavigationContainer>
+    <>
       <Stack.Navigator initialRouteName={Routes.welcome}>
         <Stack.Screen
           name={Routes.welcome}
@@ -33,7 +37,9 @@ const StackNavigatorExplorer = () => {
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
-    </NavigationContainer>
+      {modal && <CustomModal />}
+      {isLoading && <Loading />}
+    </>
   );
 };
 
