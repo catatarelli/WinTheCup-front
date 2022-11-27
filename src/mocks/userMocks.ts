@@ -1,8 +1,12 @@
 import type {
+  PredictionByIdResponse,
   PredictionsResponse,
   UserState,
 } from "../redux/features/user/userTypes";
-import { getRandomPredictionsList } from "./predictionsFactory";
+import {
+  getRandomPrediction,
+  getRandomPredictionsList,
+} from "./predictionsFactory";
 
 export const registerDataMock = {
   username: "pepito123",
@@ -30,11 +34,15 @@ export const loggedInUserStateMock: UserState = {
   isLogged: true,
 };
 
-export const mockLoadPredictionsResponse: PredictionsResponse = {
+export const mockgetPredictionsResponse: PredictionsResponse = {
   predictions: getRandomPredictionsList(10),
 };
 
 export const mockUserWithPredictions = {
   ...userMock,
   predictions: getRandomPredictionsList(5),
+};
+
+export const mockGetPredictionByIdResponse: PredictionByIdResponse = {
+  prediction: { ...getRandomPrediction(), id: "56789" },
 };

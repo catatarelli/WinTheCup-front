@@ -8,6 +8,7 @@ export interface PredictionStructure {
   yellowCards?: number;
   penalties?: number;
   picture: ImageSourcePropType;
+  id: string;
 }
 
 export interface UserLoginData {
@@ -36,4 +37,8 @@ export interface LoginResponse {
 
 export interface PredictionsResponse {
   predictions: PredictionStructure[];
+}
+
+export interface PredictionByIdResponse {
+  prediction: PredictionStructure;
 }
