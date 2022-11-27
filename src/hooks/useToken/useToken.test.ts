@@ -67,13 +67,31 @@ describe("Given the hook useToken", () => {
         wrapper: makeWrapper,
       });
 
-      AsyncStorage.removeItem = jest.fn().mockReturnValue(token);
+      AsyncStorage.getItem = jest.fn().mockReturnValue(token);
 
       await checkToken();
 
       expect(dispatchSpy).toHaveBeenCalledWith(
         loginUserActionCreator(mockUser)
       );
+    });
+  });
+
+  describe("When its method checkToken is invoked and there is no token in AsyncStorage", () => {
+    test("Then it should not call the dispatch", async () => {
+      const {
+        result: {
+          current: { checkToken },
+        },
+      } = renderHook(() => useToken(), {
+        wrapper: makeWrapper,
+      });
+
+      AsyncStorage.getItem = jest.fn().mockReturnValue("");
+
+      await checkToken();
+
+      expect(dispatchSpy).not.toHaveBeenCalled();
     });
   });
 
