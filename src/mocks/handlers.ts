@@ -4,7 +4,10 @@ import type {
   RegisterData,
   UserCredentials,
 } from "../redux/features/user/userTypes";
-import { mockLoadPredictionsResponse } from "./userMocks";
+import {
+  mockGetPredictionByIdResponse,
+  mockgetPredictionsResponse,
+} from "./userMocks";
 
 export const handlers = [
   rest.post(`${REACT_APP_API_URL}/user/register`, async (req, res, ctx) => {
@@ -34,6 +37,17 @@ export const handlers = [
   ),
 
   rest.get(`${REACT_APP_API_URL}/predictions`, (req, res, ctx) =>
-    res(ctx.status(200), ctx.json(mockLoadPredictionsResponse))
+    res(ctx.status(200), ctx.json(mockgetPredictionsResponse))
+  ),
+
+  rest.get(`${REACT_APP_API_URL}/predictions/:predictionId`, (req, res, ctx) =>
+    res.once(ctx.status(400), ctx.json({ error: "Prediction not found" }))
+  ),
+
+  rest.get(`${REACT_APP_API_URL}/predictions/:predictionId`, (req, res, ctx) =>
+    res(
+      ctx.status(200),
+      ctx.json({ prediction: mockGetPredictionByIdResponse })
+    )
   ),
 ];

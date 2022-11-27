@@ -1,7 +1,8 @@
 import { renderHook } from "@testing-library/react";
 import makeWrapper from "../../mocks/makeWrapper";
 import {
-  mockLoadPredictionsResponse,
+  mockGetPredictionByIdResponse,
+  mockgetPredictionsResponse,
   registerDataMock,
 } from "../../mocks/userMocks";
 import {
@@ -185,7 +186,7 @@ describe("Given the custom hook useUser", () => {
         wrapper: makeWrapper,
       });
 
-      const { predictions } = mockLoadPredictionsResponse;
+      const { predictions } = mockgetPredictionsResponse;
 
       await getPredictions();
 
@@ -201,6 +202,55 @@ describe("Given the custom hook useUser", () => {
         3,
         hideLoadingActionCreator()
       );
+    });
+  });
+
+  describe("When its method getPredictionById is invoked and axios rejects", () => {
+    test("Then dispatch should be called three times to show and hide loading and to show the modal with the error message", async () => {
+      const {
+        result: {
+          current: { getPredictionById },
+        },
+      } = renderHook(() => useUser(), {
+        wrapper: makeWrapper,
+      });
+
+      await getPredictionById("1234");
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        1,
+        showLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        2,
+        hideLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        openModalActionCreator({
+          isError: true,
+          modal: "Prediction not found",
+          isLoading: false,
+        })
+      );
+    });
+  });
+
+  describe("When its method getPredictionById is invoked with predictionId '56789'", () => {
+    test("Then it should return the prediction with Id '56789'", async () => {
+      const {
+        result: {
+          current: { getPredictionById },
+        },
+      } = renderHook(() => useUser(), {
+        wrapper: makeWrapper,
+      });
+
+      const { prediction } = mockGetPredictionByIdResponse;
+
+      const receivedPrediction = await getPredictionById(prediction.id);
+
+      expect(receivedPrediction).toBeDefined();
     });
   });
 });

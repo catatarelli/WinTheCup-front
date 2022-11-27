@@ -15,6 +15,7 @@ const predictionFactory = Factory.define<PredictionStructure>(() => ({
   penalties: faker.datatype.number(10),
   picture: require("../../assets/argentinafans.jpg"),
   backupPicure: faker.image.sports(),
+  id: faker.datatype.string(),
 }));
 
 export const getRandomPrediction = (): PredictionStructure =>
