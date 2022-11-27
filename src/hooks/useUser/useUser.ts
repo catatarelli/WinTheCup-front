@@ -11,6 +11,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import type {
   LoginResponse,
+  PredictionByIdResponse,
   PredictionsResponse,
   RegisterData,
   UserCredentials,
@@ -118,7 +119,40 @@ const useUser = () => {
     }
   }, [dispatch]);
 
-  return { registerUser, loginUser, getPredictions };
+  const getPredictionById = useCallback(
+    async (predictionId: string) => {
+      dispatch(showLoadingActionCreator());
+
+      try {
+        const response = await axios.get<PredictionByIdResponse>(
+          `${REACT_APP_API_URL}/predictions/${predictionId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        dispatch(hideLoadingActionCreator());
+        return response.data;
+      } catch (error: unknown) {
+        dispatch(hideLoadingActionCreator());
+
+        if (error instanceof AxiosError) {
+          dispatch(
+            openModalActionCreator({
+              isError: true,
+              modal: (error as AxiosError<{ error: string }>).response?.data
+                .error!,
+              isLoading: false,
+            })
+          );
+        }
+      }
+    },
+    [dispatch]
+  );
+
+  return { registerUser, loginUser, getPredictions, getPredictionById };
 };
 
 export default useUser;
