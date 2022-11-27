@@ -8,6 +8,7 @@ import { useAppSelector } from "../../redux/hooks";
 import CustomModal from "../../components/CustomModal/CustomModal";
 import Loading from "../../components/Loading/Loading";
 import RegisterScreen from "../../screens/RegisterScreen/RegisterScreen";
+import PredictionDetailScreen from "../../screens/PredictionDetailScreen/PredictionDetailScreen";
 
 const StackNavigatorExplorer = () => {
   const Stack = createNativeStackNavigator();
@@ -34,6 +35,11 @@ const StackNavigatorExplorer = () => {
         <Stack.Screen
           name={Routes.myPredictions}
           component={MyPredictionsScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={Routes.predictionDetail}
+          component={PredictionDetailScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
