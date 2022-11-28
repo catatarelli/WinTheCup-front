@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { ImageSourcePropType } from "react-native";
 import loadPredictionsReducer from "./loadPredictionsReducer/loadPredictionsReducer";
+import loadOnePredictionReducer from "./loadOnePredictionReducer/loadOnePredictionReducer";
 import type { PredictionsState } from "./predictionsTypes";
 
 export const predictionsInitialState: PredictionsState = {
@@ -23,9 +24,12 @@ const predictionsSlice = createSlice({
   initialState: predictionsInitialState,
   reducers: {
     loadPredictionsReducer,
+    loadOnePredictionReducer,
   },
 });
 
 export const predictionsReducer = predictionsSlice.reducer;
-export const { loadPredictionsReducer: loadPredictionsActionCreator } =
-  predictionsSlice.actions;
+export const {
+  loadPredictionsReducer: loadPredictionsActionCreator,
+  loadOnePredictionReducer: loadOnePredictionActionCreator,
+} = predictionsSlice.actions;

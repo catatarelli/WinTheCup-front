@@ -5,7 +5,10 @@ import {
   mockGetPredictionByIdResponse,
   mockgetPredictionsResponse,
 } from "../../mocks/predictionsMocks";
-import { loadPredictionsActionCreator } from "../../redux/features/predictions/predictionsSlice";
+import {
+  loadOnePredictionActionCreator,
+  loadPredictionsActionCreator,
+} from "../../redux/features/predictions/predictionsSlice";
 import {
   hideLoadingActionCreator,
   openModalActionCreator,
@@ -105,7 +108,7 @@ describe("Given the custom hook usePredictions", () => {
         3,
         openModalActionCreator({
           isError: true,
-          modal: "Prediction not found",
+          modal: "There was an error on the server",
           isLoading: false,
         })
       );
@@ -122,11 +125,20 @@ describe("Given the custom hook usePredictions", () => {
         wrapper: makeWrapper,
       });
 
-      const { prediction } = mockGetPredictionByIdResponse;
+      await getPredictionById(mockGetPredictionByIdResponse.id);
 
-      const receivedPrediction = await getPredictionById(prediction.id);
-
-      expect(receivedPrediction).toBeDefined();
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        1,
+        showLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        2,
+        loadOnePredictionActionCreator(mockGetPredictionByIdResponse)
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        hideLoadingActionCreator()
+      );
     });
   });
 });

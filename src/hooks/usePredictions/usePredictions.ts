@@ -1,19 +1,22 @@
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 /* eslint-disable @typescript-eslint/naming-convention */
 import axios, { AxiosError } from "axios";
-import { REACT_APP_API_URL } from "@env";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useCallback } from "react";
+import { REACT_APP_API_URL } from "@env";
 import {
   hideLoadingActionCreator,
   openModalActionCreator,
   showLoadingActionCreator,
 } from "../../redux/features/ui/uiSlice";
 import type {
-  PredictionByIdResponse,
   PredictionsResponse,
+  PredictionStructure,
 } from "../../redux/features/predictions/predictionsTypes";
-import { loadPredictionsActionCreator } from "../../redux/features/predictions/predictionsSlice";
+import {
+  loadOnePredictionActionCreator,
+  loadPredictionsActionCreator,
+} from "../../redux/features/predictions/predictionsSlice";
 
 const usePredictions = () => {
   const dispatch = useAppDispatch();
@@ -56,7 +59,7 @@ const usePredictions = () => {
       dispatch(showLoadingActionCreator());
 
       try {
-        const response = await axios.get<PredictionByIdResponse>(
+        const response = await axios.get<PredictionStructure>(
           `${REACT_APP_API_URL}/predictions/${predictionId}`,
           {
             headers: {
@@ -64,8 +67,8 @@ const usePredictions = () => {
             },
           }
         );
+        dispatch(loadOnePredictionActionCreator(response.data));
         dispatch(hideLoadingActionCreator());
-        return response.data;
       } catch (error: unknown) {
         dispatch(hideLoadingActionCreator());
 

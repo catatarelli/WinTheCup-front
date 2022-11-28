@@ -20,7 +20,3 @@ export interface PredictionStructure {
 export interface PredictionsResponse {
   predictions: PredictionStructure[];
 }
-
-export interface PredictionByIdResponse {
-  prediction: PredictionStructure;
-}

@@ -1,7 +1,6 @@
 import { type ImageSourcePropType } from "react-native";
 import {
   type PredictionsState,
-  type PredictionByIdResponse,
   type PredictionsResponse,
   type PredictionStructure,
 } from "../redux/features/predictions/predictionsTypes";
@@ -29,14 +28,21 @@ export const emptyPredictionsState = {
   },
 };
 
-export const mockPredictionsState: PredictionsState = {
-  predictions: getRandomPredictionsList(10) as PredictionStructure[],
-  currentPrediction: emptyPredictionsState.currentPrediction,
+export const currentPredictionMock: PredictionStructure = {
+  match: "Argentina vs Mexico",
+  goalsTeam1: 3,
+  goalsTeam2: 2,
+  createdBy: "543",
+  id: "234",
+  picture: "asdf" as ImageSourcePropType,
 };
 
-export const mockGetPredictionByIdResponse: PredictionByIdResponse = {
-  prediction: {
-    ...(getRandomPrediction() as PredictionStructure),
-    id: "56789",
-  },
+export const mockPredictionsState: PredictionsState = {
+  predictions: getRandomPredictionsList(10) as PredictionStructure[],
+  currentPrediction: currentPredictionMock,
+};
+
+export const mockGetPredictionByIdResponse: PredictionStructure = {
+  ...(getRandomPrediction() as PredictionStructure),
+  id: "56789",
 };
