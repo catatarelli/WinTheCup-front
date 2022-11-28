@@ -3,6 +3,9 @@ import colors from "./colors.styles";
 import formStyles from "./form.styles";
 
 const screenStyles = StyleSheet.create({
+  screenBackground: {
+    backgroundColor: colors.white,
+  },
   container: {
     alignItems: "center",
     justifyContent: "center",

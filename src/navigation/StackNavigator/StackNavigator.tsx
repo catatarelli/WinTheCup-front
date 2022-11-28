@@ -9,6 +9,7 @@ import CustomModal from "../../components/CustomModal/CustomModal";
 import Loading from "../../components/Loading/Loading";
 import RegisterScreen from "../../screens/RegisterScreen/RegisterScreen";
 import PredictionDetailScreen from "../../screens/PredictionDetailScreen/PredictionDetailScreen";
+import TabNavigator from "../TabNavigator/TabNavigator";
 
 const StackNavigatorExplorer = () => {
   const Stack = createNativeStackNavigator();
@@ -40,6 +41,11 @@ const StackNavigatorExplorer = () => {
         <Stack.Screen
           name={Routes.predictionDetail}
           component={PredictionDetailScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={Routes.home}
+          component={TabNavigator}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

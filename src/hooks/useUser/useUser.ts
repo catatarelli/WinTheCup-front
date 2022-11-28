@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 /* eslint-disable @typescript-eslint/naming-convention */
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -64,7 +63,7 @@ const useUser = () => {
 
       dispatch(loginUserActionCreator({ ...loggedUser, token }));
       await AsyncStorage.setItem("token", token);
-      navigation.navigate(Routes.myPredictions);
+      navigation.navigate(Routes.home);
     } catch {
       dispatch(
         openModalActionCreator({

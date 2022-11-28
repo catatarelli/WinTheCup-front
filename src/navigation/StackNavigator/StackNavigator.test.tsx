@@ -4,7 +4,8 @@ import { screen } from "@testing-library/react-native";
 import { renderWithProviders } from "../../mocks/renderWithProviders";
 import StackNavigatorExplorer from "./StackNavigator";
 import { mockUiStateSuccessModal } from "../../mocks/uiMocks";
-import { mockUserWithPredictions } from "../../mocks/userMocks";
+import { loggedInUserStateMock } from "../../mocks/userMocks";
+import { mockPredictionsState } from "../../mocks/predictionsMocks";
 
 jest.mock("@react-native-async-storage/async-storage", () => ({
   setItem: jest.fn(),
@@ -36,7 +37,8 @@ describe("Given a StackNavigator componenet", () => {
             ...mockUiStateSuccessModal,
             modal: "test modal",
           },
-          user: mockUserWithPredictions,
+          user: loggedInUserStateMock,
+          predictions: mockPredictionsState,
         },
       });
 
@@ -54,7 +56,8 @@ describe("Given a StackNavigator componenet", () => {
             ...mockUiStateSuccessModal,
             isLoading: true,
           },
-          user: mockUserWithPredictions,
+          user: loggedInUserStateMock,
+          predictions: mockPredictionsState,
         },
       });
 

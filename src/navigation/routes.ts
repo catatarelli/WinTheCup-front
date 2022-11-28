@@ -4,6 +4,7 @@ enum Routes {
   welcome = "Welcome",
   myPredictions = "MyPredictions",
   predictionDetail = "PredictionDetail",
+  home = "Home",
 }
 
 export default Routes;
