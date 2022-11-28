@@ -1,26 +1,29 @@
 import { getRandomPredictionsList } from "../../../../mocks/predictionsFactory";
-import { userMock } from "../../../../mocks/userMocks";
-import type { PredictionStructure } from "../../user/userTypes";
+import type { PredictionStructure } from "../predictionsTypes";
 import loadPredictionsReducer from "./loadPredictionsReducer";
+import { emptyPredictionsState } from "../../../../mocks/predictionsMocks";
 
 const listOfPredictions = getRandomPredictionsList(2) as PredictionStructure[];
 
 describe("Given loadPredictionsReducer", () => {
-  describe("When it recieves an initial state and a payload ", () => {
-    test("Then it should return a new state with a", () => {
-      const currentUserState = userMock;
+  describe("When it recieves an initial state and a payload with a list of predictions ", () => {
+    test("Then it should return a new state with the list of predictions", () => {
+      const currentPredictionsState = emptyPredictionsState;
 
-      const expectedUserState = {
-        ...currentUserState,
+      const expectedPredictionsState = {
+        ...currentPredictionsState,
         predictions: listOfPredictions,
       };
 
-      const newUserState = loadPredictionsReducer(currentUserState, {
-        payload: listOfPredictions,
-        type: "loadPredictions",
-      });
+      const newPredictionsState = loadPredictionsReducer(
+        currentPredictionsState,
+        {
+          payload: listOfPredictions,
+          type: "loadPredictions",
+        }
+      );
 
-      expect(newUserState).toStrictEqual(expectedUserState);
+      expect(newPredictionsState).toStrictEqual(expectedPredictionsState);
     });
   });
 });

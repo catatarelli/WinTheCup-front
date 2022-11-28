@@ -4,15 +4,17 @@ import screenStyles from "../../styles/screen.styles";
 
 import headingStyles from "../../styles/headings.styles";
 import PredictionDetail from "../../components/PredictionDetail/PredictionDetail";
-import { getRandomPrediction } from "../../mocks/predictionsFactory";
+import { useAppSelector } from "../../redux/hooks";
 
-const prediction = getRandomPrediction();
+const PredictionDetailScreen = (): JSX.Element => {
+  const { currentPrediction } = useAppSelector((state) => state.predictions);
 
-const PredictionDetailScreen = (): JSX.Element => (
-  <SafeAreaView style={screenStyles.container}>
-    <Text style={headingStyles.pageTitle}>Prediction Detail</Text>
-    <PredictionDetail prediction={prediction} />
-  </SafeAreaView>
-);
+  return (
+    <SafeAreaView style={screenStyles.container}>
+      <Text style={headingStyles.pageTitle}>Prediction Detail</Text>
+      <PredictionDetail prediction={currentPrediction} />
+    </SafeAreaView>
+  );
+};
 
 export default PredictionDetailScreen;

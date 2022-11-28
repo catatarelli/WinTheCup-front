@@ -41,13 +41,13 @@ export const handlers = [
   ),
 
   rest.get(`${REACT_APP_API_URL}/predictions/:predictionId`, (req, res, ctx) =>
-    res.once(ctx.status(400), ctx.json({ error: "Prediction not found" }))
+    res.once(
+      ctx.status(400),
+      ctx.json({ error: "There was an error on the server" })
+    )
   ),
 
   rest.get(`${REACT_APP_API_URL}/predictions/:predictionId`, (req, res, ctx) =>
-    res(
-      ctx.status(200),
-      ctx.json({ prediction: mockGetPredictionByIdResponse })
-    )
+    res(ctx.status(200), ctx.json(mockGetPredictionByIdResponse))
   ),
 ];

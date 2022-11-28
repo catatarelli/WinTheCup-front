@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
-import { screen } from "@testing-library/react-native";
+import { screen, render } from "@testing-library/react-native";
 import PredictionDetailScreen from "./PredictionDetailScreen";
-import { renderWithProviders } from "../../mocks/renderWithProviders";
+import { Provider } from "react-redux";
+import { mockInitialStoreSuccessModal } from "../../mocks/mockInitialStore";
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -14,7 +15,11 @@ describe("Given a PredictionDetailScreen component", () => {
       const titleText = "Prediction Detail";
       const predictionId = "predictionDetail";
 
-      renderWithProviders(<PredictionDetailScreen />);
+      render(
+        <Provider store={mockInitialStoreSuccessModal}>
+          <PredictionDetailScreen />
+        </Provider>
+      );
 
       const title = screen.queryByText(titleText);
       const prediction = screen.queryByTestId(predictionId);

@@ -44,7 +44,7 @@ describe("Given a PredictionCard component", () => {
   describe("And the user presses on the match text", () => {
     test("Then the useNavigation should be called with the detail page reference", async () => {
       const prediction = getRandomPrediction();
-      const matchButtonId = "match";
+      const matchButtonId = "toDetail";
 
       renderWithProviders(<PredictionCard prediction={prediction} />);
 
