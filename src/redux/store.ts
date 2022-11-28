@@ -3,6 +3,7 @@ import {
   type ThunkAction,
   type Action,
 } from "@reduxjs/toolkit";
+import { predictionsReducer } from "./features/predictions/predictionsSlice";
 import { uiReducer } from "./features/ui/uiSlice";
 import { userReducer } from "./features/user/userSlice";
 
@@ -10,6 +11,7 @@ export const store = configureStore({
   reducer: {
     ui: uiReducer,
     user: userReducer,
+    predictions: predictionsReducer,
   },
 });
 

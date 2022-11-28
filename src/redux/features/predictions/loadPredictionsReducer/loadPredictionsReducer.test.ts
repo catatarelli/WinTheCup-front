@@ -1,6 +1,6 @@
-import { getRandomPredictionsList } from "../../../../../mocks/predictionsFactory";
-import { userMock } from "../../../../../mocks/userMocks";
-import type { PredictionStructure } from "../../userTypes";
+import { getRandomPredictionsList } from "../../../../mocks/predictionsFactory";
+import { userMock } from "../../../../mocks/userMocks";
+import type { PredictionStructure } from "../../user/userTypes";
 import loadPredictionsReducer from "./loadPredictionsReducer";
 
 const listOfPredictions = getRandomPredictionsList(2) as PredictionStructure[];

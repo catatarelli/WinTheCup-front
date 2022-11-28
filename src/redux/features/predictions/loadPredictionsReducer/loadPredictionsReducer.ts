@@ -1,11 +1,14 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { PredictionStructure, UserState } from "../../userTypes";
+import type {
+  PredictionsState,
+  PredictionStructure,
+} from "../predictionsTypes";
 
 const loadPredictionsReducer = (
-  previousUser: UserState,
+  previousPredictions: PredictionsState,
   action: PayloadAction<PredictionStructure[]>
 ) => ({
-  ...previousUser,
+  ...previousPredictions,
   predictions: [...action.payload],
 });
 

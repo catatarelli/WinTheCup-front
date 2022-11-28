@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
-import { screen } from "@testing-library/react-native";
-import { renderWithProviders } from "../../mocks/renderWithProviders";
-import { emptyModalMock } from "../../mocks/uiMocks";
-import { mockUserWithPredictions } from "../../mocks/userMocks";
+import { screen, render } from "@testing-library/react-native";
 import MyPredictionsScreen from "./MyPredictionsScreen";
+import { mockInitialStoreSuccessModal } from "../../mocks/mockInitialStore";
+import { Provider } from "react-redux";
+import { NavigationContainer } from "@react-navigation/native";
 
 jest.mock("@react-native-async-storage/async-storage", () => ({
   setItem: jest.fn(),
@@ -18,18 +18,19 @@ describe("Given a MyPredictionsScreen", () => {
       const expectedText = "My Predictions";
       const predictionId = "predictionCard";
 
-      renderWithProviders(<MyPredictionsScreen />, {
-        preloadedState: {
-          ui: emptyModalMock,
-          user: mockUserWithPredictions,
-        },
-      });
+      render(
+        <Provider store={mockInitialStoreSuccessModal}>
+          <NavigationContainer>
+            <MyPredictionsScreen />
+          </NavigationContainer>
+        </Provider>
+      );
 
       const renderedText = screen.queryByText(expectedText);
       const renderedPredictions = screen.queryAllByTestId(predictionId);
 
       expect(renderedText).toBeDefined();
-      expect(renderedPredictions).toHaveLength(5);
+      expect(renderedPredictions).toHaveLength(10);
     });
   });
 });
