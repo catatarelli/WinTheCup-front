@@ -1,15 +1,16 @@
 import { type NativeStackNavigationProp } from "@react-navigation/native-stack";
-import type RoutesEnum from "../navigation/routes";
+import type Routes from "../navigation/routes";
 
 export interface LogRootStackParamList {
-  [RoutesEnum.login]: undefined;
-  [RoutesEnum.register]: undefined;
-  [RoutesEnum.welcome]: undefined;
-  [RoutesEnum.myPredictions]: undefined;
-  [RoutesEnum.predictionDetail]: undefined;
+  [Routes.login]: undefined;
+  [Routes.register]: undefined;
+  [Routes.welcome]: undefined;
+  [Routes.myPredictions]: undefined;
+  [Routes.predictionDetail]: undefined;
+  [Routes.home]: undefined;
 }
 
 export type LoginScreenNavigationProp = NativeStackNavigationProp<
   LogRootStackParamList,
-  RoutesEnum.login
+  Routes.login
 >;
