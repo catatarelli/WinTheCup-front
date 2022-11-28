@@ -2,19 +2,15 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Image } from "react-native";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import icon from "../../../assets/magic-ball.png";
 import MyPredictionsScreen from "../../screens/MyPredictionsScreen/MyPredictionsScreen";
 import Routes from "../routes";
 import colors from "../../styles/colors.styles";
 import navigationStyles from "./TabNavigatorStyled";
 import PredictionDetailScreen from "../../screens/PredictionDetailScreen/PredictionDetailScreen";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const TabNavigator = (): JSX.Element => {
   const Tab = createBottomTabNavigator();
-  const Stack = createNativeStackNavigator();
 
   return (
     <Tab.Navigator

@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
 import { Text, TouchableOpacity, Image, View } from "react-native";
-import type { PredictionStructure } from "../../redux/features/user/userTypes";
+import type { PredictionStructure } from "../../redux/features/predictions/predictionsTypes";
 import styles from "./PredictionDetailStyled";
 
 interface PredictionCardProps {
