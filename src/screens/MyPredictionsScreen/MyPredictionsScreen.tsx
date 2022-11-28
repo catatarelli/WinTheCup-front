@@ -1,19 +1,20 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { SafeAreaView, Text } from "react-native";
 import React, { useEffect } from "react";
 import screenStyles from "../../styles/screen.styles";
 import PredictionList from "../../components/PredictionList/PredictionList";
 import headingStyles from "../../styles/headings.styles";
-import useUser from "../../hooks/useUser/useUser";
 import { useAppSelector } from "../../redux/hooks";
+import usePredictions from "../../hooks/usePredictions/usePredictions";
 
 const MyPredictionsScreen = (): JSX.Element => {
-  const { getPredictions } = useUser();
+  const { getPredictions } = usePredictions();
 
   useEffect(() => {
     getPredictions();
   }, [getPredictions]);
 
-  const predictions = useAppSelector(({ user }) => user.predictions);
+  const { predictions } = useAppSelector((state) => state.predictions);
 
   return (
     <SafeAreaView style={screenStyles.container}>
