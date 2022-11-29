@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import NumericInput from "react-native-numeric-input";
+import DropDownPicker from "react-native-dropdown-picker";
 import * as ImagePicker from "expo-image-picker";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
@@ -13,6 +14,8 @@ import matches from "../../utils/matches";
 
 const CreatePredictionForm = (): JSX.Element => {
   const { createPrediction, getPredictions } = usePredictions();
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
 
   const intialFormData: CreatePredicitonStructure = {
     match: "",
@@ -28,7 +31,7 @@ const CreatePredictionForm = (): JSX.Element => {
 
   const handleSubmit = async () => {
     const newPrediction = new FormData();
-    newPrediction.append("match", formData.match);
+    newPrediction.append("match", value!);
     newPrediction.append("goalsTeam1", formData.goalsTeam1);
     newPrediction.append("goalsTeam2", formData.goalsTeam2);
     newPrediction.append("redCards", formData.redCards!);
@@ -79,6 +82,15 @@ const CreatePredictionForm = (): JSX.Element => {
   return (
     <View style={styles.background}>
       <View style={styles.container}>
+        <DropDownPicker
+          open={open}
+          setOpen={setOpen}
+          value={value}
+          items={matches}
+          setValue={setValue}
+          placeholder="Select a match"
+          dropDownDirection="BOTTOM"
+        />
         <View style={styles.scoreContainer}>
           <View style={styles.stat}>
             <Text style={styles.text}>Goals Team 1</Text>
@@ -89,8 +101,8 @@ const CreatePredictionForm = (): JSX.Element => {
               }}
               minValue={0}
               maxValue={9}
-              totalWidth={110}
-              totalHeight={60}
+              totalWidth={120}
+              totalHeight={40}
               iconSize={50}
               step={1}
               valueType="integer"
@@ -110,8 +122,8 @@ const CreatePredictionForm = (): JSX.Element => {
               }}
               minValue={0}
               maxValue={9}
-              totalWidth={110}
-              totalHeight={60}
+              totalWidth={120}
+              totalHeight={40}
               iconSize={50}
               step={1}
               valueType="integer"
@@ -133,8 +145,8 @@ const CreatePredictionForm = (): JSX.Element => {
               }}
               minValue={0}
               maxValue={9}
-              totalWidth={110}
-              totalHeight={60}
+              totalWidth={120}
+              totalHeight={40}
               iconSize={50}
               step={1}
               valueType="integer"
@@ -154,8 +166,8 @@ const CreatePredictionForm = (): JSX.Element => {
               }}
               minValue={0}
               maxValue={9}
-              totalWidth={110}
-              totalHeight={60}
+              totalWidth={120}
+              totalHeight={40}
               iconSize={50}
               step={1}
               valueType="integer"
@@ -175,8 +187,8 @@ const CreatePredictionForm = (): JSX.Element => {
               }}
               minValue={0}
               maxValue={9}
-              totalWidth={110}
-              totalHeight={60}
+              totalWidth={120}
+              totalHeight={40}
               iconSize={50}
               step={1}
               valueType="integer"
@@ -189,20 +201,24 @@ const CreatePredictionForm = (): JSX.Element => {
           </View>
         </View>
       </View>
-      <View>
+      <View style={styles.container}>
         <Text>Upload a picture of your winner team!</Text>
-        <View>
-          <View>
-            <TouchableOpacity onPress={chooseFile} testID="image-picker">
-              <FontAwesomeIcon icon={faCamera} size={40} />
-            </TouchableOpacity>
-          </View>
-          {imageSelected ? <Image source={{ uri: imageSelected }} /> : ""}
-        </View>
-      </View>
-      <View>
-        <TouchableOpacity onPress={handleSubmit} testID={"submitButton"}>
-          <Text>Create prediction</Text>
+
+        <TouchableOpacity onPress={chooseFile} testID="image-picker">
+          <FontAwesomeIcon icon={faCamera} size={40} />
+        </TouchableOpacity>
+        {imageSelected ? (
+          <Image source={{ uri: imageSelected }} style={styles.image} />
+        ) : (
+          ""
+        )}
+
+        <TouchableOpacity
+          onPress={handleSubmit}
+          testID={"submitButton"}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Create prediction</Text>
         </TouchableOpacity>
       </View>
     </View>

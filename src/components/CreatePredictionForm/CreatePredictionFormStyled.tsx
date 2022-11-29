@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import colors from "../../styles/colors.styles";
+import formStyles from "../../styles/form.styles";
 
 const styles = StyleSheet.create({
   background: {
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 20,
+    marginTop: 5,
     width: 300,
   },
   text: {
@@ -39,7 +40,25 @@ const styles = StyleSheet.create({
   stat: {
     display: "flex",
     alignItems: "center",
-    marginVertical: 10,
+    marginBottom: 5,
+  },
+  button: {
+    ...formStyles.button,
+    backgroundColor: colors.grey,
+    opacity: 0.8,
+    width: 200,
+    marginTop: 0,
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: colors.white,
+    fontSize: 20,
+  },
+  image: {
+    width: "80%",
+    height: 100,
+    alignItems: "center",
+    marginTop: 5,
   },
 });
 
