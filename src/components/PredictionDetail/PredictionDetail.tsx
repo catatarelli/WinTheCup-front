@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
 import { Text, TouchableOpacity, Image, View } from "react-native";
 import type { PredictionStructure } from "../../redux/features/predictions/predictionsTypes";
@@ -16,11 +15,15 @@ const PredictionDetail = ({
     redCards,
     yellowCards,
     penalties,
-    picture,
+    backupPicture,
   },
 }: PredictionCardProps): JSX.Element => (
   <View style={styles.container} testID="predictionDetail">
-    <Image source={picture} style={styles.image} testID="predictionPicture" />
+    <Image
+      source={{ uri: backupPicture }}
+      style={styles.image}
+      testID="predictionPicture"
+    />
     <View style={styles.textContainer}>
       <Text style={styles.match}>{match}</Text>
       <View style={styles.goalsContainer}>

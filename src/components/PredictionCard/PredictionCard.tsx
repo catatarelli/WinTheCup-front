@@ -15,7 +15,7 @@ interface PredictionCardProps {
 }
 
 const PredictionCard = ({
-  prediction: { match, goalsTeam1, goalsTeam2, picture, id },
+  prediction: { match, goalsTeam1, goalsTeam2, backupPicture, id },
 }: PredictionCardProps): JSX.Element => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
   const { getPredictionById } = usePredictions();
@@ -27,7 +27,11 @@ const PredictionCard = ({
 
   return (
     <View style={styles.container} testID="predictionCard">
-      <Image source={picture} style={styles.image} testID="predictionPicture" />
+      <Image
+        source={{ uri: backupPicture }}
+        style={styles.image}
+        testID="predictionPicture"
+      />
       <TouchableOpacity onPress={handlePress} testID="toDetail">
         <View style={styles.textContainer}>
           <Text style={styles.match}>{match}</Text>

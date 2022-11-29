@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 15,
     borderBottomLeftRadius: 15,
     resizeMode: "cover",
+    zIndex: 100,
   },
   textContainer: {
     display: "flex",

@@ -13,7 +13,7 @@ import matches from "../../utils/matches";
 import styles from "./CreatePredictionFormStyled";
 
 const CreatePredictionForm = (): JSX.Element => {
-  const { createPrediction } = usePredictions();
+  const { createPrediction, getPredictions } = usePredictions();
 
   const intialFormData: CreatePredicitonStructure = {
     match: "",
@@ -41,6 +41,7 @@ const CreatePredictionForm = (): JSX.Element => {
       name: imageName,
     });
     await createPrediction(newPrediction);
+    await getPredictions();
   };
 
   const [imageSelected, setImageSelected] = useState("");

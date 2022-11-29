@@ -10,7 +10,8 @@ export interface CreatePredicitonStructure {
   redCards?: number;
   yellowCards?: number;
   penalties?: number;
-  picture: unknown;
+  picture: string;
+  backupPicture?: string;
 }
 export interface PredictionStructure extends CreatePredicitonStructure {
   id: string;

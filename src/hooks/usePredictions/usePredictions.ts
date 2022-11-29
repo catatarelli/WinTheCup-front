@@ -3,6 +3,8 @@ import axios from "axios";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useCallback } from "react";
 import { REACT_APP_API_URL } from "@env";
+import { useNavigation } from "@react-navigation/native";
+import type { LoginScreenNavigationProp } from "../../types/navigation.types";
 import {
   hideLoadingActionCreator,
   openModalActionCreator,
@@ -17,10 +19,12 @@ import {
   loadOnePredictionActionCreator,
   loadPredictionsActionCreator,
 } from "../../redux/features/predictions/predictionsSlice";
+import Routes from "../../navigation/routes";
 
 const usePredictions = () => {
   const dispatch = useAppDispatch();
   const { token } = useAppSelector((state) => state.user);
+  const navigation = useNavigation<LoginScreenNavigationProp>();
 
   const getPredictions = useCallback(async () => {
     try {
@@ -91,6 +95,7 @@ const usePredictions = () => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -103,6 +108,7 @@ const usePredictions = () => {
             isLoading: false,
           })
         );
+        navigation.navigate(Routes.myPredictions);
       }
     } catch {
       dispatch(hideLoadingActionCreator());
