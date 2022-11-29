@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
 import { View, Modal, Image } from "react-native";
-import gif from "../../../assets/spinning-ball.gif";
+import gif from "../../../assets/spinning-ball1.gif";
 import styles from "./LoadingStyled";
 
 const Loading = (): JSX.Element => (
