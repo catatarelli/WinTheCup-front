@@ -3,17 +3,16 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import NumericInput from "react-native-numeric-input";
-import RNPickerSelect from "react-native-picker-select";
 import * as ImagePicker from "expo-image-picker";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import usePredictions from "../../hooks/usePredictions/usePredictions";
 import { type CreatePredicitonStructure } from "../../redux/features/predictions/predictionsTypes";
-import matches from "../../utils/matches";
 import styles from "./CreatePredictionFormStyled";
+import matches from "../../utils/matches";
 
 const CreatePredictionForm = (): JSX.Element => {
-  const { createPrediction } = usePredictions();
+  const { createPrediction, getPredictions } = usePredictions();
 
   const intialFormData: CreatePredicitonStructure = {
     match: "",
@@ -41,6 +40,7 @@ const CreatePredictionForm = (): JSX.Element => {
       name: imageName,
     });
     await createPrediction(newPrediction);
+    await getPredictions();
   };
 
   const [imageSelected, setImageSelected] = useState("");
@@ -78,13 +78,6 @@ const CreatePredictionForm = (): JSX.Element => {
 
   return (
     <View style={styles.background}>
-      <RNPickerSelect
-        value={formData.match}
-        onValueChange={(match) => {
-          handleFormChange(match, "match");
-        }}
-        items={matches}
-      />
       <View style={styles.container}>
         <View style={styles.scoreContainer}>
           <View style={styles.stat}>
