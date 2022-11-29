@@ -52,13 +52,13 @@ const RegisterForm = (): JSX.Element => {
         <Text style={formStyles.label}>Username</Text>
         <TextInput
           value={userData.username}
-          testID="username"
-          maxLength={20}
-          textContentType="username"
           style={formStyles.input}
           onChangeText={(data) => {
             changeUserData(data, "username");
           }}
+          testID="username"
+          maxLength={20}
+          textContentType="username"
         />
       </View>
       <View>
@@ -66,13 +66,13 @@ const RegisterForm = (): JSX.Element => {
         <TextInput
           secureTextEntry={true}
           value={userData.password}
-          testID="password"
-          maxLength={20}
-          textContentType="password"
           style={formStyles.input}
           onChangeText={(data) => {
             changeUserData(data, "password");
           }}
+          testID="password"
+          maxLength={20}
+          textContentType="password"
         />
       </View>
       <View>
