@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import NumericInput from "react-native-numeric-input";
 import * as ImagePicker from "expo-image-picker";
-import { Dropdown } from "react-native-material-dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import usePredictions from "../../hooks/usePredictions/usePredictions";
@@ -80,13 +79,6 @@ const CreatePredictionForm = (): JSX.Element => {
   return (
     <View style={styles.background}>
       <View style={styles.container}>
-        <Dropdown
-          value={formData.match}
-          data={matches}
-          onChangeText={(match) => {
-            handleFormChange(match, "match");
-          }}
-        />
         <View style={styles.scoreContainer}>
           <View style={styles.stat}>
             <Text style={styles.text}>Goals Team 1</Text>
