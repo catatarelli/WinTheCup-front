@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    width: 160,
+    width: 210,
     marginBottom: 10,
   },
   goals: {

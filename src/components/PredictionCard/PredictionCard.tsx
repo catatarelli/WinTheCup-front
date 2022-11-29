@@ -20,6 +20,8 @@ const PredictionCard = ({
   const navigation = useNavigation<LoginScreenNavigationProp>();
   const { getPredictionById } = usePredictions();
 
+  const matchAndDate = match.split("-");
+
   const handlePress = () => {
     getPredictionById(id);
     navigation.navigate(Routes.predictionDetail);
@@ -34,10 +36,11 @@ const PredictionCard = ({
       />
       <TouchableOpacity onPress={handlePress} testID="toDetail">
         <View style={styles.textContainer}>
-          <Text style={styles.match}>{match}</Text>
+          <Text style={styles.match}>{matchAndDate[0]}</Text>
 
           <View style={styles.goalsContainer}>
             <Text style={styles.goals}>{goalsTeam1}</Text>
+            <Text style={styles.match}>{matchAndDate[1]}</Text>
             <Text style={styles.goals}>{goalsTeam2}</Text>
           </View>
         </View>

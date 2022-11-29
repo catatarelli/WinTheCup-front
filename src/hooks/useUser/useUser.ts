@@ -2,7 +2,11 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { REACT_APP_API_URL } from "@env";
-import { openModalActionCreator } from "../../redux/features/ui/uiSlice";
+import {
+  hideLoadingActionCreator,
+  openModalActionCreator,
+  showLoadingActionCreator,
+} from "../../redux/features/ui/uiSlice";
 import { useAppDispatch } from "../../redux/hooks";
 import type {
   LoginResponse,
@@ -21,6 +25,7 @@ const useUser = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
   const registerUser = async (userData: RegisterData) => {
+    dispatch(showLoadingActionCreator());
     try {
       await axios.post(`${REACT_APP_API_URL}/user/register`, userData);
       dispatch(
@@ -30,8 +35,10 @@ const useUser = () => {
           isLoading: false,
         })
       );
+      dispatch(hideLoadingActionCreator());
       navigation.navigate(Routes.login);
     } catch {
+      dispatch(hideLoadingActionCreator());
       dispatch(
         openModalActionCreator({
           modal: "User is already registered",
@@ -43,6 +50,7 @@ const useUser = () => {
   };
 
   const loginUser = async (userData: UserCredentials) => {
+    dispatch(showLoadingActionCreator());
     try {
       const responseData = await axios.post<LoginResponse>(
         `${REACT_APP_API_URL}/user/login`,
@@ -63,8 +71,10 @@ const useUser = () => {
 
       dispatch(loginUserActionCreator({ ...loggedUser, token }));
       await AsyncStorage.setItem("token", token);
+      dispatch(hideLoadingActionCreator());
       navigation.navigate(Routes.home);
     } catch {
+      dispatch(hideLoadingActionCreator());
       dispatch(
         openModalActionCreator({
           modal: "Wrong credentials",
