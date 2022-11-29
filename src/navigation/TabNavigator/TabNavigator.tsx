@@ -2,12 +2,15 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Image } from "react-native";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import icon from "../../../assets/magic-ball.png";
 import MyPredictionsScreen from "../../screens/MyPredictionsScreen/MyPredictionsScreen";
 import Routes from "../routes";
 import colors from "../../styles/colors.styles";
 import navigationStyles from "./TabNavigatorStyled";
 import PredictionDetailScreen from "../../screens/PredictionDetailScreen/PredictionDetailScreen";
+import CreatePredictionScreen from "../../screens/CreatePredictionScreen/CreatePredictionScreen";
 
 const TabNavigator = (): JSX.Element => {
   const Tab = createBottomTabNavigator();
@@ -16,7 +19,11 @@ const TabNavigator = (): JSX.Element => {
     <Tab.Navigator
       initialRouteName={Routes.myPredictions}
       screenOptions={{
-        tabBarStyle: { height: 80 },
+        tabBarStyle: {
+          height: 80,
+          backgroundColor: colors.beige,
+          paddingBottom: 5,
+        },
         tabBarActiveTintColor: colors.black,
         tabBarInactiveTintColor: colors.wine,
         headerShown: false,
@@ -37,6 +44,16 @@ const TabNavigator = (): JSX.Element => {
         component={PredictionDetailScreen}
         options={{
           tabBarItemStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name={Routes.createPrediction}
+        component={CreatePredictionScreen}
+        options={{
+          title: "Create prediction",
+          tabBarIcon: ({ color }) => (
+            <FontAwesomeIcon icon={faCirclePlus} size={46} color={color} />
+          ),
         }}
       />
     </Tab.Navigator>

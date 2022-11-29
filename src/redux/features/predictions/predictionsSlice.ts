@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { ImageSourcePropType } from "react-native";
 import loadPredictionsReducer from "./loadPredictionsReducer/loadPredictionsReducer";
 import loadOnePredictionReducer from "./loadOnePredictionReducer/loadOnePredictionReducer";
 import type { PredictionsState } from "./predictionsTypes";
@@ -13,7 +12,7 @@ export const predictionsInitialState: PredictionsState = {
     redCards: 0,
     yellowCards: 0,
     penalties: 0,
-    picture: "" as ImageSourcePropType,
+    picture: "",
     createdBy: "",
     id: "",
   },

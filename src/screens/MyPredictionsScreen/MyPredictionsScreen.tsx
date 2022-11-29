@@ -19,7 +19,7 @@ const MyPredictionsScreen = (): JSX.Element => {
   return (
     <View style={screenStyles.screenBackground}>
       <SafeAreaView style={screenStyles.container}>
-        <Text style={headingStyles.pageTitle}>My Predictions</Text>
+        <Text style={headingStyles.myPredictionsTitle}>My Predictions</Text>
         <PredictionList predictions={predictions} />
       </SafeAreaView>
     </View>

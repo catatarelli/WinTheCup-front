@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   match: {
     fontSize: 16,
+    marginBottom: 10,
   },
   goalsContainer: {
     display: "flex",

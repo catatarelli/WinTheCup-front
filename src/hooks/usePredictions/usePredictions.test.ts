@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { renderHook } from "@testing-library/react";
 import makeWrapper from "../../mocks/makeWrapper";
+import { getRandomPrediction } from "../../mocks/predictionsFactory";
 import {
   mockGetPredictionByIdResponse,
   mockgetPredictionsResponse,
@@ -9,6 +10,7 @@ import {
   loadOnePredictionActionCreator,
   loadPredictionsActionCreator,
 } from "../../redux/features/predictions/predictionsSlice";
+import type { CreatePredicitonStructure } from "../../redux/features/predictions/predictionsTypes";
 import {
   hideLoadingActionCreator,
   openModalActionCreator,
@@ -138,6 +140,72 @@ describe("Given the custom hook usePredictions", () => {
       expect(dispatchSpy).toHaveBeenNthCalledWith(
         3,
         hideLoadingActionCreator()
+      );
+    });
+  });
+
+  describe("When its method createPrediction is invoked with one game and the server responds with 500 status", () => {
+    test("Then dispatch should be called three times to show and hide loading and to show the modal with one error", async () => {
+      const {
+        result: {
+          current: { createPrediction },
+        },
+      } = renderHook(() => usePredictions(), {
+        wrapper: makeWrapper,
+      });
+
+      const newPrediction: CreatePredicitonStructure = getRandomPrediction();
+
+      await createPrediction(newPrediction);
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        1,
+        showLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        2,
+        hideLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        openModalActionCreator({
+          isError: true,
+          modal: "There was an error on the server",
+          isLoading: false,
+        })
+      );
+    });
+  });
+
+  describe("When its method createPrediction is invoked with a prediction and the server responds with 201 status", () => {
+    test("Then dispatch should be called three times to show and hide loading and to show the modal", async () => {
+      const {
+        result: {
+          current: { createPrediction },
+        },
+      } = renderHook(() => usePredictions(), {
+        wrapper: makeWrapper,
+      });
+
+      const newPrediction: CreatePredicitonStructure = getRandomPrediction();
+
+      await createPrediction(newPrediction);
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        1,
+        showLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        2,
+        hideLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        openModalActionCreator({
+          isError: false,
+          modal: "Prediction created successfully! Good luck",
+          isLoading: false,
+        })
       );
     });
   });

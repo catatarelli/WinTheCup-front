@@ -1,18 +1,18 @@
-import type { ImageSourcePropType } from "react-native";
-
 export interface PredictionsState {
   predictions: PredictionStructure[];
   currentPrediction: PredictionStructure;
 }
 
-export interface PredictionStructure {
+export interface CreatePredicitonStructure {
   match: string;
   goalsTeam1: number;
   goalsTeam2: number;
   redCards?: number;
   yellowCards?: number;
   penalties?: number;
-  picture: ImageSourcePropType;
+  picture: unknown;
+}
+export interface PredictionStructure extends CreatePredicitonStructure {
   id: string;
   createdBy: string;
 }

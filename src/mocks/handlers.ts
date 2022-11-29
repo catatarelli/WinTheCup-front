@@ -5,6 +5,7 @@ import type {
   UserCredentials,
 } from "../redux/features/user/userTypes";
 import {
+  currentPredictionMock,
   mockGetPredictionByIdResponse,
   mockgetPredictionsResponse,
 } from "./predictionsMocks";
@@ -49,5 +50,16 @@ export const handlers = [
 
   rest.get(`${REACT_APP_API_URL}/predictions/:predictionId`, (req, res, ctx) =>
     res(ctx.status(200), ctx.json(mockGetPredictionByIdResponse))
+  ),
+
+  rest.post(`${REACT_APP_API_URL}/predictions/create`, (req, res, ctx) =>
+    res.once(
+      ctx.status(400),
+      ctx.json({ error: "There was an error on the server" })
+    )
+  ),
+
+  rest.post(`${REACT_APP_API_URL}/predictions/create`, (req, res, ctx) =>
+    res(ctx.status(201), ctx.json(currentPredictionMock))
   ),
 ];

@@ -5,6 +5,7 @@ enum Routes {
   myPredictions = "MyPredictions",
   predictionDetail = "PredictionDetail",
   home = "Home",
+  createPrediction = "CreatePrediction",
 }
 
 export default Routes;

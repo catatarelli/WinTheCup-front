@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 /* eslint-disable @typescript-eslint/naming-convention */
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useCallback } from "react";
 import { REACT_APP_API_URL } from "@env";
@@ -10,6 +9,7 @@ import {
   showLoadingActionCreator,
 } from "../../redux/features/ui/uiSlice";
 import type {
+  CreatePredicitonStructure,
   PredictionsResponse,
   PredictionStructure,
 } from "../../redux/features/predictions/predictionsTypes";
@@ -39,18 +39,16 @@ const usePredictions = () => {
 
       dispatch(loadPredictionsActionCreator(apiResponse.predictions));
       dispatch(hideLoadingActionCreator());
-    } catch (error: unknown) {
+    } catch {
       dispatch(hideLoadingActionCreator());
-      if (error instanceof AxiosError) {
-        dispatch(
-          openModalActionCreator({
-            isError: true,
-            modal: (error as AxiosError<{ error: string }>).response?.data
-              .error!,
-            isLoading: false,
-          })
-        );
-      }
+
+      dispatch(
+        openModalActionCreator({
+          isError: true,
+          modal: "There was an error on the server",
+          isLoading: false,
+        })
+      );
     }
   }, [dispatch]);
 
@@ -69,25 +67,57 @@ const usePredictions = () => {
         );
         dispatch(loadOnePredictionActionCreator(response.data));
         dispatch(hideLoadingActionCreator());
-      } catch (error: unknown) {
+      } catch {
         dispatch(hideLoadingActionCreator());
 
-        if (error instanceof AxiosError) {
-          dispatch(
-            openModalActionCreator({
-              isError: true,
-              modal: (error as AxiosError<{ error: string }>).response?.data
-                .error!,
-              isLoading: false,
-            })
-          );
-        }
+        dispatch(
+          openModalActionCreator({
+            isError: true,
+            modal: "There was an error on the server",
+            isLoading: false,
+          })
+        );
       }
     },
     [dispatch]
   );
 
-  return { getPredictions, getPredictionById };
+  const createPrediction = async (prediction: CreatePredicitonStructure) => {
+    dispatch(showLoadingActionCreator());
+    try {
+      const responseData = await axios.post(
+        `${REACT_APP_API_URL}/predictions/create`,
+        prediction,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      if (responseData.status === 201) {
+        dispatch(hideLoadingActionCreator());
+        dispatch(
+          openModalActionCreator({
+            modal: "Prediction created successfully! Good luck",
+            isError: false,
+            isLoading: false,
+          })
+        );
+      }
+    } catch {
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        openModalActionCreator({
+          modal: "There was an error on the server",
+          isError: true,
+          isLoading: false,
+        })
+      );
+    }
+  };
+
+  return { getPredictions, getPredictionById, createPrediction };
 };
 
 export default usePredictions;
