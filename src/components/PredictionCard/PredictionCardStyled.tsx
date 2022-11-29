@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.beige,
     borderRadius: 15,
-    width: 321,
+    width: 350,
     height: 100,
     display: "flex",
     flexDirection: "row",
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   goalsContainer: {
     display: "flex",
     flexDirection: "row",
+    alignItems: "center",
     justifyContent: "space-around",
     width: 160,
   },
