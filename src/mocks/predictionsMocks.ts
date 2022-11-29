@@ -1,4 +1,3 @@
-import { type ImageSourcePropType } from "react-native";
 import {
   type PredictionsState,
   type PredictionsResponse,
@@ -22,7 +21,7 @@ export const emptyPredictionsState = {
     redCards: 0,
     yellowCards: 0,
     penalties: 0,
-    picture: "" as ImageSourcePropType,
+    picture: "",
     createdBy: "",
     id: "",
   },
@@ -34,7 +33,7 @@ export const currentPredictionMock: PredictionStructure = {
   goalsTeam2: 2,
   createdBy: "543",
   id: "234",
-  picture: "asdf" as ImageSourcePropType,
+  picture: "asdf",
 };
 
 export const mockPredictionsState: PredictionsState = {

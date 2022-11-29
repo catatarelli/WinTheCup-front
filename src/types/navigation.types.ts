@@ -8,6 +8,7 @@ export interface LogRootStackParamList {
   [Routes.myPredictions]: undefined;
   [Routes.predictionDetail]: undefined;
   [Routes.home]: undefined;
+  [Routes.createPrediction]: undefined;
 }
 
 export type LoginScreenNavigationProp = NativeStackNavigationProp<

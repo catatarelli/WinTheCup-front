@@ -8,6 +8,7 @@ import { type store, type RootState } from "../redux/store";
 import { uiReducer } from "../redux/features/ui/uiSlice";
 import { userReducer } from "../redux/features/user/userSlice";
 import { NavigationContainer } from "@react-navigation/native";
+import { predictionsReducer } from "../redux/features/predictions/predictionsSlice";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: PreloadedState<RootState>;
@@ -19,7 +20,11 @@ export const renderWithProviders = (
   {
     preloadedState,
     store = configureStore({
-      reducer: { ui: uiReducer, user: userReducer },
+      reducer: {
+        ui: uiReducer,
+        user: userReducer,
+        predictions: predictionsReducer,
+      },
       preloadedState,
     }),
     ...renderOptions
