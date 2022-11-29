@@ -10,6 +10,7 @@ import {
   showLoadingActionCreator,
 } from "../../redux/features/ui/uiSlice";
 import type {
+  CreatePredicitonStructure,
   PredictionsResponse,
   PredictionStructure,
 } from "../../redux/features/predictions/predictionsTypes";
@@ -87,7 +88,38 @@ const usePredictions = () => {
     [dispatch]
   );
 
-  return { getPredictions, getPredictionById };
+  const createPrediction = async (prediction: CreatePredicitonStructure) => {
+    try {
+      const responseData = await axios.post(
+        `${REACT_APP_API_URL}/predictions/create`,
+        prediction,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      if (responseData.status === 201) {
+        dispatch(
+          openModalActionCreator({
+            modal: "Prediction created successfully! Good luck",
+            isError: false,
+            isLoading: false,
+          })
+        );
+      }
+    } catch {
+      dispatch(
+        openModalActionCreator({
+          modal: "There was an error creating the prediction",
+          isError: true,
+          isLoading: false,
+        })
+      );
+    }
+  };
+
+  return { getPredictions, getPredictionById, createPrediction };
 };
 
 export default usePredictions;
