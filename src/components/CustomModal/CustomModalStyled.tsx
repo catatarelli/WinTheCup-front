@@ -3,7 +3,7 @@ import colors from "../../styles/colors.styles";
 
 const styles = StyleSheet.create({
   modalSuccess: {
-    width: 352,
+    width: 340,
     height: 139,
     backgroundColor: colors.beige,
     borderTopColor: colors.green,
@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderRightColor: colors.grey,
     borderRightWidth: 2,
+    paddingHorizontal: 5,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -22,11 +23,10 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 1,
     top: 360,
-    left: 30,
-    fontSize: 24,
+    left: 25,
   },
   modalError: {
-    width: 352,
+    width: 340,
     height: 139,
     backgroundColor: colors.beige,
     borderTopColor: colors.wine,
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderRightColor: colors.grey,
     borderRightWidth: 2,
+    paddingHorizontal: 5,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -45,11 +46,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 1,
     top: 360,
-    left: 30,
-    fontSize: 24,
+    left: 25,
   },
   modalText: {
-    fontSize: 24,
+    fontSize: 18,
+    textAlign: "center",
   },
   icon: {
     color: colors.grey,

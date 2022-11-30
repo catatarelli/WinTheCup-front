@@ -1,6 +1,21 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { FlatList, View, type ListRenderItem } from "react-native";
+import {
+  FlatList,
+  View,
+  type ListRenderItem,
+  ImageBackground,
+  Text,
+  TouchableOpacity,
+} from "react-native";
+import image from "../../../assets/ball-in-the-net.webp";
+import Routes from "../../navigation/routes";
 import type { PredictionStructure } from "../../redux/features/predictions/predictionsTypes";
+import formStyles from "../../styles/form.styles";
+import headingStyles from "../../styles/headings.styles";
+import { LoginScreenNavigationProp } from "../../types/navigation.types";
+import loginStyles from "../LoginForm/LoginFormStyled";
 import PredictionCard from "../PredictionCard/PredictionCard";
 import listStyles from "./PredictionListStyled";
 
@@ -13,15 +28,44 @@ const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
     <PredictionCard prediction={item} key={item.match} />
   );
 
+  const navigation = useNavigation<LoginScreenNavigationProp>();
+
   return (
-    <View>
-      <FlatList
-        data={predictions}
-        renderItem={renderItem}
-        showsVerticalScrollIndicator={false}
-        ListFooterComponent={<View style={listStyles.footer} />}
-      />
-    </View>
+    <>
+      {predictions.length === 0 ? (
+        <>
+          <Text style={headingStyles.pageTitle}>My Predictions</Text>
+          <View>
+            <ImageBackground source={image} style={listStyles.image}>
+              <Text style={listStyles.imageText}>
+                You have no predictions yet
+              </Text>
+              <TouchableOpacity style={listStyles.button}>
+                <Text
+                  style={formStyles.buttonText}
+                  onPress={() => {
+                    navigation.navigate(Routes.createPrediction);
+                  }}
+                  testID="CreateButton"
+                >
+                  Start Playing
+                </Text>
+              </TouchableOpacity>
+            </ImageBackground>
+          </View>
+        </>
+      ) : (
+        <View>
+          <Text style={headingStyles.pageTitle}>My Predictions</Text>
+          <FlatList
+            data={predictions}
+            renderItem={renderItem}
+            showsVerticalScrollIndicator={false}
+            ListFooterComponent={<View style={listStyles.footer} />}
+          />
+        </View>
+      )}
+    </>
   );
 };
 

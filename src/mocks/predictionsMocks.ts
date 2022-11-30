@@ -2,6 +2,7 @@ import {
   type PredictionsState,
   type PredictionsResponse,
   type PredictionStructure,
+  type CreatePredicitonStructure,
 } from "../redux/features/predictions/predictionsTypes";
 import {
   getRandomPrediction,
@@ -34,6 +35,18 @@ export const currentPredictionMock: PredictionStructure = {
   createdBy: "543",
   id: "234",
   picture: "asdf",
+};
+
+export const mockPredictionCreate: CreatePredicitonStructure = {
+  match: "Argentina vs Mexico",
+  goalsTeam1: 3,
+  goalsTeam2: 2,
+};
+
+export const mockPredictionCreateRepeated: CreatePredicitonStructure = {
+  match: "Argentina vs Poland",
+  goalsTeam1: 3,
+  goalsTeam2: 2,
 };
 
 export const mockPredictionsState: PredictionsState = {

@@ -64,6 +64,7 @@ const useUser = () => {
             isLoading: false,
           })
         );
+        return;
       }
 
       const { token } = responseData.data;

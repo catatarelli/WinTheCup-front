@@ -5,6 +5,7 @@ import formStyles from "./form.styles";
 const screenStyles = StyleSheet.create({
   screenBackground: {
     backgroundColor: colors.white,
+    height: "100%",
   },
   container: {
     alignItems: "center",

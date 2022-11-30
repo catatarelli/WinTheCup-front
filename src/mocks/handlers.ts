@@ -5,10 +5,10 @@ import type {
   UserCredentials,
 } from "../redux/features/user/userTypes";
 import {
-  currentPredictionMock,
   mockGetPredictionByIdResponse,
   mockgetPredictionsResponse,
 } from "./predictionsMocks";
+import { type CreatePredicitonStructure } from "../redux/features/predictions/predictionsTypes";
 
 export const handlers = [
   rest.post(`${REACT_APP_API_URL}/user/register`, async (req, res, ctx) => {
@@ -59,7 +59,29 @@ export const handlers = [
     )
   ),
 
-  rest.post(`${REACT_APP_API_URL}/predictions/create`, (req, res, ctx) =>
-    res(ctx.status(201), ctx.json(currentPredictionMock))
+  rest.post(
+    `${REACT_APP_API_URL}/predictions/create`,
+    async (req, res, ctx) => {
+      const prediction = await req.json<CreatePredicitonStructure>();
+      if (prediction.match === "Argentina vs Poland") {
+        return res(ctx.status(409));
+      }
+
+      return res(ctx.status(201), ctx.json({ prediction }));
+    }
+  ),
+
+  rest.delete(
+    `${REACT_APP_API_URL}/predictions/delete/:predictionId`,
+    (req, res, ctx) =>
+      res.once(
+        ctx.status(404),
+        ctx.json({ error: "There was an error on the server" })
+      )
+  ),
+
+  rest.delete(
+    `${REACT_APP_API_URL}/predictions/delete/:predictionId`,
+    (req, res, ctx) => res(ctx.status(201))
   ),
 ];
