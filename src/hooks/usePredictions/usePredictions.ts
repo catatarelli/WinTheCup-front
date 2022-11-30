@@ -99,17 +99,53 @@ const usePredictions = () => {
           },
         }
       );
-      if (responseData.status === 201) {
-        dispatch(hideLoadingActionCreator());
-        dispatch(
-          openModalActionCreator({
-            modal: "Prediction created successfully! Good luck",
-            isError: false,
-            isLoading: false,
-          })
-        );
-        navigation.navigate(Routes.myPredictions);
+
+      if (responseData.status === 409) {
+        throw new Error("Prediction already created");
       }
+
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        openModalActionCreator({
+          modal: "Prediction created successfully! Good luck",
+          isError: false,
+          isLoading: false,
+        })
+      );
+      navigation.navigate(Routes.myPredictions);
+    } catch (error: unknown) {
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        openModalActionCreator({
+          modal: `${(error as Error).message}`,
+          isError: true,
+          isLoading: false,
+        })
+      );
+    }
+  };
+
+  const deletePrediction = async (predictionId: string) => {
+    dispatch(showLoadingActionCreator());
+    try {
+      await axios.delete(
+        `${REACT_APP_API_URL}/predictions/delete/${predictionId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        openModalActionCreator({
+          modal: "Prediction deleted",
+          isError: false,
+          isLoading: false,
+        })
+      );
     } catch {
       dispatch(hideLoadingActionCreator());
 
@@ -123,7 +159,12 @@ const usePredictions = () => {
     }
   };
 
-  return { getPredictions, getPredictionById, createPrediction };
+  return {
+    getPredictions,
+    getPredictionById,
+    createPrediction,
+    deletePrediction,
+  };
 };
 
 export default usePredictions;
