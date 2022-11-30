@@ -5,6 +5,8 @@ import { getRandomPrediction } from "../../mocks/predictionsFactory";
 import {
   mockGetPredictionByIdResponse,
   mockgetPredictionsResponse,
+  mockPredictionCreate,
+  mockPredictionCreateRepeated,
 } from "../../mocks/predictionsMocks";
 import {
   loadOnePredictionActionCreator,
@@ -144,8 +146,8 @@ describe("Given the custom hook usePredictions", () => {
     });
   });
 
-  describe("When its method createPrediction is invoked with one game and the server responds with 500 status", () => {
-    test("Then dispatch should be called three times to show and hide loading and to show the modal with one error", async () => {
+  describe("When its method createPrediction is invoked with one game and the server responds with 400 status", () => {
+    test("Then dispatch should be called three times to show and hide loading and to show the modal with an error", async () => {
       const {
         result: {
           current: { createPrediction },
@@ -170,14 +172,45 @@ describe("Given the custom hook usePredictions", () => {
         3,
         openModalActionCreator({
           isError: true,
-          modal: "There was an error on the server",
+          modal: "Request failed with status code 400",
           isLoading: false,
         })
       );
     });
   });
 
-  describe("When its method createPrediction is invoked with a prediction and the server responds with 201 status", () => {
+  describe("When its method createPrediction is invoked with a prediction of a match that is already created", () => {
+    test("Then dispatch should be called three times to show and hide loading and to show the modal with an error", async () => {
+      const {
+        result: {
+          current: { createPrediction },
+        },
+      } = renderHook(() => usePredictions(), {
+        wrapper: makeWrapper,
+      });
+
+      await createPrediction(mockPredictionCreateRepeated);
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        1,
+        showLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        2,
+        hideLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        openModalActionCreator({
+          isError: true,
+          modal: "Prediction already created",
+          isLoading: false,
+        })
+      );
+    });
+  });
+
+  describe("When its method createPrediction is invoked with a prediction", () => {
     test("Then dispatch should be called three times to show and hide loading and to show the modal", async () => {
       const {
         result: {
@@ -187,9 +220,7 @@ describe("Given the custom hook usePredictions", () => {
         wrapper: makeWrapper,
       });
 
-      const newPrediction: CreatePredicitonStructure = getRandomPrediction();
-
-      await createPrediction(newPrediction);
+      await createPrediction(mockPredictionCreate);
 
       expect(dispatchSpy).toHaveBeenNthCalledWith(
         1,
@@ -204,6 +235,70 @@ describe("Given the custom hook usePredictions", () => {
         openModalActionCreator({
           isError: false,
           modal: "Prediction created successfully! Good luck",
+          isLoading: false,
+        })
+      );
+    });
+  });
+});
+
+describe("Given the custom hook usePredictions", () => {
+  describe("When its method deletePerdiction is invoked with predictionId '56789' and the server responds with 404 status", () => {
+    test("Then dispatch should be called three times to show and hide loading and to show the modal with an error", async () => {
+      const {
+        result: {
+          current: { deletePrediction },
+        },
+      } = renderHook(() => usePredictions(), {
+        wrapper: makeWrapper,
+      });
+
+      await deletePrediction("1234");
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        1,
+        showLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        2,
+        hideLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        openModalActionCreator({
+          modal: "There was an error on the server",
+          isError: true,
+          isLoading: false,
+        })
+      );
+    });
+  });
+
+  describe("When its method deletePrediction is invoked with predictionId '56789'", () => {
+    test("Then dispatch should be called three times to show and hide loading and to show the modal", async () => {
+      const {
+        result: {
+          current: { deletePrediction },
+        },
+      } = renderHook(() => usePredictions(), {
+        wrapper: makeWrapper,
+      });
+
+      await deletePrediction("1234");
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        1,
+        showLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        2,
+        hideLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        openModalActionCreator({
+          modal: "Prediction deleted",
+          isError: false,
           isLoading: false,
         })
       );
