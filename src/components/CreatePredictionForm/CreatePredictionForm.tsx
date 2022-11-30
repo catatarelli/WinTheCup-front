@@ -90,6 +90,7 @@ const CreatePredictionForm = (): JSX.Element => {
           setValue={setValue}
           placeholder="Select a match"
           dropDownDirection="BOTTOM"
+          testID="dropdown"
         />
         <View style={styles.scoreContainer}>
           <View style={styles.stat}>
