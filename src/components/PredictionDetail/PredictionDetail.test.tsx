@@ -1,10 +1,23 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import { screen } from "@testing-library/react-native";
+import { screen, fireEvent } from "@testing-library/react-native";
 import React from "react";
 import { getRandomPrediction } from "../../mocks/predictionsFactory";
 import { renderWithProviders } from "../../mocks/renderWithProviders";
+import Routes from "../../navigation/routes";
 import PredictionDetail from "./PredictionDetail";
+
+const mockedNavigate = jest.fn();
+
+jest.mock("@react-navigation/native", () => {
+  const actualNav = jest.requireActual("@react-navigation/native");
+  return {
+    ...actualNav,
+    useNavigation: () => ({
+      navigate: mockedNavigate,
+    }),
+  };
+});
 
 describe("Given a PredictionDetail component", () => {
   describe("When it's rendered with a prediction", () => {
@@ -19,6 +32,20 @@ describe("Given a PredictionDetail component", () => {
 
       expect(displayedImage).toBeDefined();
       expect(displayedMatch).toBeDefined();
+    });
+  });
+
+  describe("And the user presses on delete button", () => {
+    test("Then the useNavigation should be called with the MyPredictions page reference", async () => {
+      const prediction = getRandomPrediction();
+      const buttonId = "deleteButton";
+
+      renderWithProviders(<PredictionDetail prediction={prediction} />);
+
+      const deleteButton = await screen.queryByTestId(buttonId);
+      fireEvent(deleteButton, "press");
+
+      expect(mockedNavigate).toHaveBeenCalledWith(Routes.myPredictions);
     });
   });
 });

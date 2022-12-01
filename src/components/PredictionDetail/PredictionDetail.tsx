@@ -64,7 +64,7 @@ const PredictionDetail = ({
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={handleDelete}>
-          <Text testID="closeButton" style={styles.buttonText}>
+          <Text testID="deleteButton" style={styles.buttonText}>
             Delete
           </Text>
         </TouchableOpacity>
