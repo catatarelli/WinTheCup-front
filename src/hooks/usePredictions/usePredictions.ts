@@ -90,25 +90,12 @@ const usePredictions = () => {
     dispatch(showLoadingActionCreator());
 
     try {
-      const response = await axios.post(
-        `${REACT_APP_API_URL}/predictions/create`,
-        prediction,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      if (response.status === 409) {
-        openModalActionCreator({
-          modal: "Prediction already created",
-          isError: true,
-          isLoading: false,
-        });
-        return;
-      }
+      await axios.post(`${REACT_APP_API_URL}/predictions/create`, prediction, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       dispatch(hideLoadingActionCreator());
       dispatch(
@@ -119,12 +106,12 @@ const usePredictions = () => {
         })
       );
       navigation.navigate(Routes.myPredictions);
-    } catch {
+    } catch (error: unknown) {
       dispatch(hideLoadingActionCreator());
 
       dispatch(
         openModalActionCreator({
-          modal: "There was an error creating the prediction",
+          modal: `${(error as Error).message}`,
           isError: true,
           isLoading: false,
         })

@@ -52,19 +52,25 @@ export const handlers = [
     res(ctx.status(200), ctx.json(mockGetPredictionByIdResponse))
   ),
 
-  rest.post(`${REACT_APP_API_URL}/predictions/create`, (req, res, ctx) =>
-    res.once(
-      ctx.status(400),
-      ctx.json({ error: "There was an error on the server" })
-    )
-  ),
-
   rest.post(
     `${REACT_APP_API_URL}/predictions/create`,
     async (req, res, ctx) => {
       const prediction = await req.json<CreatePredicitonStructure>();
+
       if (prediction.match === "Argentina vs Poland") {
-        return res(ctx.status(409));
+        return res(
+          ctx.status(409),
+          ctx.json({ errorMessage: "Prediction already created" })
+        );
+      }
+
+      if (prediction.match === "Argentina vs Mexico") {
+        return res(
+          ctx.status(400),
+          ctx.json({
+            errorMessage: "There was an error creating the prediction",
+          })
+        );
       }
 
       return res(ctx.status(201), ctx.json({ prediction }));
