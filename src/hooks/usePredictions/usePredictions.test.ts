@@ -27,6 +27,17 @@ beforeEach(() => {
 
 const dispatchSpy = jest.spyOn(store, "dispatch");
 
+jest.mock("@react-native-async-storage/async-storage", () => ({
+  setItem: jest.fn(),
+  getItem: jest.fn(),
+  removeItem: jest.fn(),
+}));
+
+jest.mock("../../utils/decodeToken", () => () => ({
+  id: "23456asdgerts",
+  username: "user1234",
+}));
+
 describe("Given the custom hook usePredictions", () => {
   describe("When its method getPredictions is invoked and axios rejects", () => {
     test("Then dispatch should be called three times to show and hide loading and to show the modal with the error message", async () => {
@@ -172,7 +183,7 @@ describe("Given the custom hook usePredictions", () => {
         3,
         openModalActionCreator({
           isError: true,
-          modal: "Request failed with status code 400",
+          modal: "There was an error creating the prediction",
           isLoading: false,
         })
       );
@@ -189,7 +200,11 @@ describe("Given the custom hook usePredictions", () => {
         wrapper: makeWrapper,
       });
 
-      await createPrediction(mockPredictionCreateRepeated);
+      await createPrediction({
+        match: "Argentina vs Poland",
+        goalsTeam1: 1,
+        goalsTeam2: 2,
+      });
 
       expect(dispatchSpy).toHaveBeenNthCalledWith(
         1,
@@ -240,9 +255,7 @@ describe("Given the custom hook usePredictions", () => {
       );
     });
   });
-});
 
-describe("Given the custom hook usePredictions", () => {
   describe("When its method deletePerdiction is invoked with predictionId '56789' and the server responds with 404 status", () => {
     test("Then dispatch should be called three times to show and hide loading and to show the modal with an error", async () => {
       const {

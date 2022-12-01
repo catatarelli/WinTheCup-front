@@ -88,8 +88,9 @@ const usePredictions = () => {
 
   const createPrediction = async (prediction: CreatePredicitonStructure) => {
     dispatch(showLoadingActionCreator());
+
     try {
-      const responseData = await axios.post(
+      const response = await axios.post(
         `${REACT_APP_API_URL}/predictions/create`,
         prediction,
         {
@@ -100,8 +101,13 @@ const usePredictions = () => {
         }
       );
 
-      if (responseData.status === 409) {
-        throw new Error("Prediction already created");
+      if (response.status === 409) {
+        openModalActionCreator({
+          modal: "Prediction already created",
+          isError: true,
+          isLoading: false,
+        });
+        return;
       }
 
       dispatch(hideLoadingActionCreator());
@@ -113,12 +119,12 @@ const usePredictions = () => {
         })
       );
       navigation.navigate(Routes.myPredictions);
-    } catch (error: unknown) {
+    } catch {
       dispatch(hideLoadingActionCreator());
 
       dispatch(
         openModalActionCreator({
-          modal: `${(error as Error).message}`,
+          modal: "There was an error creating the prediction",
           isError: true,
           isLoading: false,
         })
@@ -128,6 +134,7 @@ const usePredictions = () => {
 
   const deletePrediction = async (predictionId: string) => {
     dispatch(showLoadingActionCreator());
+
     try {
       await axios.delete(
         `${REACT_APP_API_URL}/predictions/delete/${predictionId}`,
