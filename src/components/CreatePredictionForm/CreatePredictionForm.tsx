@@ -29,6 +29,14 @@ const CreatePredictionForm = (): JSX.Element => {
 
   const [formData, setFormData] = useState(intialFormData);
 
+  const resetForm = () => {
+    setFormData(intialFormData);
+    setValue(null);
+    setImageSelected("");
+    setImageType("");
+    setImageName("");
+  };
+
   const handleSubmit = async () => {
     const newPrediction = new FormData();
     newPrediction.append("match", value!);
@@ -42,6 +50,7 @@ const CreatePredictionForm = (): JSX.Element => {
       uri: imageSelected,
       name: imageName,
     });
+    resetForm();
     await createPrediction(newPrediction);
     await getPredictions();
   };
