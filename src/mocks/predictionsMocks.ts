@@ -37,13 +37,13 @@ export const currentPredictionMock: PredictionStructure = {
   picture: "asdf",
 };
 
-export const mockPredictionCreate: CreatePredicitonStructure = {
+export const mockPredictionCreateRepeated: CreatePredicitonStructure = {
   match: "Argentina vs Mexico",
   goalsTeam1: 3,
   goalsTeam2: 2,
 };
 
-export const mockPredictionCreateRepeated: CreatePredicitonStructure = {
+export const mockPredictionCreate: CreatePredicitonStructure = {
   match: "Argentina vs Poland",
   goalsTeam1: 3,
   goalsTeam2: 2,

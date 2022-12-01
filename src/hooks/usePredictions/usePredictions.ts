@@ -106,12 +106,11 @@ const usePredictions = () => {
         })
       );
       navigation.navigate(Routes.myPredictions);
-    } catch (error: unknown) {
+    } catch {
       dispatch(hideLoadingActionCreator());
-
       dispatch(
         openModalActionCreator({
-          modal: `${(error as Error).message}`,
+          modal: "There was an error creating the prediction",
           isError: true,
           isLoading: false,
         })
