@@ -18,13 +18,19 @@ const PredictionCard = ({
   prediction: { match, goalsTeam1, goalsTeam2, backupPicture, id },
 }: PredictionCardProps): JSX.Element => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
-  const { getPredictionById } = usePredictions();
+  const { getPredictionById, deletePrediction, getPredictions } =
+    usePredictions();
 
   const matchAndDate = match.split("-");
 
   const handlePress = () => {
     getPredictionById(id);
     navigation.navigate(Routes.predictionDetail);
+  };
+
+  const handleDelete = () => {
+    deletePrediction(id);
+    getPredictions();
   };
 
   return (
@@ -51,8 +57,8 @@ const PredictionCard = ({
             <FontAwesomeIcon icon={faPencil} size={30} style={styles.icon} />
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text testID="closeButton">
+        <TouchableOpacity onPress={handleDelete}>
+          <Text testID="deleteButton">
             <FontAwesomeIcon
               icon={faSquareXmark}
               size={30}

@@ -88,28 +88,57 @@ const usePredictions = () => {
 
   const createPrediction = async (prediction: CreatePredicitonStructure) => {
     dispatch(showLoadingActionCreator());
+
     try {
-      const responseData = await axios.post(
-        `${REACT_APP_API_URL}/predictions/create`,
-        prediction,
+      await axios.post(`${REACT_APP_API_URL}/predictions/create`, prediction, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        openModalActionCreator({
+          modal: "Prediction created successfully! Good luck",
+          isError: false,
+          isLoading: false,
+        })
+      );
+      navigation.navigate(Routes.myPredictions);
+    } catch {
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        openModalActionCreator({
+          modal: "There was an error creating the prediction",
+          isError: true,
+          isLoading: false,
+        })
+      );
+    }
+  };
+
+  const deletePrediction = async (predictionId: string) => {
+    dispatch(showLoadingActionCreator());
+
+    try {
+      await axios.delete(
+        `${REACT_APP_API_URL}/predictions/delete/${predictionId}`,
         {
           headers: {
-            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
           },
         }
       );
-      if (responseData.status === 201) {
-        dispatch(hideLoadingActionCreator());
-        dispatch(
-          openModalActionCreator({
-            modal: "Prediction created successfully! Good luck",
-            isError: false,
-            isLoading: false,
-          })
-        );
-        navigation.navigate(Routes.myPredictions);
-      }
+
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        openModalActionCreator({
+          modal: "Prediction deleted",
+          isError: false,
+          isLoading: false,
+        })
+      );
     } catch {
       dispatch(hideLoadingActionCreator());
 
@@ -123,7 +152,12 @@ const usePredictions = () => {
     }
   };
 
-  return { getPredictions, getPredictionById, createPrediction };
+  return {
+    getPredictions,
+    getPredictionById,
+    createPrediction,
+    deletePrediction,
+  };
 };
 
 export default usePredictions;

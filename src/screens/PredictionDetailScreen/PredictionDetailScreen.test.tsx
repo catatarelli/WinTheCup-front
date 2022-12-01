@@ -4,6 +4,7 @@ import { screen, render } from "@testing-library/react-native";
 import PredictionDetailScreen from "./PredictionDetailScreen";
 import { Provider } from "react-redux";
 import { mockInitialStoreSuccessModal } from "../../mocks/mockInitialStore";
+import { NavigationContainer } from "@react-navigation/native";
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -17,7 +18,9 @@ describe("Given a PredictionDetailScreen component", () => {
 
       render(
         <Provider store={mockInitialStoreSuccessModal}>
-          <PredictionDetailScreen />
+          <NavigationContainer>
+            <PredictionDetailScreen />
+          </NavigationContainer>
         </Provider>
       );
 

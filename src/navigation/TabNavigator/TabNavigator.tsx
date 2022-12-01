@@ -23,7 +23,10 @@ const TabNavigator = (): JSX.Element => {
           height: 80,
           backgroundColor: colors.beige,
           paddingBottom: 5,
+          borderTopColor: colors.grey,
+          borderTopWidth: 1,
         },
+
         tabBarActiveTintColor: colors.black,
         tabBarInactiveTintColor: colors.wine,
         headerShown: false,

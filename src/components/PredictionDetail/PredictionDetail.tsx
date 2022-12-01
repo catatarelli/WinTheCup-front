@@ -1,6 +1,11 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Text, TouchableOpacity, Image, View } from "react-native";
+import usePredictions from "../../hooks/usePredictions/usePredictions";
+import Routes from "../../navigation/routes";
 import type { PredictionStructure } from "../../redux/features/predictions/predictionsTypes";
+import { type LoginScreenNavigationProp } from "../../types/navigation.types";
 import styles from "./PredictionDetailStyled";
 
 interface PredictionCardProps {
@@ -16,9 +21,18 @@ const PredictionDetail = ({
     yellowCards,
     penalties,
     backupPicture,
+    id,
   },
 }: PredictionCardProps): JSX.Element => {
   const matchAndDate = match.split("-");
+  const { deletePrediction, getPredictions } = usePredictions();
+  const navigation = useNavigation<LoginScreenNavigationProp>();
+
+  const handleDelete = () => {
+    deletePrediction(id);
+    navigation.navigate(Routes.myPredictions);
+    getPredictions();
+  };
 
   return (
     <View style={styles.container} testID="predictionDetail">
@@ -49,8 +63,8 @@ const PredictionDetail = ({
             Edit
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text testID="closeButton" style={styles.buttonText}>
+        <TouchableOpacity style={styles.button} onPress={handleDelete}>
+          <Text testID="deleteButton" style={styles.buttonText}>
             Delete
           </Text>
         </TouchableOpacity>

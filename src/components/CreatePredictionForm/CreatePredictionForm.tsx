@@ -58,24 +58,20 @@ const CreatePredictionForm = (): JSX.Element => {
   };
 
   const chooseFile = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 0,
-      });
-      if (!result.canceled) {
-        const localUri = result.assets[0].uri;
-        setImageSelected(localUri);
-        const filename = localUri.split("/").pop();
-        setImageName(filename!);
-        const match = /\.(\w+)$/.exec(filename!);
-        const type = match ? `image/${match[1]}` : `image`;
-        setImageType(type);
-      }
-    } catch (catchError: unknown) {
-      return catchError;
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 0,
+    });
+    if (!result.canceled) {
+      const localUri = result.assets[0].uri;
+      setImageSelected(localUri);
+      const filename = localUri.split("/").pop();
+      setImageName(filename!);
+      const match = /\.(\w+)$/.exec(filename!);
+      const type = match ? `image/${match[1]}` : `image`;
+      setImageType(type);
     }
   };
 

@@ -63,7 +63,7 @@ describe("Given a LoginFrom component", () => {
     });
   });
 
-  describe("And the user clicks the 'Join now' button", () => {
+  describe("And the user presses the 'Join now' button", () => {
     test("Then the useNavigation should be called with the register page reference", async () => {
       const registerButtonText = "Join now";
 
