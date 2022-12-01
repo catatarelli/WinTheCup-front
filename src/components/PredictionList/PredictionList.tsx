@@ -15,7 +15,6 @@ import type { PredictionStructure } from "../../redux/features/predictions/predi
 import formStyles from "../../styles/form.styles";
 import headingStyles from "../../styles/headings.styles";
 import { LoginScreenNavigationProp } from "../../types/navigation.types";
-import loginStyles from "../LoginForm/LoginFormStyled";
 import PredictionCard from "../PredictionCard/PredictionCard";
 import listStyles from "./PredictionListStyled";
 
