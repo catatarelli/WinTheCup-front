@@ -13,6 +13,16 @@ jest.mock("@react-native-async-storage/async-storage", () => ({
   removeItem: jest.fn(),
 }));
 
+const mockDeletePrediction = jest.fn();
+const mockPredictionById = jest.fn();
+const mockGetPrediction = jest.fn();
+
+jest.mock("../../hooks/usePredictions/usePredictions", () => () => ({
+  deletePrediction: mockDeletePrediction,
+  getPredictionById: mockPredictionById,
+  getPredictions: mockGetPrediction,
+}));
+
 const mockedNavigate = jest.fn();
 
 jest.mock("@react-navigation/native", () => {
@@ -52,6 +62,20 @@ describe("Given a PredictionCard component", () => {
       fireEvent(matchButton, "press");
 
       expect(mockedNavigate).toHaveBeenCalledWith(Routes.predictionDetail);
+    });
+  });
+
+  describe("And the user presses on the delete button", () => {
+    test("Then it should call the deletePrediction function", async () => {
+      const prediction = getRandomPrediction();
+      const buttonId = "deleteButton";
+
+      renderWithProviders(<PredictionCard prediction={prediction} />);
+
+      const deleteButton = await screen.queryByTestId(buttonId);
+      fireEvent(deleteButton, "press");
+
+      expect(mockDeletePrediction).toHaveBeenCalledWith(prediction.id);
     });
   });
 });

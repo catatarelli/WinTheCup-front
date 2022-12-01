@@ -58,7 +58,7 @@ const PredictionCard = ({
           </Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleDelete}>
-          <Text testID="closeButton">
+          <Text testID="deleteButton">
             <FontAwesomeIcon
               icon={faSquareXmark}
               size={30}
