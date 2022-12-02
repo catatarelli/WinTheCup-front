@@ -5,6 +5,7 @@ import CreatePredictionForm from "../../components/CreatePredictionForm/CreatePr
 import headingStyles from "../../styles/headings.styles";
 import { useAppSelector } from "../../redux/hooks";
 import matches from "../../utils/matches";
+import { type PredictionStructure } from "../../redux/features/predictions/predictionsTypes";
 
 const CreatePredictionScreen = (): JSX.Element => {
   const { predictions } = useAppSelector((state) => state.predictions);
@@ -14,10 +15,25 @@ const CreatePredictionScreen = (): JSX.Element => {
       !predictions.some((prediction) => prediction.match === match.value)
   );
 
+  const currentPrediction: PredictionStructure = {
+    match: "",
+    goalsTeam1: 0,
+    goalsTeam2: 0,
+    redCards: 0,
+    yellowCards: 0,
+    penalties: 0,
+    picture: "",
+    id: "",
+    createdBy: "",
+  };
+
   return (
     <SafeAreaView style={screenStyles.container}>
       <Text style={headingStyles.pageTitle}>Create a new prediction</Text>
-      <CreatePredictionForm matches={matchesList} />
+      <CreatePredictionForm
+        matches={matchesList}
+        currentPrediction={currentPrediction}
+      />
     </SafeAreaView>
   );
 };
