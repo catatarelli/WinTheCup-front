@@ -60,6 +60,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 5,
   },
+  match: {
+    fontSize: 20,
+    marginTop: 10,
+  },
 });
 
 export default styles;
