@@ -277,4 +277,72 @@ describe("Given the custom hook usePredictions", () => {
       );
     });
   });
+
+  describe("When its method updatePrediction is invoked with predictionId '56789' and new data and the server responds with 404 status", () => {
+    test("Then dispatch should be called three times to show and hide loading and to show the modal", async () => {
+      const {
+        result: {
+          current: { updatePrediction },
+        },
+      } = renderHook(() => usePredictions(), {
+        wrapper: makeWrapper,
+      });
+
+      await updatePrediction(
+        mockGetPredictionByIdResponse,
+        mockGetPredictionByIdResponse.id
+      );
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        1,
+        showLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        2,
+        hideLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        openModalActionCreator({
+          isError: true,
+          modal: "There was an error updating the prediction",
+          isLoading: false,
+        })
+      );
+    });
+  });
+
+  describe("When its method updatePrediction is invoked with predictionId '56789' and new data and the server responds with 200 status", () => {
+    test("Then dispatch should be called three times to show and hide loading and to show the modal", async () => {
+      const {
+        result: {
+          current: { updatePrediction },
+        },
+      } = renderHook(() => usePredictions(), {
+        wrapper: makeWrapper,
+      });
+
+      await updatePrediction(
+        mockGetPredictionByIdResponse,
+        mockGetPredictionByIdResponse.id
+      );
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        1,
+        showLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        2,
+        hideLoadingActionCreator()
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        openModalActionCreator({
+          isError: false,
+          modal: "Prediction updated successfully",
+          isLoading: false,
+        })
+      );
+    });
+  });
 });

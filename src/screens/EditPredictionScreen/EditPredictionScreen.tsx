@@ -6,8 +6,10 @@ import headingStyles from "../../styles/headings.styles";
 import { useAppSelector } from "../../redux/hooks";
 import matches from "../../utils/matches";
 
-const CreatePredictionScreen = (): JSX.Element => {
-  const { predictions } = useAppSelector((state) => state.predictions);
+const EditPredictionScreen = (): JSX.Element => {
+  const { predictions, currentPrediction } = useAppSelector(
+    (state) => state.predictions
+  );
 
   const matchesList = matches.filter(
     (match) =>
@@ -16,10 +18,15 @@ const CreatePredictionScreen = (): JSX.Element => {
 
   return (
     <SafeAreaView style={screenStyles.container}>
-      <Text style={headingStyles.pageTitle}>Create a new prediction</Text>
-      <CreatePredictionForm matches={matchesList} />
+      <Text style={headingStyles.pageTitle} testID="Edit prediction">
+        Edit prediction
+      </Text>
+      <CreatePredictionForm
+        matches={matchesList}
+        currentPrediction={currentPrediction}
+      />
     </SafeAreaView>
   );
 };
 
-export default CreatePredictionScreen;
+export default EditPredictionScreen;

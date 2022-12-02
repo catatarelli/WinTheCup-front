@@ -8,30 +8,66 @@ import * as ImagePicker from "expo-image-picker";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import usePredictions from "../../hooks/usePredictions/usePredictions";
-import { type CreatePredicitonStructure } from "../../redux/features/predictions/predictionsTypes";
 import styles from "./CreatePredictionFormStyled";
-import matches from "../../utils/matches";
+import type {
+  CreatePredicitonStructure,
+  Match,
+  PredictionStructure,
+} from "../../redux/features/predictions/predictionsTypes";
 
-const CreatePredictionForm = (): JSX.Element => {
-  const { createPrediction, getPredictions } = usePredictions();
+interface CreatePredictionFormProps {
+  matches: Match[];
+  currentPrediction?: PredictionStructure;
+}
+
+const CreatePredictionForm = ({
+  matches,
+  currentPrediction,
+}: CreatePredictionFormProps): JSX.Element => {
+  const { createPrediction, getPredictions, updatePrediction } =
+    usePredictions();
+
+  let initialFormData: CreatePredicitonStructure;
+  let matchAndDate: string[];
+
+  if (currentPrediction) {
+    initialFormData = {
+      match: currentPrediction.match,
+      goalsTeam1: currentPrediction.goalsTeam1,
+      goalsTeam2: currentPrediction.goalsTeam2,
+      redCards: currentPrediction.redCards,
+      yellowCards: currentPrediction.yellowCards,
+      penalties: currentPrediction.penalties,
+      picture: currentPrediction.picture,
+    };
+    matchAndDate = currentPrediction.match.split("-");
+  } else {
+    initialFormData = {
+      match: "",
+      goalsTeam1: 0,
+      goalsTeam2: 0,
+      redCards: 0,
+      yellowCards: 0,
+      penalties: 0,
+      picture: "",
+    };
+  }
+
+  const [formData, setFormData] = useState(initialFormData);
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
-
-  const intialFormData: CreatePredicitonStructure = {
-    match: "",
-    goalsTeam1: 0,
-    goalsTeam2: 0,
-    redCards: 0,
-    yellowCards: 0,
-    penalties: 0,
-    picture: "",
-  };
-
-  const [formData, setFormData] = useState(intialFormData);
+  const [value, setValue] = useState("");
 
   const resetForm = () => {
-    setFormData(intialFormData);
-    setValue(null);
+    setFormData({
+      match: "",
+      goalsTeam1: 0,
+      goalsTeam2: 0,
+      redCards: 0,
+      yellowCards: 0,
+      penalties: 0,
+      picture: "",
+    });
+    setValue("");
     setImageSelected("");
     setImageType("");
     setImageName("");
@@ -39,18 +75,29 @@ const CreatePredictionForm = (): JSX.Element => {
 
   const handleSubmit = async () => {
     const newPrediction = new FormData();
-    newPrediction.append("match", value!);
-    newPrediction.append("goalsTeam1", formData.goalsTeam1);
-    newPrediction.append("goalsTeam2", formData.goalsTeam2);
-    newPrediction.append("redCards", formData.redCards!);
-    newPrediction.append("yellowCards", formData.yellowCards!);
-    newPrediction.append("penalties", formData.penalties!);
+    if (currentPrediction) {
+      newPrediction.append("match", currentPrediction.match);
+    } else {
+      newPrediction.append("match", value);
+    }
+
+    newPrediction.append("goalsTeam1", formData.goalsTeam1.toString());
+    newPrediction.append("goalsTeam2", formData.goalsTeam2.toString());
+    newPrediction.append("redCards", formData.redCards!.toString());
+    newPrediction.append("yellowCards", formData.yellowCards!.toString());
+    newPrediction.append("penalties", formData.penalties!.toString());
     newPrediction.append("picture", {
       type: imageType,
       uri: imageSelected,
       name: imageName,
     });
     resetForm();
+    if (currentPrediction) {
+      await updatePrediction(newPrediction, currentPrediction.id);
+      await getPredictions();
+      return;
+    }
+
     await createPrediction(newPrediction);
     await getPredictions();
   };
@@ -87,16 +134,23 @@ const CreatePredictionForm = (): JSX.Element => {
   return (
     <View style={styles.background}>
       <View style={styles.container}>
-        <DropDownPicker
-          open={open}
-          setOpen={setOpen}
-          value={value}
-          items={matches}
-          setValue={setValue}
-          placeholder="Select a match"
-          dropDownDirection="BOTTOM"
-          testID="dropdown"
-        />
+        {currentPrediction ? (
+          <>
+            <Text style={styles.match}>{matchAndDate![0]}</Text>
+            <Text style={styles.match}>{matchAndDate![1]}</Text>
+          </>
+        ) : (
+          <DropDownPicker
+            open={open}
+            setOpen={setOpen}
+            value={value}
+            items={matches}
+            setValue={setValue}
+            placeholder="Select a match"
+            dropDownDirection="BOTTOM"
+            testID="dropdown"
+          />
+        )}
         <View style={styles.scoreContainer}>
           <View style={styles.stat}>
             <Text style={styles.text}>Goals Team 1</Text>
@@ -219,13 +273,23 @@ const CreatePredictionForm = (): JSX.Element => {
           ""
         )}
 
-        <TouchableOpacity
-          onPress={handleSubmit}
-          testID={"submitButton"}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>Create prediction</Text>
-        </TouchableOpacity>
+        {currentPrediction ? (
+          <TouchableOpacity
+            onPress={handleSubmit}
+            testID={"submitButton"}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>Edit prediction</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={handleSubmit}
+            testID={"submitButton"}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>Create prediction</Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );

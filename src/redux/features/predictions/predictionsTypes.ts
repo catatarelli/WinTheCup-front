@@ -1,12 +1,24 @@
 export interface PredictionsState {
   predictions: PredictionStructure[];
   currentPrediction: PredictionStructure;
+  wantsToUpdate: boolean;
 }
 
 export interface CreatePredicitonStructure {
   match: string;
   goalsTeam1: number;
   goalsTeam2: number;
+  redCards?: number;
+  yellowCards?: number;
+  penalties?: number;
+  picture?: string;
+  backupPicture?: string;
+}
+
+export interface UpdatePredicitonStructure {
+  match?: string;
+  goalsTeam1?: number;
+  goalsTeam2?: number;
   redCards?: number;
   yellowCards?: number;
   penalties?: number;
@@ -20,4 +32,9 @@ export interface PredictionStructure extends CreatePredicitonStructure {
 
 export interface PredictionsResponse {
   predictions: PredictionStructure[];
+}
+
+export interface Match {
+  label: string;
+  value: string;
 }

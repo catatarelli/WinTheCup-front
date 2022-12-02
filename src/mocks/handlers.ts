@@ -75,4 +75,18 @@ export const handlers = [
     `${REACT_APP_API_URL}/predictions/delete/:predictionId`,
     (req, res, ctx) => res(ctx.status(201))
   ),
+
+  rest.patch(
+    `${REACT_APP_API_URL}/predictions/update/:predictionId`,
+    (req, res, ctx) =>
+      res.once(
+        ctx.status(404),
+        ctx.json({ error: "There was an error on the server" })
+      )
+  ),
+
+  rest.patch(
+    `${REACT_APP_API_URL}/predictions/update/:predictionId`,
+    (req, res, ctx) => res(ctx.status(200))
+  ),
 ];

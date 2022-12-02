@@ -56,16 +56,6 @@ const useUser = () => {
         `${REACT_APP_API_URL}/user/login`,
         userData
       );
-      if (responseData.status === 401) {
-        dispatch(
-          openModalActionCreator({
-            modal: "Wrong credentials",
-            isError: true,
-            isLoading: false,
-          })
-        );
-        return;
-      }
 
       const { token } = responseData.data;
       const loggedUser: JwtCustomPayload = decodeToken(token);

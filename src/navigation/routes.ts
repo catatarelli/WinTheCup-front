@@ -6,6 +6,7 @@ enum Routes {
   predictionDetail = "PredictionDetail",
   home = "Home",
   createPrediction = "CreatePrediction",
+  editPrediction = "EditPrediction",
   logout = "Logout",
 }
 

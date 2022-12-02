@@ -34,6 +34,10 @@ const PredictionDetail = ({
     getPredictions();
   };
 
+  const handleEdit = () => {
+    navigation.navigate(Routes.editPrediction);
+  };
+
   return (
     <View style={styles.container} testID="predictionDetail">
       <Image
@@ -58,7 +62,7 @@ const PredictionDetail = ({
         </View>
       </View>
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={handleEdit}>
           <Text testID="editButton" style={styles.buttonText}>
             Edit
           </Text>

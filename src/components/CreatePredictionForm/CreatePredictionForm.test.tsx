@@ -3,6 +3,7 @@ import React from "react";
 import { screen, fireEvent } from "@testing-library/react-native";
 import { renderWithProviders } from "../../mocks/renderWithProviders";
 import CreatePredictionForm from "./CreatePredictionForm";
+import matches from "../../utils/matches";
 
 const mockCreatePrediction = jest.fn();
 
@@ -15,7 +16,7 @@ describe("Given a CreatePredictionForm component", () => {
     test("Then it should show a select with text 'Select a match'", async () => {
       const expectedText = "Select a match";
 
-      renderWithProviders(<CreatePredictionForm />);
+      renderWithProviders(<CreatePredictionForm matches={matches} />);
 
       const selectTitle = await screen.getByText(expectedText);
 
@@ -28,7 +29,7 @@ describe("Given a CreatePredictionForm component", () => {
       const buttonId = "submitButton";
       const dropdownId = "dropdown";
 
-      renderWithProviders(<CreatePredictionForm />);
+      renderWithProviders(<CreatePredictionForm matches={matches} />);
       screen.debug();
 
       const button = await screen.getByTestId(buttonId);
