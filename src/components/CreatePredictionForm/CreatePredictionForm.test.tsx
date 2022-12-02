@@ -4,6 +4,7 @@ import { screen, fireEvent } from "@testing-library/react-native";
 import { renderWithProviders } from "../../mocks/renderWithProviders";
 import CreatePredictionForm from "./CreatePredictionForm";
 import matches from "../../utils/matches";
+import { getRandomPrediction } from "../../mocks/predictionsFactory";
 
 const mockCreatePrediction = jest.fn();
 
@@ -11,12 +12,29 @@ jest.mock("../../hooks/usePredictions/usePredictions", () => () => ({
   createPrediction: mockCreatePrediction,
 }));
 
+const prediction = {
+  match: "",
+  goalsTeam1: 0,
+  goalsTeam2: 0,
+  redCards: 0,
+  yellowCards: 0,
+  penalties: 0,
+  picture: "",
+  id: "",
+  createdBy: "",
+};
+
 describe("Given a CreatePredictionForm component", () => {
-  describe("When it's rendered", () => {
+  describe("When it's rendered with a current prediction", () => {
     test("Then it should show a select with text 'Select a match'", async () => {
       const expectedText = "Select a match";
 
-      renderWithProviders(<CreatePredictionForm matches={matches} />);
+      renderWithProviders(
+        <CreatePredictionForm
+          matches={matches}
+          currentPrediction={prediction}
+        />
+      );
 
       const selectTitle = await screen.getByText(expectedText);
 
@@ -29,7 +47,12 @@ describe("Given a CreatePredictionForm component", () => {
       const buttonId = "submitButton";
       const dropdownId = "dropdown";
 
-      renderWithProviders(<CreatePredictionForm matches={matches} />);
+      renderWithProviders(
+        <CreatePredictionForm
+          matches={matches}
+          currentPrediction={prediction}
+        />
+      );
       screen.debug();
 
       const button = await screen.getByTestId(buttonId);
