@@ -10,14 +10,13 @@ import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import usePredictions from "../../hooks/usePredictions/usePredictions";
 import styles from "./CreatePredictionFormStyled";
 import type {
-  CreatePredicitonStructure,
   Match,
   PredictionStructure,
 } from "../../redux/features/predictions/predictionsTypes";
 
 interface CreatePredictionFormProps {
   matches: Match[];
-  currentPrediction?: PredictionStructure;
+  currentPrediction: PredictionStructure;
 }
 
 const CreatePredictionForm = ({
@@ -27,35 +26,22 @@ const CreatePredictionForm = ({
   const { createPrediction, getPredictions, updatePrediction } =
     usePredictions();
 
-  let initialFormData: CreatePredicitonStructure;
-  let matchAndDate: string[];
-
-  if (currentPrediction) {
-    initialFormData = {
-      match: currentPrediction.match,
-      goalsTeam1: currentPrediction.goalsTeam1,
-      goalsTeam2: currentPrediction.goalsTeam2,
-      redCards: currentPrediction.redCards,
-      yellowCards: currentPrediction.yellowCards,
-      penalties: currentPrediction.penalties,
-      picture: currentPrediction.picture,
-    };
-    matchAndDate = currentPrediction.match.split("-");
-  } else {
-    initialFormData = {
-      match: "",
-      goalsTeam1: 0,
-      goalsTeam2: 0,
-      redCards: 0,
-      yellowCards: 0,
-      penalties: 0,
-      picture: "",
-    };
-  }
+  const initialFormData = {
+    match: currentPrediction.match,
+    goalsTeam1: currentPrediction.goalsTeam1,
+    goalsTeam2: currentPrediction.goalsTeam2,
+    redCards: currentPrediction.redCards,
+    yellowCards: currentPrediction.yellowCards,
+    penalties: currentPrediction.penalties,
+    picture: currentPrediction.picture,
+  };
 
   const [formData, setFormData] = useState(initialFormData);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
+  const [imageSelected, setImageSelected] = useState("");
+  const [imageType, setImageType] = useState("");
+  const [imageName, setImageName] = useState("");
 
   const resetForm = () => {
     setFormData({
@@ -75,7 +61,7 @@ const CreatePredictionForm = ({
 
   const handleSubmit = async () => {
     const newPrediction = new FormData();
-    if (currentPrediction) {
+    if (currentPrediction.match) {
       newPrediction.append("match", currentPrediction.match);
     } else {
       newPrediction.append("match", value);
@@ -92,7 +78,7 @@ const CreatePredictionForm = ({
       name: imageName,
     });
     resetForm();
-    if (currentPrediction) {
+    if (currentPrediction.match) {
       await updatePrediction(newPrediction, currentPrediction.id);
       await getPredictions();
       return;
@@ -101,10 +87,6 @@ const CreatePredictionForm = ({
     await createPrediction(newPrediction);
     await getPredictions();
   };
-
-  const [imageSelected, setImageSelected] = useState("");
-  const [imageType, setImageType] = useState("");
-  const [imageName, setImageName] = useState("");
 
   const handleFormChange = (text: string, identify: string) => {
     setFormData({
@@ -131,13 +113,15 @@ const CreatePredictionForm = ({
     }
   };
 
+  const matchAndDate = currentPrediction.match.split("-");
+
   return (
     <View style={styles.background}>
       <View style={styles.container}>
-        {currentPrediction ? (
+        {currentPrediction.match ? (
           <>
-            <Text style={styles.match}>{matchAndDate![0]}</Text>
-            <Text style={styles.match}>{matchAndDate![1]}</Text>
+            <Text style={styles.match}>{matchAndDate[0]}</Text>
+            <Text style={styles.match}>{matchAndDate[1]}</Text>
           </>
         ) : (
           <DropDownPicker
@@ -273,7 +257,7 @@ const CreatePredictionForm = ({
           ""
         )}
 
-        {currentPrediction ? (
+        {currentPrediction.match ? (
           <TouchableOpacity
             onPress={handleSubmit}
             testID={"submitButton"}
