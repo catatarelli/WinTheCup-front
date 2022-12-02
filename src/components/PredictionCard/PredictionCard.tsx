@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 import { useNavigation } from "@react-navigation/native";
-import { faSquareXmark, faPencil } from "@fortawesome/free-solid-svg-icons";
+import { faSquareXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import React from "react";
 import { Text, TouchableOpacity, Image, View } from "react-native";
@@ -52,11 +52,6 @@ const PredictionCard = ({
         </View>
       </TouchableOpacity>
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity>
-          <Text testID="editButton">
-            <FontAwesomeIcon icon={faPencil} size={30} style={styles.icon} />
-          </Text>
-        </TouchableOpacity>
         <TouchableOpacity onPress={handleDelete}>
           <Text testID="deleteButton">
             <FontAwesomeIcon

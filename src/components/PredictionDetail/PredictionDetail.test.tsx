@@ -48,4 +48,18 @@ describe("Given a PredictionDetail component", () => {
       expect(mockedNavigate).toHaveBeenCalledWith(Routes.myPredictions);
     });
   });
+
+  describe("And the user presses on the edit button", () => {
+    test("Then the useNavigation should be called with the editPrediction page reference", async () => {
+      const prediction = getRandomPrediction();
+      const buttonId = "editButton";
+
+      renderWithProviders(<PredictionDetail prediction={prediction} />);
+
+      const editButton = await screen.queryByTestId(buttonId);
+      fireEvent(editButton, "press");
+
+      expect(mockedNavigate).toHaveBeenCalledWith(Routes.editPrediction);
+    });
+  });
 });
