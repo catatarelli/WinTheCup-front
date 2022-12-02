@@ -14,6 +14,7 @@ import type {
   CreatePredicitonStructure,
   PredictionsResponse,
   PredictionStructure,
+  UpdatePredicitonStructure,
 } from "../../redux/features/predictions/predictionsTypes";
 import {
   loadOnePredictionActionCreator,
@@ -152,11 +153,52 @@ const usePredictions = () => {
     }
   };
 
+  const updatePrediction = async (
+    prediction: UpdatePredicitonStructure,
+    predictionId: string
+  ) => {
+    dispatch(showLoadingActionCreator());
+    try {
+      await axios.patch(
+        `${REACT_APP_API_URL}/predictions/update/${predictionId}`,
+        prediction,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        openModalActionCreator({
+          isError: false,
+          modal: "Prediction updated successfully",
+          isLoading: false,
+        })
+      );
+
+      navigation.navigate(Routes.myPredictions);
+    } catch {
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        openModalActionCreator({
+          isError: true,
+          modal: "There was an error updating the prediction",
+          isLoading: false,
+        })
+      );
+    }
+  };
+
   return {
     getPredictions,
     getPredictionById,
     createPrediction,
     deletePrediction,
+    updatePrediction,
   };
 };
 
