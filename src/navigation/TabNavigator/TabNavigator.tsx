@@ -21,6 +21,7 @@ import useToken from "../../hooks/useToken/useToken";
 import { useNavigation } from "@react-navigation/native";
 import { type LoginScreenNavigationProp } from "../../types/navigation.types";
 import CustomModal from "../../components/CustomModal/CustomModal";
+import EditPredictionScreen from "../../screens/EditPredictionScreen/EditPredictionScreen";
 
 const TabNavigator = (): JSX.Element => {
   const Tab = createBottomTabNavigator();
@@ -64,6 +65,13 @@ const TabNavigator = (): JSX.Element => {
       <Tab.Screen
         name={Routes.predictionDetail}
         component={PredictionDetailScreen}
+        options={{
+          tabBarItemStyle: { display: "none" },
+        }}
+      />
+      <Tab.Screen
+        name={Routes.editPrediction}
+        component={EditPredictionScreen}
         options={{
           tabBarItemStyle: { display: "none" },
         }}
