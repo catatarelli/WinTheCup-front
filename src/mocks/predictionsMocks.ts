@@ -58,3 +58,8 @@ export const mockGetPredictionByIdResponse: PredictionStructure = {
   ...getRandomPrediction(),
   id: "56789",
 };
+
+export const matchesMock = [
+  { label: "Argentina vs Chile", value: "Argentina vs Chile" },
+  { label: "Mexico vs Poland", value: "Mexico vs Poland" },
+];
