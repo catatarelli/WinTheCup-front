@@ -18,6 +18,7 @@ module.exports = {
           "error",
           "interface",
         ],
+        "react-native/no-color-literals": "off",
         "@typescript-eslint/indent": "off",
         "@typescript-eslint/no-empty-function": "off",
         "no-unused-vars": [
@@ -67,7 +68,7 @@ module.exports = {
     "react-native/no-raw-text": ["warn"],
     "react-native/split-platform-components": ["warn"],
     "react-native/sort-styles": "off",
-    "react-native/no-color-literals": ["warn"],
+    "react-native/no-color-literals": "off",
     "react-native/no-unused-styles": ["warn"],
     "comma-dangle": ["error", "only-multiline"],
     quotes: ["error", "double", { allowTemplateLiterals: true }],

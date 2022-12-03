@@ -1,7 +1,6 @@
 export interface PredictionsState {
   predictions: PredictionStructure[];
   currentPrediction: PredictionStructure;
-  wantsToUpdate: boolean;
 }
 
 export interface CreatePredicitonStructure {

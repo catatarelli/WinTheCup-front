@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-color-literals */
 /* eslint-disable react-native/no-inline-styles */
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
