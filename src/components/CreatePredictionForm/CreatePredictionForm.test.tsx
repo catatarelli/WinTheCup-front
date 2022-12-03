@@ -80,6 +80,11 @@ describe("Given a CreatePredictionForm component", () => {
     test("Then it should call createPrediction with the information in the form", () => {
       const buttonId = "submitButton";
       const dropdownId = "dropdown";
+      const input1Id = "goalsTeam1";
+      const input2Id = "goalsTeam2";
+      const input3Id = "redCards";
+      const input4Id = "yellowCards";
+      const input5Id = "penalties";
 
       renderWithProviders(
         <CreatePredictionForm
@@ -90,9 +95,19 @@ describe("Given a CreatePredictionForm component", () => {
 
       const button = screen.getByTestId(buttonId);
       const dropdown = screen.getByTestId(dropdownId);
+      const numericInput1 = screen.getByTestId(input1Id);
+      const numericInput2 = screen.getByTestId(input2Id);
+      const numericInput3 = screen.getByTestId(input3Id);
+      const numericInput4 = screen.getByTestId(input4Id);
+      const numericInput5 = screen.getByTestId(input5Id);
 
       fireEvent.changeText(dropdown, "Argentina vs Chile Nov 30");
       fireEvent.press(button);
+      fireEvent.changeText(numericInput1, "1");
+      fireEvent.changeText(numericInput2, "1");
+      fireEvent.changeText(numericInput3, "1");
+      fireEvent.changeText(numericInput4, "1");
+      fireEvent.changeText(numericInput5, "1");
 
       expect(mockCreatePrediction).toHaveBeenCalled();
     });
