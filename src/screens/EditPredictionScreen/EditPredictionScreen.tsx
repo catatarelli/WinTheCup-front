@@ -4,14 +4,16 @@ import screenStyles from "../../styles/screen.styles";
 import CreatePredictionForm from "../../components/CreatePredictionForm/CreatePredictionForm";
 import headingStyles from "../../styles/headings.styles";
 import { useAppSelector } from "../../redux/hooks";
-import matches from "../../utils/matches";
+import { createMatchesList, matches } from "../../utils/matches";
 
 const EditPredictionScreen = (): JSX.Element => {
   const { predictions, currentPrediction } = useAppSelector(
     (state) => state.predictions
   );
 
-  const matchesList = matches.filter(
+  const matchesList = createMatchesList(matches);
+
+  const newList = matchesList.filter(
     (match) =>
       !predictions.some((prediction) => prediction.match === match.value)
   );
@@ -22,7 +24,7 @@ const EditPredictionScreen = (): JSX.Element => {
         Edit prediction
       </Text>
       <CreatePredictionForm
-        matches={matchesList}
+        matches={newList}
         currentPrediction={currentPrediction}
       />
     </SafeAreaView>
