@@ -4,13 +4,15 @@ import screenStyles from "../../styles/screen.styles";
 import CreatePredictionForm from "../../components/CreatePredictionForm/CreatePredictionForm";
 import headingStyles from "../../styles/headings.styles";
 import { useAppSelector } from "../../redux/hooks";
-import matches from "../../utils/matches";
 import { type PredictionStructure } from "../../redux/features/predictions/predictionsTypes";
+import { createMatchesList, matches } from "../../utils/matches";
 
 const CreatePredictionScreen = (): JSX.Element => {
   const { predictions } = useAppSelector((state) => state.predictions);
 
-  const matchesList = matches.filter(
+  const matchesList = createMatchesList(matches);
+
+  const newList = matchesList.filter(
     (match) =>
       !predictions.some((prediction) => prediction.match === match.value)
   );
@@ -31,7 +33,7 @@ const CreatePredictionScreen = (): JSX.Element => {
     <SafeAreaView style={screenStyles.container}>
       <Text style={headingStyles.pageTitle}>Create a new prediction</Text>
       <CreatePredictionForm
-        matches={matchesList}
+        matches={newList}
         currentPrediction={emptyPrediction}
       />
     </SafeAreaView>
