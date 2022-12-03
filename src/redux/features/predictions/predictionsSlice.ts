@@ -16,7 +16,6 @@ export const predictionsInitialState: PredictionsState = {
     createdBy: "",
     id: "",
   },
-  wantsToUpdate: false,
 };
 
 const predictionsSlice = createSlice({

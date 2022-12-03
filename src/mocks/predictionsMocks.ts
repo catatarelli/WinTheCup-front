@@ -10,7 +10,7 @@ import {
 } from "./predictionsFactory";
 
 export const mockgetPredictionsResponse: PredictionsResponse = {
-  predictions: getRandomPredictionsList(10) as PredictionStructure[],
+  predictions: getRandomPredictionsList(10),
 };
 
 export const emptyPredictionsState = {
@@ -50,11 +50,11 @@ export const mockPredictionCreate: CreatePredicitonStructure = {
 };
 
 export const mockPredictionsState: PredictionsState = {
-  predictions: getRandomPredictionsList(10) as PredictionStructure[],
+  predictions: getRandomPredictionsList(10),
   currentPrediction: currentPredictionMock,
 };
 
 export const mockGetPredictionByIdResponse: PredictionStructure = {
-  ...(getRandomPrediction() as PredictionStructure),
+  ...getRandomPrediction(),
   id: "56789",
 };
