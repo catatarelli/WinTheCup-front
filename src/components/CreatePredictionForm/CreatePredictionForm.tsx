@@ -143,6 +143,7 @@ const CreatePredictionForm = ({
               onChange={(value) => {
                 handleFormChange(value, "goalsTeam1");
               }}
+              extraTextInputProps={{ testID: "goalsTeam1" }}
               minValue={0}
               maxValue={9}
               totalWidth={120}
@@ -165,6 +166,7 @@ const CreatePredictionForm = ({
               onChange={(value) => {
                 handleFormChange(value, "goalsTeam2");
               }}
+              extraTextInputProps={{ testID: "goalsTeam2" }}
               minValue={0}
               maxValue={9}
               totalWidth={120}
@@ -189,6 +191,7 @@ const CreatePredictionForm = ({
               onChange={(value) => {
                 handleFormChange(value, "redCards");
               }}
+              extraTextInputProps={{ testID: "redCards" }}
               minValue={0}
               maxValue={9}
               totalWidth={120}
@@ -211,6 +214,7 @@ const CreatePredictionForm = ({
               onChange={(value) => {
                 handleFormChange(value, "yellowCards");
               }}
+              extraTextInputProps={{ testID: "yellowCards" }}
               minValue={0}
               maxValue={9}
               totalWidth={120}
@@ -233,6 +237,7 @@ const CreatePredictionForm = ({
               onChange={(value) => {
                 handleFormChange(value, "penalties");
               }}
+              extraTextInputProps={{ testID: "penalties" }}
               minValue={0}
               maxValue={9}
               totalWidth={120}
