@@ -77,15 +77,16 @@ const CreatePredictionForm = ({
       uri: imageSelected,
       name: imageName,
     });
-    resetForm();
     if (currentPrediction.match) {
       await updatePrediction(newPrediction, currentPrediction.id);
       await getPredictions();
+      resetForm();
       return;
     }
 
     await createPrediction(newPrediction);
     await getPredictions();
+    resetForm();
   };
 
   const handleFormChange = (text: string, identify: string) => {
@@ -148,6 +149,7 @@ const CreatePredictionForm = ({
               totalWidth={120}
               totalHeight={40}
               iconSize={50}
+              initValue={formData.goalsTeam1}
               step={1}
               valueType="integer"
               textColor="#3F3F3F"
@@ -168,6 +170,7 @@ const CreatePredictionForm = ({
               maxValue={9}
               totalWidth={120}
               totalHeight={40}
+              initValue={formData.goalsTeam2}
               iconSize={50}
               step={1}
               valueType="integer"
@@ -191,6 +194,7 @@ const CreatePredictionForm = ({
               maxValue={9}
               totalWidth={120}
               totalHeight={40}
+              initValue={formData.redCards}
               iconSize={50}
               step={1}
               valueType="integer"
@@ -212,6 +216,7 @@ const CreatePredictionForm = ({
               maxValue={9}
               totalWidth={120}
               totalHeight={40}
+              initValue={formData.yellowCards}
               iconSize={50}
               step={1}
               valueType="integer"
@@ -233,6 +238,7 @@ const CreatePredictionForm = ({
               maxValue={9}
               totalWidth={120}
               totalHeight={40}
+              initValue={formData.penalties}
               iconSize={50}
               step={1}
               valueType="integer"
