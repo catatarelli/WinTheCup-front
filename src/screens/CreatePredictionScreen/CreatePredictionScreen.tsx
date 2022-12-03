@@ -27,8 +27,6 @@ const CreatePredictionScreen = (): JSX.Element => {
     createdBy: "",
   };
 
-  // Dispatch(loadOnePredictionActionCreator(emptyPrediction));
-
   return (
     <SafeAreaView style={screenStyles.container}>
       <Text style={headingStyles.pageTitle}>Create a new prediction</Text>
