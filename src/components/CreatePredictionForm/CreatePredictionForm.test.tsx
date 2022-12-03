@@ -4,7 +4,6 @@ import { screen, fireEvent } from "@testing-library/react-native";
 import { renderWithProviders } from "../../mocks/renderWithProviders";
 import CreatePredictionForm from "./CreatePredictionForm";
 import matches from "../../utils/matches";
-import { getRandomPrediction } from "../../mocks/predictionsFactory";
 
 const mockCreatePrediction = jest.fn();
 

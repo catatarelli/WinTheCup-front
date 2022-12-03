@@ -15,7 +15,7 @@ const CreatePredictionScreen = (): JSX.Element => {
       !predictions.some((prediction) => prediction.match === match.value)
   );
 
-  const currentPrediction: PredictionStructure = {
+  const emptyPrediction: PredictionStructure = {
     match: "",
     goalsTeam1: 0,
     goalsTeam2: 0,
@@ -32,7 +32,7 @@ const CreatePredictionScreen = (): JSX.Element => {
       <Text style={headingStyles.pageTitle}>Create a new prediction</Text>
       <CreatePredictionForm
         matches={matchesList}
-        currentPrediction={currentPrediction}
+        currentPrediction={emptyPrediction}
       />
     </SafeAreaView>
   );
