@@ -32,7 +32,14 @@ export const handlers = [
   rest.get(`${REACT_APP_API_URL}/predictions`, async (req, res, ctx) =>
     res.once(
       ctx.status(404),
-      ctx.json({ error: "There was an error on the server" })
+      ctx.json({ error: "There was an error loading your predictions" })
+    )
+  ),
+
+  rest.get(`${REACT_APP_API_URL}/predictions`, async (req, res, ctx) =>
+    res.once(
+      ctx.status(404),
+      ctx.json({ error: "There was loading more predictions" })
     )
   ),
 
