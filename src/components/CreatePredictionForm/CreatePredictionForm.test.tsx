@@ -86,6 +86,11 @@ describe("Given a CreatePredictionForm component", () => {
       const input4Id = "yellowCards";
       const input5Id = "penalties";
 
+      mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
+        assets: [{ uri: "abc" }],
+        type: "image",
+      });
+
       renderWithProviders(
         <CreatePredictionForm
           matches={matchesMock}
@@ -100,7 +105,9 @@ describe("Given a CreatePredictionForm component", () => {
       const numericInput3 = screen.getByTestId(input3Id);
       const numericInput4 = screen.getByTestId(input4Id);
       const numericInput5 = screen.getByTestId(input5Id);
+      const pickImageButton = screen.getByTestId("image-picker");
 
+      fireEvent.press(pickImageButton);
       fireEvent.changeText(dropdown, "Argentina vs Chile Nov 30");
       fireEvent.press(button);
       fireEvent.changeText(numericInput1, "1");
@@ -154,6 +161,7 @@ describe("Given a CreatePredictionForm component", () => {
         canceled: false,
         assets: [{ uri: "abc" }],
         type: "image",
+        name: "abc.jpg",
       });
 
       renderWithProviders(
