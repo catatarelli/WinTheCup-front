@@ -1,6 +1,6 @@
 import { userMock } from "../../../../../mocks/userMocks";
-import { loginUserActionCreator, userReducer } from "../../userSlice";
 import type { UserState } from "../../userTypes";
+import loginUserReducer from "./loginUserReducer";
 
 describe("Given a loginUserReducer", () => {
   describe("When it recieves an initial state and a payload with username: 'luis123'", () => {
@@ -9,10 +9,10 @@ describe("Given a loginUserReducer", () => {
 
       const expectedUserState: UserState = { ...userMock, isLogged: true };
 
-      const newUserState = userReducer(
-        currentUserState,
-        loginUserActionCreator(userMock)
-      );
+      const newUserState = loginUserReducer(currentUserState, {
+        payload: userMock,
+        type: "loginUser",
+      });
 
       expect(newUserState).toStrictEqual(expectedUserState);
     });

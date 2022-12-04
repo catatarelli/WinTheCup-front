@@ -3,7 +3,6 @@ const logoutUserReducer = () => ({
   token: "",
   username: "",
   isLogged: false,
-  predictions: [],
 });
 
 export default logoutUserReducer;
