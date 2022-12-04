@@ -11,24 +11,16 @@ const CustomModal = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   return (
-    <>
-      {modal && (
-        <View style={isError ? styles.modalError : styles.modalSuccess}>
-          <Text style={styles.modalText} testID="modalMessage">
-            {modal}
-          </Text>
-          <TouchableOpacity onPress={() => dispatch(closeModalActionCreator())}>
-            <Text testID="closeButton">
-              <FontAwesomeIcon
-                icon={faSquareXmark}
-                size={30}
-                style={styles.icon}
-              />
-            </Text>
-          </TouchableOpacity>
-        </View>
-      )}
-    </>
+    <View style={isError ? styles.modalError : styles.modalSuccess}>
+      <Text style={styles.modalText} testID="modalMessage">
+        {modal}
+      </Text>
+      <TouchableOpacity onPress={() => dispatch(closeModalActionCreator())}>
+        <Text testID="closeButton">
+          <FontAwesomeIcon icon={faSquareXmark} size={30} style={styles.icon} />
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
