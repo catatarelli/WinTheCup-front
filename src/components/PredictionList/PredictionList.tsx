@@ -37,7 +37,21 @@ const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
 
   return (
     <>
-      {predictions.length === 0 ? (
+      {predictions.length !== 0 ? (
+        <View>
+          <Text style={headingStyles.pageTitle}>My Predictions</Text>
+          <FlatList
+            data={predictions}
+            renderItem={renderItem}
+            ListFooterComponent={
+              <View style={listStyles.footer}>
+                {currentPage !== totalPages - 1 && <LoadMore />}
+              </View>
+            }
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
+      ) : (
         <>
           <Text style={headingStyles.pageTitle}>My Predictions</Text>
           <View>
@@ -59,20 +73,6 @@ const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
             </ImageBackground>
           </View>
         </>
-      ) : (
-        <View>
-          <Text style={headingStyles.pageTitle}>My Predictions</Text>
-          <FlatList
-            data={predictions}
-            renderItem={renderItem}
-            ListFooterComponent={
-              <View style={listStyles.footer}>
-                {currentPage !== totalPages - 1 && <LoadMore />}
-              </View>
-            }
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
       )}
     </>
   );
