@@ -59,7 +59,7 @@ const editPrediction = {
 };
 
 describe("Given a CreatePredictionForm component", () => {
-  describe("When it's rendered with a current prediction", () => {
+  describe("When it's rendered", () => {
     test("Then it should show a select with text 'Select a match'", async () => {
       const expectedText = "Select a match";
 
@@ -76,7 +76,7 @@ describe("Given a CreatePredictionForm component", () => {
     });
   });
 
-  describe("And the user clicks on the submit button", () => {
+  describe("And the user presses the submit button", () => {
     test("Then it should call createPrediction with the information in the form", () => {
       const buttonId = "submitButton";
       const dropdownId = "dropdown";
@@ -117,7 +117,33 @@ describe("Given a CreatePredictionForm component", () => {
     });
   });
 
-  describe("When it's rendered to update a prediction and the user clicks on the submit button", () => {
+  describe("And the user doesn't uploads a picture and presses the submit button", () => {
+    test("Then it should call createPrediction with the information in the form", () => {
+      const buttonId = "submitButton";
+      const dropdownId = "dropdown";
+
+      renderWithProviders(
+        <CreatePredictionForm
+          matches={matchesMock}
+          currentPrediction={prediction}
+        />
+      );
+
+      mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
+        assets: [{ undefined }],
+      });
+
+      const button = screen.getByTestId(buttonId);
+      const dropdown = screen.getByTestId(dropdownId);
+
+      fireEvent.changeText(dropdown, "Argentina vs Chile Nov 30");
+      fireEvent.press(button);
+
+      expect(mockCreatePrediction).toHaveBeenCalled();
+    });
+  });
+
+  describe("When it's rendered to update a prediction and the user presses the submit button", () => {
     test("Then it should call updatePrediction with the information in the form", async () => {
       const buttonId = "submitButton";
 
@@ -128,6 +154,10 @@ describe("Given a CreatePredictionForm component", () => {
         />
       );
 
+      mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
+        assets: [{ uri: "abc", type: "image", fileName: "abc.jpg" }],
+      } as ImagePickerResult);
+
       const submitButton = await screen.getByTestId(buttonId);
       fireEvent.press(submitButton);
 
@@ -135,7 +165,7 @@ describe("Given a CreatePredictionForm component", () => {
     });
   });
 
-  describe("And the user clicks on the load image icon", () => {
+  describe("And the user presses the load image icon", () => {
     test("Then it should set the image form state", async () => {
       renderWithProviders(
         <CreatePredictionForm
@@ -152,7 +182,7 @@ describe("Given a CreatePredictionForm component", () => {
     });
   });
 
-  describe("And the user clicks on the load image icon and the image doesn't have an extension", () => {
+  describe("And the user presses the load image icon and the image doesn't have an extension", () => {
     test("Then it should set the image form state", async () => {
       mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
         canceled: false,
@@ -175,7 +205,7 @@ describe("Given a CreatePredictionForm component", () => {
     });
   });
 
-  describe("And the user clicks on the load image icon and the image picker is cancelled", () => {
+  describe("And the user presses the load image icon and the image picker is cancelled", () => {
     test("Then it should set the image form state", async () => {
       mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
         canceled: true,
@@ -196,3 +226,9 @@ describe("Given a CreatePredictionForm component", () => {
     });
   });
 });
+function setHookState(arg0: {
+  arrayValues: never[];
+  isFetching: boolean;
+}): any {
+  throw new Error("Function not implemented.");
+}
