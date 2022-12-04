@@ -29,35 +29,44 @@ const usePredictions = () => {
   const { token } = useAppSelector((state) => state.user);
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
-  const getPredictions = useCallback(async () => {
-    try {
-      dispatch(showLoadingActionCreator());
+  const getPredictions = useCallback(
+    async (page = 0) => {
+      try {
+        dispatch(showLoadingActionCreator());
 
-      const response = await axios.get<PredictionsResponse>(
-        `${REACT_APP_API_URL}/predictions`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+        const response = await axios.get<PredictionsResponse>(
+          `${REACT_APP_API_URL}/predictions`,
+          {
+            params: { page },
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        const { predictions, totalPages } = response.data;
+
+        if (page === 0) {
+          dispatch(loadPredictionsActionCreator(predictions));
+        } else {
+          dispatch(loadMorePredictionsActionCreator(predictions));
         }
-      );
 
-      const { predictions, totalPages } = response.data;
+        dispatch(loadPagesActionCreator({ totalPages, currentPage: page }));
+        dispatch(hideLoadingActionCreator());
+      } catch {
+        dispatch(hideLoadingActionCreator());
 
-      dispatch(loadPredictionsActionCreator(predictions));
-      dispatch(loadPagesActionCreator({ totalPages, currentPage: 0 }));
-      dispatch(hideLoadingActionCreator());
-    } catch {
-      dispatch(hideLoadingActionCreator());
-
-      dispatch(
-        openModalActionCreator({
-          isError: true,
-          modal: "There was an error loading your predictions",
-        })
-      );
-    }
-  }, [dispatch]);
+        dispatch(
+          openModalActionCreator({
+            isError: true,
+            modal: "There was an error loading your predictions",
+          })
+        );
+      }
+    },
+    [dispatch]
+  );
 
   const getPredictionById = useCallback(
     async (predictionId: string) => {
@@ -81,38 +90,6 @@ const usePredictions = () => {
           openModalActionCreator({
             isError: true,
             modal: "There was an error loading your prediction",
-          })
-        );
-      }
-    },
-    [dispatch]
-  );
-
-  const getMorePredictions = useCallback(
-    async (page: number) => {
-      try {
-        dispatch(showLoadingActionCreator());
-        const response = await axios.get<PredictionsResponse>(
-          `${REACT_APP_API_URL}/predictions`,
-          {
-            params: { page },
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        const { predictions, totalPages } = response.data;
-
-        dispatch(loadMorePredictionsActionCreator(predictions));
-        dispatch(loadPagesActionCreator({ totalPages, currentPage: page }));
-        dispatch(hideLoadingActionCreator());
-      } catch {
-        dispatch(hideLoadingActionCreator());
-        dispatch(
-          openModalActionCreator({
-            isError: true,
-            modal: "There was loading more predictions",
           })
         );
       }
@@ -223,7 +200,6 @@ const usePredictions = () => {
   return {
     getPredictions,
     getPredictionById,
-    getMorePredictions,
     createPrediction,
     deletePrediction,
     updatePrediction,

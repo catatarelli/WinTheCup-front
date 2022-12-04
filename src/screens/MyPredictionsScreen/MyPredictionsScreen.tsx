@@ -8,10 +8,11 @@ import usePredictions from "../../hooks/usePredictions/usePredictions";
 
 const MyPredictionsScreen = (): JSX.Element => {
   const { getPredictions } = usePredictions();
+  const { currentPage } = useAppSelector((state) => state.ui.pagination);
 
   useEffect(() => {
-    getPredictions();
-  }, [getPredictions]);
+    getPredictions(currentPage);
+  }, [getPredictions, currentPage]);
 
   const { predictions } = useAppSelector((state) => state.predictions);
 

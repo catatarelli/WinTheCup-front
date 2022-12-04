@@ -36,13 +36,6 @@ export const handlers = [
     )
   ),
 
-  rest.get(`${REACT_APP_API_URL}/predictions`, async (req, res, ctx) =>
-    res.once(
-      ctx.status(404),
-      ctx.json({ error: "There was loading more predictions" })
-    )
-  ),
-
   rest.get(`${REACT_APP_API_URL}/predictions`, (req, res, ctx) =>
     res(ctx.status(200), ctx.json(mockgetPredictionsResponse))
   ),

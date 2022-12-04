@@ -50,7 +50,6 @@ const TabNavigator = (): JSX.Element => {
         tabBarActiveTintColor: colors.black,
         tabBarInactiveTintColor: colors.wine,
         headerShown: false,
-        unmountOnBlur: true,
       }}
     >
       <Tab.Screen
@@ -74,6 +73,7 @@ const TabNavigator = (): JSX.Element => {
         name={Routes.editPrediction}
         component={EditPredictionScreen}
         options={{
+          unmountOnBlur: true,
           tabBarItemStyle: { display: "none" },
         }}
       />
@@ -82,6 +82,7 @@ const TabNavigator = (): JSX.Element => {
         component={CreatePredictionScreen}
         options={{
           title: "Create prediction",
+          unmountOnBlur: true,
           tabBarIcon: ({ color }) => (
             <FontAwesomeIcon icon={faCirclePlus} size={46} color={color} />
           ),
