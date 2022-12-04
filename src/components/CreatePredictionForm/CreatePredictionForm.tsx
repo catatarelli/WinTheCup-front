@@ -71,11 +71,12 @@ const CreatePredictionForm = ({
     newPrediction.append("redCards", formData.redCards!.toString());
     newPrediction.append("yellowCards", formData.yellowCards!.toString());
     newPrediction.append("penalties", formData.penalties!.toString());
-    newPrediction.append("picture", {
-      type: imageType,
-      uri: imageSelected,
-      name: imageName,
-    });
+    if (imageSelected)
+      newPrediction.append("picture", {
+        type: imageType,
+        uri: imageSelected,
+        name: imageName,
+      });
     if (currentPrediction.match) {
       await updatePrediction(newPrediction, currentPrediction.id);
       await getPredictions();
@@ -261,6 +262,12 @@ const CreatePredictionForm = ({
         <TouchableOpacity onPress={chooseFile} testID="image-picker">
           <FontAwesomeIcon icon={faCamera} size={40} />
         </TouchableOpacity>
+        {currentPrediction.picture && !imageSelected && (
+          <Image
+            source={{ uri: currentPrediction.backupPicture }}
+            style={styles.image}
+          />
+        )}
         {imageSelected ? (
           <Image source={{ uri: imageSelected }} style={styles.image} />
         ) : (

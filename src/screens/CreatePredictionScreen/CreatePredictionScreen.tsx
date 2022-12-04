@@ -1,4 +1,4 @@
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Text, ScrollView } from "react-native";
 import React from "react";
 import screenStyles from "../../styles/screen.styles";
 import CreatePredictionForm from "../../components/CreatePredictionForm/CreatePredictionForm";
@@ -30,13 +30,15 @@ const CreatePredictionScreen = (): JSX.Element => {
   };
 
   return (
-    <SafeAreaView style={screenStyles.container}>
-      <Text style={headingStyles.pageTitle}>Create a new prediction</Text>
-      <CreatePredictionForm
-        matches={newList}
-        currentPrediction={emptyPrediction}
-      />
-    </SafeAreaView>
+    <ScrollView style={screenStyles.screenBackground}>
+      <SafeAreaView style={screenStyles.container}>
+        <Text style={headingStyles.pageTitle}>Create a new prediction</Text>
+        <CreatePredictionForm
+          matches={newList}
+          currentPrediction={emptyPrediction}
+        />
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 
