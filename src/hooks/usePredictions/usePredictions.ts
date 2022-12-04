@@ -17,6 +17,7 @@ import type {
   UpdatePredicitonStructure,
 } from "../../redux/features/predictions/predictionsTypes";
 import {
+  loadMorePredictionsActionCreator,
   loadOnePredictionActionCreator,
   loadPredictionsActionCreator,
 } from "../../redux/features/predictions/predictionsSlice";
@@ -40,9 +41,7 @@ const usePredictions = () => {
         }
       );
 
-      const apiResponse = response.data;
-
-      dispatch(loadPredictionsActionCreator(apiResponse.predictions));
+      dispatch(loadPredictionsActionCreator(response.data.predictions));
       dispatch(hideLoadingActionCreator());
     } catch {
       dispatch(hideLoadingActionCreator());
@@ -50,7 +49,7 @@ const usePredictions = () => {
       dispatch(
         openModalActionCreator({
           isError: true,
-          modal: "There was an error on the server",
+          modal: "There was an error loading your predictions",
           isLoading: false,
         })
       );
@@ -78,7 +77,37 @@ const usePredictions = () => {
         dispatch(
           openModalActionCreator({
             isError: true,
-            modal: "There was an error on the server",
+            modal: "There was an error loading your prediction",
+            isLoading: false,
+          })
+        );
+      }
+    },
+    [dispatch]
+  );
+
+  const getMorePredictions = useCallback(
+    async (page: number) => {
+      try {
+        dispatch(showLoadingActionCreator());
+        const response = await axios.get<PredictionsResponse>(
+          `${REACT_APP_API_URL}/predictions`,
+          {
+            params: { page },
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        dispatch(loadMorePredictionsActionCreator(response.data.predictions));
+        dispatch(hideLoadingActionCreator());
+      } catch {
+        dispatch(hideLoadingActionCreator());
+        dispatch(
+          openModalActionCreator({
+            isError: true,
+            modal: "There was loading more predictions",
             isLoading: false,
           })
         );
@@ -196,6 +225,7 @@ const usePredictions = () => {
   return {
     getPredictions,
     getPredictionById,
+    getMorePredictions,
     createPrediction,
     deletePrediction,
     updatePrediction,
