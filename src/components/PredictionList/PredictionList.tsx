@@ -56,9 +56,10 @@ const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
           <Text style={headingStyles.pageTitle}>My Predictions</Text>
           <View>
             <ImageBackground source={image} style={listStyles.image}>
-              <Text style={listStyles.imageText}>
-                You have no predictions yet
-              </Text>
+              <View>
+                <Text style={listStyles.imageText}>You have no</Text>
+                <Text style={listStyles.imageText}>predictions yet</Text>
+              </View>
               <TouchableOpacity style={listStyles.button}>
                 <Text
                   style={formStyles.buttonText}
