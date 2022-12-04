@@ -12,9 +12,11 @@ import {
 import image from "../../../assets/ball-in-the-net.webp";
 import Routes from "../../navigation/routes";
 import type { PredictionStructure } from "../../redux/features/predictions/predictionsTypes";
+import { useAppSelector } from "../../redux/hooks";
 import formStyles from "../../styles/form.styles";
 import headingStyles from "../../styles/headings.styles";
 import { LoginScreenNavigationProp } from "../../types/navigation.types";
+import LoadMore from "../LoadMore/LoadMore";
 import PredictionCard from "../PredictionCard/PredictionCard";
 import listStyles from "./PredictionListStyled";
 
@@ -25,6 +27,10 @@ interface PredictionListProps {
 const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
   const renderItem: ListRenderItem<PredictionStructure> = ({ item }) => (
     <PredictionCard prediction={item} key={item.match} />
+  );
+
+  const { currentPage, totalPages } = useAppSelector(
+    (state) => state.ui.pagination
   );
 
   const navigation = useNavigation<LoginScreenNavigationProp>();
@@ -59,8 +65,12 @@ const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
           <FlatList
             data={predictions}
             renderItem={renderItem}
+            ListFooterComponent={
+              <View style={listStyles.footer}>
+                {currentPage !== totalPages - 1 && <LoadMore />}
+              </View>
+            }
             showsVerticalScrollIndicator={false}
-            ListFooterComponent={<View style={listStyles.footer} />}
           />
         </View>
       )}
