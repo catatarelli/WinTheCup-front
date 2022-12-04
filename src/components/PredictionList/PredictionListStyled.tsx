@@ -4,7 +4,7 @@ import formStyles from "../../styles/form.styles";
 
 const listStyles = StyleSheet.create({
   footer: {
-    height: 10,
+    marginBottom: 10,
   },
   image: {
     width: 321,

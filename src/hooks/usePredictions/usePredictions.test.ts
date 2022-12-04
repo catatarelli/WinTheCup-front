@@ -68,37 +68,7 @@ describe("Given the custom hook usePredictions", () => {
     });
   });
 
-  describe("When its method getMorePredictions is invoked and axios rejects", () => {
-    test("Then dispatch should be called three times to show and hide loading and to show the modal with the error message", async () => {
-      const {
-        result: {
-          current: { getMorePredictions },
-        },
-      } = renderHook(() => usePredictions(), {
-        wrapper: makeWrapper,
-      });
-
-      await getMorePredictions(1);
-
-      expect(dispatchSpy).toHaveBeenNthCalledWith(
-        1,
-        showLoadingActionCreator()
-      );
-      expect(dispatchSpy).toHaveBeenNthCalledWith(
-        2,
-        hideLoadingActionCreator()
-      );
-      expect(dispatchSpy).toHaveBeenNthCalledWith(
-        3,
-        openModalActionCreator({
-          isError: true,
-          modal: "There was loading more predictions",
-        })
-      );
-    });
-  });
-
-  describe("When its method getPredictions is invoked", () => {
+  describe("When its method getPredictions is invoked with current page 0", () => {
     test("Then dispatch should be called with loadPredictionsActionCreator with a list of predictions", async () => {
       const {
         result: {
@@ -131,11 +101,11 @@ describe("Given the custom hook usePredictions", () => {
     });
   });
 
-  describe("When its method getMorePredictions is invoked", () => {
+  describe("When its method getPredictions is invoked with current page 1", () => {
     test("Then dispatch should be called with loadMorePredictionsActionCreator with a list of predictions", async () => {
       const {
         result: {
-          current: { getMorePredictions },
+          current: { getPredictions },
         },
       } = renderHook(() => usePredictions(), {
         wrapper: makeWrapper,
@@ -143,7 +113,7 @@ describe("Given the custom hook usePredictions", () => {
 
       const { predictions, totalPages } = mockgetPredictionsResponse;
 
-      await getMorePredictions(1);
+      await getPredictions(1);
 
       expect(dispatchSpy).toHaveBeenNthCalledWith(
         1,
