@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     fontSize: 20,
+    textAlign: "center",
   },
   buttonsContainer: {
     display: "flex",

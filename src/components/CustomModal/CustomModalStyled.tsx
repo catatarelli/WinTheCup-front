@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 1,
     top: 360,
-    left: 25,
+    left: "8%",
   },
   modalError: {
     width: 340,
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 1,
     top: 360,
-    left: 25,
+    left: "8%",
   },
   modalText: {
     fontSize: 18,
