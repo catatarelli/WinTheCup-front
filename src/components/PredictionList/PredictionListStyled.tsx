@@ -5,6 +5,8 @@ import formStyles from "../../styles/form.styles";
 const listStyles = StyleSheet.create({
   footer: {
     marginBottom: 10,
+    display: "flex",
+    alignItems: "center",
   },
   image: {
     width: 321,

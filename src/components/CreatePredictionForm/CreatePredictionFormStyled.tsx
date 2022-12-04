@@ -7,10 +7,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.beige,
     borderRadius: 15,
     width: 321,
-    height: 612,
+    height: 640,
     display: "flex",
     justifyContent: "space-between",
-    margin: 10,
+    margin: 5,
+    marginBottom: 50,
     paddingBottom: 10,
     shadowColor: colors.black,
     shadowOffset: {
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.grey,
     opacity: 0.8,
     width: 200,
-    marginTop: 0,
+    marginTop: 5,
     marginBottom: 10,
   },
   buttonText: {
