@@ -67,7 +67,7 @@ describe("Given a RegisterForm component", () => {
     });
   });
 
-  describe("And when the user clicks the 'Log in' button", () => {
+  describe("And when the user presses the 'Log in' button", () => {
     test("Then the useNavigation should be called with the login page reference", async () => {
       const loginButtonText = "Log in";
 

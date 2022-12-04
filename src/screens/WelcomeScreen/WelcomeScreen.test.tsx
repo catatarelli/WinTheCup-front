@@ -52,7 +52,7 @@ describe("Given a WelcomeScreen component", () => {
     });
   });
 
-  describe("And the user clicks the 'Log in' button", () => {
+  describe("And the user presses the 'Log in' button", () => {
     test("Then the useNavigation should be called with the login page reference", async () => {
       const loginButtonText = "Log in";
 
@@ -71,7 +71,7 @@ describe("Given a WelcomeScreen component", () => {
     });
   });
 
-  describe("And the user clicks the 'Join now' button", () => {
+  describe("And the user presses the 'Join now' button", () => {
     test("Then the useNavigation should be called with the register page reference", async () => {
       const registerButtonText = "Join now";
 
