@@ -13,6 +13,7 @@ import {
 } from "../../redux/features/predictions/predictionsSlice";
 import {
   hideLoadingActionCreator,
+  loadPagesActionCreator,
   openModalActionCreator,
   showLoadingActionCreator,
 } from "../../redux/features/ui/uiSlice";
@@ -62,7 +63,6 @@ describe("Given the custom hook usePredictions", () => {
         openModalActionCreator({
           isError: true,
           modal: "There was an error loading your predictions",
-          isLoading: false,
         })
       );
     });
@@ -93,7 +93,6 @@ describe("Given the custom hook usePredictions", () => {
         openModalActionCreator({
           isError: true,
           modal: "There was loading more predictions",
-          isLoading: false,
         })
       );
     });
@@ -109,7 +108,7 @@ describe("Given the custom hook usePredictions", () => {
         wrapper: makeWrapper,
       });
 
-      const { predictions } = mockgetPredictionsResponse;
+      const { predictions, totalPages } = mockgetPredictionsResponse;
 
       await getPredictions();
 
@@ -123,6 +122,10 @@ describe("Given the custom hook usePredictions", () => {
       );
       expect(dispatchSpy).toHaveBeenNthCalledWith(
         3,
+        loadPagesActionCreator({ totalPages, currentPage: 0 })
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        4,
         hideLoadingActionCreator()
       );
     });
@@ -138,7 +141,7 @@ describe("Given the custom hook usePredictions", () => {
         wrapper: makeWrapper,
       });
 
-      const { predictions } = mockgetPredictionsResponse;
+      const { predictions, totalPages } = mockgetPredictionsResponse;
 
       await getMorePredictions(1);
 
@@ -152,6 +155,10 @@ describe("Given the custom hook usePredictions", () => {
       );
       expect(dispatchSpy).toHaveBeenNthCalledWith(
         3,
+        loadPagesActionCreator({ totalPages, currentPage: 1 })
+      );
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        4,
         hideLoadingActionCreator()
       );
     });
@@ -182,7 +189,6 @@ describe("Given the custom hook usePredictions", () => {
         openModalActionCreator({
           isError: true,
           modal: "There was an error loading your prediction",
-          isLoading: false,
         })
       );
     });
@@ -240,7 +246,6 @@ describe("Given the custom hook usePredictions", () => {
         openModalActionCreator({
           isError: true,
           modal: "There was an error creating the prediction",
-          isLoading: false,
         })
       );
     });
@@ -271,7 +276,6 @@ describe("Given the custom hook usePredictions", () => {
         openModalActionCreator({
           isError: false,
           modal: "Prediction created successfully! Good luck",
-          isLoading: false,
         })
       );
     });
@@ -302,7 +306,6 @@ describe("Given the custom hook usePredictions", () => {
         openModalActionCreator({
           modal: "There was an error on the server",
           isError: true,
-          isLoading: false,
         })
       );
     });
@@ -333,7 +336,6 @@ describe("Given the custom hook usePredictions", () => {
         openModalActionCreator({
           modal: "Prediction deleted",
           isError: false,
-          isLoading: false,
         })
       );
     });
@@ -367,7 +369,6 @@ describe("Given the custom hook usePredictions", () => {
         openModalActionCreator({
           isError: true,
           modal: "There was an error updating the prediction",
-          isLoading: false,
         })
       );
     });
@@ -401,7 +402,6 @@ describe("Given the custom hook usePredictions", () => {
         openModalActionCreator({
           isError: false,
           modal: "Prediction updated successfully",
-          isLoading: false,
         })
       );
     });

@@ -7,6 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import type { LoginScreenNavigationProp } from "../../types/navigation.types";
 import {
   hideLoadingActionCreator,
+  loadPagesActionCreator,
   openModalActionCreator,
   showLoadingActionCreator,
 } from "../../redux/features/ui/uiSlice";
@@ -41,7 +42,10 @@ const usePredictions = () => {
         }
       );
 
-      dispatch(loadPredictionsActionCreator(response.data.predictions));
+      const { predictions, totalPages } = response.data;
+
+      dispatch(loadPredictionsActionCreator(predictions));
+      dispatch(loadPagesActionCreator({ totalPages, currentPage: 0 }));
       dispatch(hideLoadingActionCreator());
     } catch {
       dispatch(hideLoadingActionCreator());
@@ -50,7 +54,6 @@ const usePredictions = () => {
         openModalActionCreator({
           isError: true,
           modal: "There was an error loading your predictions",
-          isLoading: false,
         })
       );
     }
@@ -78,7 +81,6 @@ const usePredictions = () => {
           openModalActionCreator({
             isError: true,
             modal: "There was an error loading your prediction",
-            isLoading: false,
           })
         );
       }
@@ -100,7 +102,10 @@ const usePredictions = () => {
           }
         );
 
-        dispatch(loadMorePredictionsActionCreator(response.data.predictions));
+        const { predictions, totalPages } = response.data;
+
+        dispatch(loadMorePredictionsActionCreator(predictions));
+        dispatch(loadPagesActionCreator({ totalPages, currentPage: page }));
         dispatch(hideLoadingActionCreator());
       } catch {
         dispatch(hideLoadingActionCreator());
@@ -108,7 +113,6 @@ const usePredictions = () => {
           openModalActionCreator({
             isError: true,
             modal: "There was loading more predictions",
-            isLoading: false,
           })
         );
       }
@@ -132,7 +136,6 @@ const usePredictions = () => {
         openModalActionCreator({
           modal: "Prediction created successfully! Good luck",
           isError: false,
-          isLoading: false,
         })
       );
       navigation.navigate(Routes.myPredictions);
@@ -142,7 +145,6 @@ const usePredictions = () => {
         openModalActionCreator({
           modal: "There was an error creating the prediction",
           isError: true,
-          isLoading: false,
         })
       );
     }
@@ -166,7 +168,6 @@ const usePredictions = () => {
         openModalActionCreator({
           modal: "Prediction deleted",
           isError: false,
-          isLoading: false,
         })
       );
     } catch {
@@ -176,7 +177,6 @@ const usePredictions = () => {
         openModalActionCreator({
           modal: "There was an error on the server",
           isError: true,
-          isLoading: false,
         })
       );
     }
@@ -204,7 +204,6 @@ const usePredictions = () => {
         openModalActionCreator({
           isError: false,
           modal: "Prediction updated successfully",
-          isLoading: false,
         })
       );
 
@@ -216,7 +215,6 @@ const usePredictions = () => {
         openModalActionCreator({
           isError: true,
           modal: "There was an error updating the prediction",
-          isLoading: false,
         })
       );
     }

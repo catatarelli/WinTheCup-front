@@ -4,11 +4,17 @@ import closeModalReducer from "./reducers/closeModalReducer/closeModalReducer";
 import openModalReducer from "./reducers/openModalReducer/openModalReducer";
 import showLoadingReducer from "./reducers/showLoadingReducer/showLoadingReducer";
 import hideLoadingReducer from "./reducers/hideLoadingReducer/hideLoadingReducer";
+import loadPagesReducer from "./reducers/loadPagesReducer/loadPagesReducer";
+import goToNextPageReducer from "./reducers/goToNextPageReducer/goToNextPageReducer";
 
 const uiInitialState: UiState = {
   modal: "",
   isError: false,
   isLoading: false,
+  pagination: {
+    currentPage: 0,
+    totalPages: 0,
+  },
 };
 
 const uiSlice = createSlice({
@@ -19,6 +25,8 @@ const uiSlice = createSlice({
     closeModalReducer,
     showLoadingReducer,
     hideLoadingReducer,
+    loadPagesReducer,
+    goToNextPageReducer,
   },
 });
 
@@ -29,4 +37,6 @@ export const {
   closeModalReducer: closeModalActionCreator,
   showLoadingReducer: showLoadingActionCreator,
   hideLoadingReducer: hideLoadingActionCreator,
+  loadPagesReducer: loadPagesActionCreator,
+  goToNextPageReducer: goToNextPageActionCreator,
 } = uiSlice.actions;
