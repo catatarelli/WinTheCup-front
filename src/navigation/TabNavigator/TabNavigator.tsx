@@ -22,6 +22,8 @@ import { useNavigation } from "@react-navigation/native";
 import { type LoginScreenNavigationProp } from "../../types/navigation.types";
 import CustomModal from "../../components/CustomModal/CustomModal";
 import EditPredictionScreen from "../../screens/EditPredictionScreen/EditPredictionScreen";
+import { resetPredictionsActionCreator } from "../../redux/features/predictions/predictionsSlice";
+import { resetUiActionCreator } from "../../redux/features/ui/uiSlice";
 
 const TabNavigator = (): JSX.Element => {
   const Tab = createBottomTabNavigator();
@@ -32,6 +34,8 @@ const TabNavigator = (): JSX.Element => {
   const handleLogout = () => {
     removeToken();
     dispatch(logoutUserActionCreator());
+    dispatch(resetPredictionsActionCreator());
+    dispatch(resetUiActionCreator());
     navigation.navigate(Routes.login);
   };
 
