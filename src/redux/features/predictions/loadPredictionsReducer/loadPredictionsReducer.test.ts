@@ -1,9 +1,8 @@
 import { getRandomPredictionsList } from "../../../../mocks/predictionsFactory";
-import type { PredictionStructure } from "../predictionsTypes";
 import loadPredictionsReducer from "./loadPredictionsReducer";
 import { emptyPredictionsState } from "../../../../mocks/predictionsMocks";
 
-const listOfPredictions = getRandomPredictionsList(2) as PredictionStructure[];
+const listOfPredictions = getRandomPredictionsList(2);
 
 describe("Given loadPredictionsReducer", () => {
   describe("When it recieves an initial state and a payload with a list of predictions ", () => {

@@ -30,6 +30,9 @@ export interface PredictionStructure extends CreatePredicitonStructure {
 }
 
 export interface PredictionsResponse {
+  isPreviousPage: boolean;
+  isNextPage: boolean;
+  totalPages: number;
   predictions: PredictionStructure[];
 }
 

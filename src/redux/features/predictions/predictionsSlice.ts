@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import loadPredictionsReducer from "./loadPredictionsReducer/loadPredictionsReducer";
 import loadOnePredictionReducer from "./loadOnePredictionReducer/loadOnePredictionReducer";
+import loadMorePredictionsReducer from "./loadMorePredictionsReducer/loadMorePredictionsReducer";
 import type { PredictionsState } from "./predictionsTypes";
 
 export const predictionsInitialState: PredictionsState = {
@@ -24,6 +25,7 @@ const predictionsSlice = createSlice({
   reducers: {
     loadPredictionsReducer,
     loadOnePredictionReducer,
+    loadMorePredictionsReducer,
   },
 });
 
@@ -31,4 +33,5 @@ export const predictionsReducer = predictionsSlice.reducer;
 export const {
   loadPredictionsReducer: loadPredictionsActionCreator,
   loadOnePredictionReducer: loadOnePredictionActionCreator,
+  loadMorePredictionsReducer: loadMorePredictionsActionCreator,
 } = predictionsSlice.actions;

@@ -10,6 +10,9 @@ import {
 } from "./predictionsFactory";
 
 export const mockgetPredictionsResponse: PredictionsResponse = {
+  isNextPage: true,
+  isPreviousPage: false,
+  totalPages: 2,
   predictions: getRandomPredictionsList(10),
 };
 
