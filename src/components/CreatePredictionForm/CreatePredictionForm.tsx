@@ -127,6 +127,7 @@ const CreatePredictionForm = ({
           </>
         ) : (
           <DropDownPicker
+            listMode="SCROLLVIEW"
             open={open}
             setOpen={setOpen}
             value={value}

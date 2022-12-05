@@ -34,6 +34,11 @@ const styles = StyleSheet.create({
     marginTop: 5,
     width: 300,
   },
+  textContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   text: {
     color: colors.grey,
     fontSize: 20,
