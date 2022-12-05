@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import DropDownPicker from "react-native-dropdown-picker";
 import {
   FlatList,
   View,
@@ -19,6 +20,8 @@ import { LoginScreenNavigationProp } from "../../types/navigation.types";
 import LoadMore from "../LoadMore/LoadMore";
 import PredictionCard from "../PredictionCard/PredictionCard";
 import listStyles from "./PredictionListStyled";
+import countries from "../../utils/countries";
+import usePredictions from "../../hooks/usePredictions/usePredictions";
 
 interface PredictionListProps {
   predictions: PredictionStructure[];
@@ -29,17 +32,42 @@ const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
     <PredictionCard prediction={item} key={item.match} />
   );
 
+  const { getPredictions } = usePredictions();
   const { currentPage, totalPages } = useAppSelector(
     (state) => state.ui.pagination
   );
 
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    if (value === "Show all") {
+      getPredictions(0);
+    } else {
+      getPredictions(0, value);
+    }
+  }, [value]);
+
   return (
     <>
       {predictions.length !== 0 ? (
-        <View>
+        <View style={listStyles.container}>
           <Text style={headingStyles.pageTitle}>My Predictions</Text>
+          <DropDownPicker
+            listMode="SCROLLVIEW"
+            open={open}
+            setOpen={setOpen}
+            value={value}
+            items={countries}
+            setValue={setValue}
+            placeholder="Filter by country"
+            dropDownDirection="BOTTOM"
+            testID="dropdown"
+            containerStyle={{ width: "80%" }}
+            stickyHeader={true}
+          />
           <FlatList
             data={predictions}
             renderItem={renderItem}
