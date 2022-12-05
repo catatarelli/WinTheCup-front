@@ -34,11 +34,6 @@ jest.mock("expo-image-picker", () => ({
 
 const mockedImagePicker = jest.mocked(ImagePicker);
 
-// Const setImageInitialState = ["abc.jpeg"];
-// jest
-//   .spyOn(React, "useState")
-//   .mockImplementationOnce(() => imageSelected(setImageInitialState));
-
 const prediction = {
   match: "",
   goalsTeam1: 0,
@@ -83,22 +78,12 @@ describe("Given a CreatePredictionForm component", () => {
 
   describe("And the user presses the submit button", () => {
     test("Then it should call createPrediction with the information in the form", () => {
-      mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
-        canceled: false,
-        assets: [{ uri: "abc.jpg" }],
-        type: "image",
-      });
-
       renderWithProviders(
         <CreatePredictionForm
           matches={matchesMock}
           currentPrediction={prediction}
         />
       );
-
-      const pickImageButton = screen.getByTestId("image-picker");
-
-      fireEvent.press(pickImageButton);
 
       const buttonId = "submitButton";
       const dropdownId = "dropdown";
@@ -165,10 +150,6 @@ describe("Given a CreatePredictionForm component", () => {
         />
       );
 
-      mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
-        assets: [{ uri: "abc", type: "image", fileName: "abc.jpg" }],
-      } as ImagePickerResult);
-
       const submitButton = await screen.getByTestId(buttonId);
       fireEvent.press(submitButton);
 
@@ -176,14 +157,8 @@ describe("Given a CreatePredictionForm component", () => {
     });
   });
 
-  describe("And the user presses the load image icon and the image doesn't have an extension", () => {
+  describe("And the user clicks on the load image icon", () => {
     test("Then it should set the image form state", async () => {
-      mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
-        canceled: false,
-        assets: [{ uri: "abc" }],
-        type: "image",
-      });
-
       renderWithProviders(
         <CreatePredictionForm
           matches={matchesMock}
@@ -220,11 +195,11 @@ describe("Given a CreatePredictionForm component", () => {
     });
   });
 
-  describe("And the user presses the load image icon", () => {
+  describe("And the user presses the load image icon and the image doesn't have an extension", () => {
     test("Then it should set the image form state", async () => {
       mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
         canceled: false,
-        assets: [{ uri: "abc.jpeg" }],
+        assets: [{ uri: "abc" }],
         type: "image",
       });
 
@@ -235,12 +210,9 @@ describe("Given a CreatePredictionForm component", () => {
         />
       );
 
-      const buttonId = "submitButton";
-      const button = screen.getByTestId(buttonId);
+      const pickImageButton = screen.getByTestId("image-picker");
 
-      const pickImageButton = await screen.getByTestId("image-picker");
-      await fireEvent.press(pickImageButton);
-      fireEvent.press(button);
+      fireEvent.press(pickImageButton);
 
       expect(mockedImagePicker.launchImageLibraryAsync).toBeCalledTimes(1);
     });
