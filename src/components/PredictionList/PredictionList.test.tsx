@@ -15,6 +15,8 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
+const dispatchSpy = jest.spyOn(store, "dispatch");
+
 jest.mock("@react-native-async-storage/async-storage", () => ({
   setItem: jest.fn(),
   getItem: jest.fn(),
@@ -91,31 +93,32 @@ describe("Given a PredictionList component", () => {
       const predictions = getRandomPredictionsList(9);
       const dropdownId = "dropdown";
 
-      renderWithProviders(<PredictionList predictions={predictions} />);
+      renderWithProviders(<PredictionList predictions={predictions} />, {
+        store,
+      });
 
       const dropdown = screen.queryByTestId(dropdownId);
 
-      fireEvent.changeText(dropdown, "Argentina");
+      fireEvent(dropdown, "onChangeValue", { value: "Argentina" });
 
-      expect(mockGetPredictions).toHaveBeenCalled();
+      expect(dispatchSpy).toHaveBeenCalled();
     });
   });
 
-  describe("When the users filters by 'Show all'", () => {
-    test("Then it should show all predictions", () => {
+  describe("When the users presses on the 'Remove filter' button", () => {
+    test("Then it should call dispatch with addFilterActionCreator", () => {
       const predictions = getRandomPredictionsList(9);
-      const dropdownId = "dropdown";
-      const predictionId = "predictionCard";
+      const buttonId = "removeFilter";
 
-      renderWithProviders(<PredictionList predictions={predictions} />);
+      renderWithProviders(<PredictionList predictions={predictions} />, {
+        store,
+      });
 
-      const dropdown = screen.queryByTestId(dropdownId);
+      const button = screen.queryByTestId(buttonId);
 
-      fireEvent.changeText(dropdown, "Show all");
+      fireEvent.press(button);
 
-      expect(mockGetPredictions).toHaveBeenCalledWith(0, "");
-      const displayedCards = screen.queryAllByTestId(predictionId);
-      expect(displayedCards).toHaveLength(9);
+      expect(dispatchSpy).toHaveBeenCalled();
     });
   });
 });

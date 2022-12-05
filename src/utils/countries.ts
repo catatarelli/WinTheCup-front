@@ -1,5 +1,4 @@
 const countries = [
-  { label: "Show all", value: "Show all" },
   { label: "Qatar", value: "Qatar" },
   { label: "Ecuador", value: "Ecuador" },
   { label: "Senegal", value: "Senegal" },
