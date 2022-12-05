@@ -43,22 +43,6 @@ const CreatePredictionForm = ({
   const [imageType, setImageType] = useState("");
   const [imageName, setImageName] = useState("");
 
-  const resetForm = () => {
-    setFormData({
-      match: "",
-      goalsTeam1: 0,
-      goalsTeam2: 0,
-      redCards: 0,
-      yellowCards: 0,
-      penalties: 0,
-      picture: "",
-    });
-    setValue("");
-    setImageSelected("");
-    setImageType("");
-    setImageName("");
-  };
-
   const handleSubmit = async () => {
     const newPrediction = new FormData();
     if (currentPrediction.match) {
@@ -81,13 +65,12 @@ const CreatePredictionForm = ({
     if (currentPrediction.match) {
       await updatePrediction(newPrediction, currentPrediction.id);
       await getPredictions();
-      resetForm();
+
       return;
     }
 
     await createPrediction(newPrediction);
     await getPredictions();
-    resetForm();
   };
 
   const handleFormChange = (text: string, identify: string) => {
@@ -99,7 +82,7 @@ const CreatePredictionForm = ({
 
   const chooseFile = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 0,

@@ -34,6 +34,11 @@ jest.mock("expo-image-picker", () => ({
 
 const mockedImagePicker = jest.mocked(ImagePicker);
 
+// Const setImageInitialState = ["abc.jpeg"];
+// jest
+//   .spyOn(React, "useState")
+//   .mockImplementationOnce(() => imageSelected(setImageInitialState));
+
 const prediction = {
   match: "",
   goalsTeam1: 0,
@@ -78,13 +83,11 @@ describe("Given a CreatePredictionForm component", () => {
 
   describe("And the user presses the submit button", () => {
     test("Then it should call createPrediction with the information in the form", () => {
-      const buttonId = "submitButton";
-      const dropdownId = "dropdown";
-      const input1Id = "goalsTeam1";
-      const input2Id = "goalsTeam2";
-      const input3Id = "redCards";
-      const input4Id = "yellowCards";
-      const input5Id = "penalties";
+      mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
+        canceled: false,
+        assets: [{ uri: "abc.jpg" }],
+        type: "image",
+      });
 
       renderWithProviders(
         <CreatePredictionForm
@@ -93,9 +96,17 @@ describe("Given a CreatePredictionForm component", () => {
         />
       );
 
-      mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
-        assets: [{ uri: "abc", type: "image", fileName: "abc.jpg" }],
-      } as ImagePickerResult);
+      const pickImageButton = screen.getByTestId("image-picker");
+
+      fireEvent.press(pickImageButton);
+
+      const buttonId = "submitButton";
+      const dropdownId = "dropdown";
+      const input1Id = "goalsTeam1";
+      const input2Id = "goalsTeam2";
+      const input3Id = "redCards";
+      const input4Id = "yellowCards";
+      const input5Id = "penalties";
 
       const button = screen.getByTestId(buttonId);
       const dropdown = screen.getByTestId(dropdownId);
@@ -104,16 +115,14 @@ describe("Given a CreatePredictionForm component", () => {
       const numericInput3 = screen.getByTestId(input3Id);
       const numericInput4 = screen.getByTestId(input4Id);
       const numericInput5 = screen.getByTestId(input5Id);
-      const pickImageButton = screen.getByTestId("image-picker");
 
-      fireEvent.press(pickImageButton);
       fireEvent.changeText(dropdown, "Argentina vs Chile Nov 30");
-      fireEvent.press(button);
       fireEvent.changeText(numericInput1, "1");
       fireEvent.changeText(numericInput2, "1");
       fireEvent.changeText(numericInput3, "1");
       fireEvent.changeText(numericInput4, "1");
       fireEvent.changeText(numericInput5, "1");
+      fireEvent.press(button);
 
       expect(mockCreatePrediction).toHaveBeenCalled();
     });
@@ -167,23 +176,6 @@ describe("Given a CreatePredictionForm component", () => {
     });
   });
 
-  describe("And the user presses the load image icon", () => {
-    test("Then it should set the image form state", async () => {
-      renderWithProviders(
-        <CreatePredictionForm
-          matches={matchesMock}
-          currentPrediction={prediction}
-        />
-      );
-
-      const pickImageButton = screen.getByTestId("image-picker");
-
-      fireEvent.press(pickImageButton);
-
-      expect(mockedImagePicker.launchImageLibraryAsync).toBeCalledTimes(1);
-    });
-  });
-
   describe("And the user presses the load image icon and the image doesn't have an extension", () => {
     test("Then it should set the image form state", async () => {
       mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
@@ -223,6 +215,32 @@ describe("Given a CreatePredictionForm component", () => {
       const pickImageButton = screen.getByTestId("image-picker");
 
       fireEvent.press(pickImageButton);
+
+      expect(mockedImagePicker.launchImageLibraryAsync).toBeCalledTimes(1);
+    });
+  });
+
+  describe("And the user presses the load image icon", () => {
+    test("Then it should set the image form state", async () => {
+      mockedImagePicker.launchImageLibraryAsync.mockResolvedValueOnce({
+        canceled: false,
+        assets: [{ uri: "abc.jpeg" }],
+        type: "image",
+      });
+
+      renderWithProviders(
+        <CreatePredictionForm
+          matches={matchesMock}
+          currentPrediction={prediction}
+        />
+      );
+
+      const buttonId = "submitButton";
+      const button = screen.getByTestId(buttonId);
+
+      const pickImageButton = await screen.getByTestId("image-picker");
+      await fireEvent.press(pickImageButton);
+      fireEvent.press(button);
 
       expect(mockedImagePicker.launchImageLibraryAsync).toBeCalledTimes(1);
     });
