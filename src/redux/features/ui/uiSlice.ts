@@ -7,6 +7,7 @@ import hideLoadingReducer from "./reducers/hideLoadingReducer/hideLoadingReducer
 import loadPagesReducer from "./reducers/loadPagesReducer/loadPagesReducer";
 import goToNextPageReducer from "./reducers/goToNextPageReducer/goToNextPageReducer";
 import resetUiReducer from "./reducers/resetUiReducer/resetUiReducer";
+import addFilterReducer from "./reducers/addFilterReducer/addFilterReducer";
 
 const uiInitialState: UiState = {
   modal: "",
@@ -16,6 +17,7 @@ const uiInitialState: UiState = {
     currentPage: 0,
     totalPages: 0,
   },
+  filter: "",
 };
 
 const uiSlice = createSlice({
@@ -29,6 +31,7 @@ const uiSlice = createSlice({
     loadPagesReducer,
     goToNextPageReducer,
     resetUiReducer,
+    addFilterReducer,
   },
 });
 
@@ -42,4 +45,5 @@ export const {
   loadPagesReducer: loadPagesActionCreator,
   goToNextPageReducer: goToNextPageActionCreator,
   resetUiReducer: resetUiActionCreator,
+  addFilterReducer: addFilterActionCreator,
 } = uiSlice.actions;

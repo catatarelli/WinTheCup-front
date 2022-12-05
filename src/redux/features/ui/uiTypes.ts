@@ -6,6 +6,7 @@ export interface UiState {
     currentPage: number;
     totalPages: number;
   };
+  filter: string;
 }
 
 export interface ModalActionPayload {
