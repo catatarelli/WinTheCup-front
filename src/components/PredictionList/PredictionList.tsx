@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useNavigation } from "@react-navigation/native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 import {
   FlatList,
@@ -21,7 +21,6 @@ import LoadMore from "../LoadMore/LoadMore";
 import PredictionCard from "../PredictionCard/PredictionCard";
 import listStyles from "./PredictionListStyled";
 import countries from "../../utils/countries";
-import usePredictions from "../../hooks/usePredictions/usePredictions";
 import { addFilterActionCreator } from "../../redux/features/ui/uiSlice";
 
 interface PredictionListProps {
