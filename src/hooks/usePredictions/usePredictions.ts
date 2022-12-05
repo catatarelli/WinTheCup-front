@@ -30,14 +30,14 @@ const usePredictions = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
   const getPredictions = useCallback(
-    async (page = 0) => {
+    async (page = 0, country?: string) => {
       try {
         dispatch(showLoadingActionCreator());
 
         const response = await axios.get<PredictionsResponse>(
           `${REACT_APP_API_URL}/predictions`,
           {
-            params: { page },
+            params: { page, country },
             headers: {
               Authorization: `Bearer ${token}`,
             },

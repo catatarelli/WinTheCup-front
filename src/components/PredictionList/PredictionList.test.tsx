@@ -11,6 +11,10 @@ import { Provider } from "react-redux";
 import { store } from "../../redux/store";
 import { NavigationContainer } from "@react-navigation/native";
 
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
 jest.mock("@react-native-async-storage/async-storage", () => ({
   setItem: jest.fn(),
   getItem: jest.fn(),
@@ -28,6 +32,12 @@ jest.mock("@react-navigation/native", () => {
     }),
   };
 });
+
+const mockGetPredictions = jest.fn();
+
+jest.mock("../../hooks/usePredictions/usePredictions", () => () => ({
+  getPredictions: mockGetPredictions,
+}));
 
 describe("Given a PredictionList component", () => {
   describe("When it is rendered with a list of 9 predictions", () => {
@@ -73,6 +83,39 @@ describe("Given a PredictionList component", () => {
       fireEvent(button, "press");
 
       expect(mockedNavigate).toHaveBeenCalledWith(Routes.createPrediction);
+    });
+  });
+
+  describe("When the users filters by country 'Argentina'", () => {
+    test("Then it should show the predictions created for Argentina's matches", () => {
+      const predictions = getRandomPredictionsList(9);
+      const dropdownId = "dropdown";
+
+      renderWithProviders(<PredictionList predictions={predictions} />);
+
+      const dropdown = screen.queryByTestId(dropdownId);
+
+      fireEvent.changeText(dropdown, "Argentina");
+
+      expect(mockGetPredictions).toHaveBeenCalled();
+    });
+  });
+
+  describe("When the users filters by 'Show all'", () => {
+    test("Then it should show all predictions", () => {
+      const predictions = getRandomPredictionsList(9);
+      const dropdownId = "dropdown";
+      const predictionId = "predictionCard";
+
+      renderWithProviders(<PredictionList predictions={predictions} />);
+
+      const dropdown = screen.queryByTestId(dropdownId);
+
+      fireEvent.changeText(dropdown, "Show all");
+
+      expect(mockGetPredictions).toHaveBeenCalledWith(0, "");
+      const displayedCards = screen.queryAllByTestId(predictionId);
+      expect(displayedCards).toHaveLength(9);
     });
   });
 });

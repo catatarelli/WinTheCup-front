@@ -8,6 +8,10 @@ const listStyles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
   },
+  container: {
+    display: "flex",
+    alignItems: "center",
+  },
   image: {
     width: 321,
     height: 612,
