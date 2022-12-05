@@ -8,6 +8,10 @@ const listStyles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
   },
+  container: {
+    display: "flex",
+    alignItems: "center",
+  },
   image: {
     width: 321,
     height: 612,
@@ -25,6 +29,25 @@ const listStyles = StyleSheet.create({
   button: {
     ...formStyles.button,
     opacity: 0.7,
+  },
+  filter: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  removeFilter: {
+    ...formStyles.button,
+    height: 50,
+    backgroundColor: colors.grey,
+    opacity: 0.8,
+    width: 140,
+    marginTop: 0,
+    marginBottom: 10,
+    marginLeft: 15,
+  },
+  removeFilterText: {
+    fontSize: 16,
+    color: colors.white,
   },
 });
 

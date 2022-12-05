@@ -8,6 +8,7 @@ export const emptyModalMock: UiState = {
     currentPage: 0,
     totalPages: 0,
   },
+  filter: "",
 };
 
 export const mockUiStateSuccessModal: UiState = {
@@ -18,6 +19,7 @@ export const mockUiStateSuccessModal: UiState = {
     currentPage: 0,
     totalPages: 0,
   },
+  filter: "",
 };
 
 export const mockUiStateErrorModal: UiState = {
@@ -28,6 +30,7 @@ export const mockUiStateErrorModal: UiState = {
     currentPage: 0,
     totalPages: 0,
   },
+  filter: "",
 };
 
 export const mockUiState: UiState = {
@@ -38,4 +41,5 @@ export const mockUiState: UiState = {
     currentPage: 0,
     totalPages: 0,
   },
+  filter: "",
 };

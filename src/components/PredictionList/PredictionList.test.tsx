@@ -11,6 +11,12 @@ import { Provider } from "react-redux";
 import { store } from "../../redux/store";
 import { NavigationContainer } from "@react-navigation/native";
 
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
+const dispatchSpy = jest.spyOn(store, "dispatch");
+
 jest.mock("@react-native-async-storage/async-storage", () => ({
   setItem: jest.fn(),
   getItem: jest.fn(),
@@ -28,6 +34,12 @@ jest.mock("@react-navigation/native", () => {
     }),
   };
 });
+
+const mockGetPredictions = jest.fn();
+
+jest.mock("../../hooks/usePredictions/usePredictions", () => () => ({
+  getPredictions: mockGetPredictions,
+}));
 
 describe("Given a PredictionList component", () => {
   describe("When it is rendered with a list of 9 predictions", () => {
@@ -73,6 +85,40 @@ describe("Given a PredictionList component", () => {
       fireEvent(button, "press");
 
       expect(mockedNavigate).toHaveBeenCalledWith(Routes.createPrediction);
+    });
+  });
+
+  describe("When the users filters by country 'Argentina'", () => {
+    test("Then it should show the predictions created for Argentina's matches", () => {
+      const predictions = getRandomPredictionsList(9);
+      const dropdownId = "dropdown";
+
+      renderWithProviders(<PredictionList predictions={predictions} />, {
+        store,
+      });
+
+      const dropdown = screen.queryByTestId(dropdownId);
+
+      fireEvent(dropdown, "onChangeValue", { value: "Argentina" });
+
+      expect(dispatchSpy).toHaveBeenCalled();
+    });
+  });
+
+  describe("When the users presses on the 'Remove filter' button", () => {
+    test("Then it should call dispatch with addFilterActionCreator", () => {
+      const predictions = getRandomPredictionsList(9);
+      const buttonId = "removeFilter";
+
+      renderWithProviders(<PredictionList predictions={predictions} />, {
+        store,
+      });
+
+      const button = screen.queryByTestId(buttonId);
+
+      fireEvent.press(button);
+
+      expect(dispatchSpy).toHaveBeenCalled();
     });
   });
 });
