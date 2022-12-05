@@ -13,7 +13,7 @@ import {
 import image from "../../../assets/ball-in-the-net.webp";
 import Routes from "../../navigation/routes";
 import type { PredictionStructure } from "../../redux/features/predictions/predictionsTypes";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import formStyles from "../../styles/form.styles";
 import headingStyles from "../../styles/headings.styles";
 import { LoginScreenNavigationProp } from "../../types/navigation.types";
@@ -22,6 +22,7 @@ import PredictionCard from "../PredictionCard/PredictionCard";
 import listStyles from "./PredictionListStyled";
 import countries from "../../utils/countries";
 import usePredictions from "../../hooks/usePredictions/usePredictions";
+import { addFilterActionCreator } from "../../redux/features/ui/uiSlice";
 
 interface PredictionListProps {
   predictions: PredictionStructure[];
@@ -32,7 +33,8 @@ const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
     <PredictionCard prediction={item} key={item.match} />
   );
 
-  const { getPredictions } = usePredictions();
+  const dispatch = useAppDispatch();
+
   const { currentPage, totalPages } = useAppSelector(
     (state) => state.ui.pagination
   );
@@ -42,32 +44,43 @@ const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
 
-  useEffect(() => {
-    if (value === "Show all") {
-      getPredictions(0);
-    } else {
-      getPredictions(0, value);
-    }
-  }, [value]);
+  const handleFilterChange = (country: string) => {
+    dispatch(addFilterActionCreator(country));
+  };
+
+  const handleFilterReset = () => {
+    dispatch(addFilterActionCreator(""));
+    setValue("");
+  };
 
   return (
     <>
       {predictions.length !== 0 ? (
         <View style={listStyles.container}>
           <Text style={headingStyles.pageTitle}>My Predictions</Text>
-          <DropDownPicker
-            listMode="SCROLLVIEW"
-            open={open}
-            setOpen={setOpen}
-            value={value}
-            items={countries}
-            setValue={setValue}
-            placeholder="Filter by country"
-            dropDownDirection="BOTTOM"
-            testID="dropdown"
-            containerStyle={{ width: "80%" }}
-            stickyHeader={true}
-          />
+          <View style={listStyles.filter}>
+            <DropDownPicker
+              listMode="SCROLLVIEW"
+              open={open}
+              setOpen={setOpen}
+              value={value}
+              items={countries}
+              setValue={setValue}
+              onChangeValue={() => handleFilterChange(value)}
+              placeholder="Filter by country"
+              dropDownDirection="BOTTOM"
+              testID="dropdown"
+              containerStyle={{ width: 170 }}
+              stickyHeader={true}
+            />
+            <TouchableOpacity
+              style={listStyles.removeFilter}
+              onPress={handleFilterReset}
+              testID="removeFilter"
+            >
+              <Text style={listStyles.removeFilterText}>Remove filter</Text>
+            </TouchableOpacity>
+          </View>
           <FlatList
             data={predictions}
             renderItem={renderItem}
