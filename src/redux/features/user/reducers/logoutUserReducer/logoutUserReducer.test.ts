@@ -9,6 +9,7 @@ describe("Given a logoutUserReducer", () => {
         username: "",
         token: "",
         isLogged: false,
+        email: "",
       };
 
       const newUserState = logoutUserReducer();
