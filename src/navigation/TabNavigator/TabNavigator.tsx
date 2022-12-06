@@ -4,10 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Image } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import {
-  faCirclePlus,
-  faRightFromBracket,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus, faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import icon from "../../../assets/magic-ball.png";
 import MyPredictionsScreen from "../../screens/MyPredictionsScreen/MyPredictionsScreen";
 import Routes from "../routes";
@@ -15,29 +12,11 @@ import colors from "../../styles/colors.styles";
 import navigationStyles from "./TabNavigatorStyled";
 import PredictionDetailScreen from "../../screens/PredictionDetailScreen/PredictionDetailScreen";
 import CreatePredictionScreen from "../../screens/CreatePredictionScreen/CreatePredictionScreen";
-import { logoutUserActionCreator } from "../../redux/features/user/userSlice";
-import { useAppDispatch } from "../../redux/hooks";
-import useToken from "../../hooks/useToken/useToken";
-import { useNavigation } from "@react-navigation/native";
-import { type LoginScreenNavigationProp } from "../../types/navigation.types";
-import CustomModal from "../../components/CustomModal/CustomModal";
 import EditPredictionScreen from "../../screens/EditPredictionScreen/EditPredictionScreen";
-import { resetPredictionsActionCreator } from "../../redux/features/predictions/predictionsSlice";
-import { resetUiActionCreator } from "../../redux/features/ui/uiSlice";
+import MyProfileScreen from "../../screens/MyProfileScreen/MyProfileScreen";
 
 const TabNavigator = (): JSX.Element => {
   const Tab = createBottomTabNavigator();
-  const dispatch = useAppDispatch();
-  const { removeToken } = useToken();
-  const navigation = useNavigation<LoginScreenNavigationProp>();
-
-  const handleLogout = () => {
-    removeToken();
-    dispatch(logoutUserActionCreator());
-    dispatch(resetPredictionsActionCreator());
-    dispatch(resetUiActionCreator());
-    navigation.navigate(Routes.login);
-  };
 
   return (
     <Tab.Navigator
@@ -93,19 +72,12 @@ const TabNavigator = (): JSX.Element => {
         }}
       />
       <Tab.Screen
-        name={Routes.logout}
-        listeners={{
-          tabPress: handleLogout,
-        }}
-        component={CustomModal}
+        name={Routes.myProfile}
+        component={MyProfileScreen}
         options={{
-          title: "Log out",
+          title: "My profile",
           tabBarIcon: ({ color }) => (
-            <FontAwesomeIcon
-              icon={faRightFromBracket}
-              size={46}
-              color={color}
-            />
+            <FontAwesomeIcon icon={faCircleUser} size={46} color={color} />
           ),
         }}
       />
