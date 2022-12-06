@@ -29,6 +29,15 @@ export const handlers = [
     return res(ctx.status(200), ctx.json({ token: "token" }));
   }),
 
+  rest.patch(`${REACT_APP_API_URL}/user/update`, async (req, res, ctx) => {
+    const user = await req.json<UserCredentials>();
+    if (user.password === "testPassword") {
+      return res(ctx.status(401));
+    }
+
+    return res(ctx.status(200));
+  }),
+
   rest.get(`${REACT_APP_API_URL}/predictions`, async (req, res, ctx) =>
     res.once(
       ctx.status(404),

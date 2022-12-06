@@ -7,7 +7,7 @@ enum Routes {
   home = "Home",
   createPrediction = "CreatePrediction",
   editPrediction = "EditPrediction",
-  logout = "Logout",
+  myProfile = "MyProfile",
 }
 
 export default Routes;
