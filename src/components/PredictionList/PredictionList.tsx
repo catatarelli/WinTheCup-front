@@ -69,7 +69,7 @@ const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
               placeholder="Filter by country"
               dropDownDirection="BOTTOM"
               testID="dropdown"
-              containerStyle={{ width: 170 }}
+              containerStyle={{ width: 190 }}
               stickyHeader={true}
             />
             <TouchableOpacity
