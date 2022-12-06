@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
   },
   match: {
     fontSize: 16,
-    marginBottom: 10,
   },
   goalsContainer: {
     display: "flex",
@@ -45,6 +44,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     width: 160,
+    marginTop: 10,
   },
   goals: {
     borderColor: colors.grey,
