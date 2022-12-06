@@ -11,6 +11,7 @@ export const userMock = {
   username: "luis123",
   token: "testtoken",
   isLogged: false,
+  email: "luis@gmail.com",
 };
 
 export const emptyUserMock = {
@@ -18,6 +19,7 @@ export const emptyUserMock = {
   username: "",
   token: "",
   isLogged: false,
+  email: "",
 };
 
 export const loggedInUserStateMock: UserState = {

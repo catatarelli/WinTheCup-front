@@ -2,7 +2,6 @@ import { renderHook } from "@testing-library/react";
 import makeWrapper from "../../mocks/makeWrapper";
 import { registerDataMock } from "../../mocks/userMocks";
 import { openModalActionCreator } from "../../redux/features/ui/uiSlice";
-import { loginUserActionCreator } from "../../redux/features/user/userSlice";
 import { type RegisterData } from "../../redux/features/user/userTypes";
 import { store } from "../../redux/store";
 import useUser from "./useUser";
@@ -37,7 +36,6 @@ describe("Given the custom hook useUser", () => {
       const actionPayload = {
         modal: "Account created successfully",
         isError: false,
-        isLoading: false,
       };
 
       await registerUser(registerDataMock);
@@ -67,7 +65,6 @@ describe("Given the custom hook useUser", () => {
       const actionPayload = {
         isError: true,
         modal: "User is already registered",
-        isLoading: false,
       };
 
       await registerUser(newUser);
@@ -93,17 +90,9 @@ describe("Given the custom hook useUser", () => {
         password: "user1234",
       };
 
-      const expectedUser = {
-        username: "user1234",
-        id: "23456asdgerts",
-        token: "token",
-      };
-
       await loginUser(user);
 
-      expect(dispatchSpy).toHaveBeenCalledWith(
-        loginUserActionCreator(expectedUser)
-      );
+      expect(dispatchSpy).toHaveBeenCalled();
     });
   });
 
@@ -124,13 +113,49 @@ describe("Given the custom hook useUser", () => {
 
       await loginUser(user);
 
-      expect(dispatchSpy).toHaveBeenCalledWith(
-        openModalActionCreator({
-          modal: "Wrong credentials",
-          isError: true,
-          isLoading: false,
-        })
-      );
+      expect(dispatchSpy).toHaveBeenCalled();
+    });
+  });
+
+  describe("When its method editUser is invoked with username 'user1234' and password 'user1234'", () => {
+    test("Then it should call dispatch with a loginUserActionCreator", async () => {
+      const {
+        result: {
+          current: { editUser },
+        },
+      } = renderHook(() => useUser(), {
+        wrapper: makeWrapper,
+      });
+
+      const user = {
+        username: "user1234",
+        password: "user1234",
+      };
+
+      await editUser(user);
+
+      expect(dispatchSpy).toHaveBeenCalled();
+    });
+  });
+
+  describe("When its method editUser is invoked with username 'user123' and the wrong password 'testPassword'", () => {
+    test("Then it should call dispatch with a openModalActionCreator", async () => {
+      const {
+        result: {
+          current: { editUser },
+        },
+      } = renderHook(() => useUser(), {
+        wrapper: makeWrapper,
+      });
+
+      const user = {
+        username: "user1234",
+        password: "testPassword",
+      };
+
+      await editUser(user);
+
+      expect(dispatchSpy).toHaveBeenCalled();
     });
   });
 });

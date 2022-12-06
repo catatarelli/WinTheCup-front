@@ -7,21 +7,27 @@ import {
   openModalActionCreator,
   showLoadingActionCreator,
 } from "../../redux/features/ui/uiSlice";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import type {
+  EditUserResponse,
+  EditUserStructure,
   LoginResponse,
   RegisterData,
   UserCredentials,
 } from "../../redux/features/user/userTypes";
 import { type JwtCustomPayload } from "../../types/types";
 import decodeToken from "../../utils/decodeToken";
-import { loginUserActionCreator } from "../../redux/features/user/userSlice";
+import {
+  editUserActionCreator,
+  loginUserActionCreator,
+} from "../../redux/features/user/userSlice";
 import { useNavigation } from "@react-navigation/native";
 import type { LoginScreenNavigationProp } from "../../types/navigation.types";
 import Routes from "../../navigation/routes";
 
 const useUser = () => {
   const dispatch = useAppDispatch();
+  const { token } = useAppSelector((state) => state.user);
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
   const registerUser = async (userData: RegisterData) => {
@@ -32,7 +38,6 @@ const useUser = () => {
         openModalActionCreator({
           modal: "Account created successfully",
           isError: false,
-          isLoading: false,
         })
       );
       dispatch(hideLoadingActionCreator());
@@ -43,7 +48,6 @@ const useUser = () => {
         openModalActionCreator({
           modal: "User is already registered",
           isError: true,
-          isLoading: false,
         })
       );
     }
@@ -57,10 +61,10 @@ const useUser = () => {
         userData
       );
 
-      const { token } = responseData.data;
+      const { token, email } = responseData.data;
       const loggedUser: JwtCustomPayload = decodeToken(token);
 
-      dispatch(loginUserActionCreator({ ...loggedUser, token }));
+      dispatch(loginUserActionCreator({ ...loggedUser, token, email }));
       await AsyncStorage.setItem("token", token);
       dispatch(hideLoadingActionCreator());
       navigation.navigate(Routes.home);
@@ -70,13 +74,46 @@ const useUser = () => {
         openModalActionCreator({
           modal: "Wrong credentials",
           isError: true,
-          isLoading: false,
         })
       );
     }
   };
 
-  return { registerUser, loginUser };
+  const editUser = async (userData: EditUserStructure) => {
+    dispatch(showLoadingActionCreator());
+    try {
+      const responseData = await axios.patch<EditUserResponse>(
+        `${REACT_APP_API_URL}/user/update`,
+        userData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const { username, email } = responseData.data;
+
+      dispatch(editUserActionCreator({ username, email }));
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        openModalActionCreator({
+          modal: "User updated successfully",
+          isError: false,
+        })
+      );
+    } catch {
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        openModalActionCreator({
+          modal: "It was not possible to save changes",
+          isError: true,
+        })
+      );
+    }
+  };
+
+  return { registerUser, loginUser, editUser };
 };
 
 export default useUser;
