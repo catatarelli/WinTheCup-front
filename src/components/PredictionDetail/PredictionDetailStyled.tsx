@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.beige,
     borderRadius: 15,
     width: 321,
-    height: 612,
+    height: 625,
     display: "flex",
     justifyContent: "space-between",
     margin: 10,
@@ -37,12 +37,16 @@ const styles = StyleSheet.create({
   },
   match: {
     fontSize: 20,
-    marginVertical: 5,
+    marginBottom: 10,
+  },
+  date: {
+    fontSize: 20,
   },
   goalsContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
+    alignItems: "center",
     width: 210,
     marginBottom: 10,
   },

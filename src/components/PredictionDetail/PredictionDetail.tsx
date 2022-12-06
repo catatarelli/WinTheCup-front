@@ -49,7 +49,7 @@ const PredictionDetail = ({
         <Text style={styles.match}>{matchAndDate[0]}</Text>
         <View style={styles.goalsContainer}>
           <Text style={styles.goals}>{goalsTeam1}</Text>
-          <Text style={styles.match}>{matchAndDate[1]}</Text>
+          <Text style={styles.date}>{matchAndDate[1]}</Text>
           <Text style={styles.goals}>{goalsTeam2}</Text>
         </View>
         <View style={styles.statsContainer}>
