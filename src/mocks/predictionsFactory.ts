@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Factory } from "fishery";
 import { faker } from "@faker-js/faker";
 import type { PredictionStructure } from "../redux/features/predictions/predictionsTypes";

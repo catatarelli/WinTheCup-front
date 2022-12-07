@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { ImageBackground, SafeAreaView, ScrollView, Image } from "react-native";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import React from "react";

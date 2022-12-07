@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
 import { screen, render } from "@testing-library/react-native";
 import PredictionDetailScreen from "./PredictionDetailScreen";

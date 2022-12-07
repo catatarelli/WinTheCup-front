@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
 import TabNavigator from "./TabNavigator";
 import { screen, render } from "@testing-library/react-native";

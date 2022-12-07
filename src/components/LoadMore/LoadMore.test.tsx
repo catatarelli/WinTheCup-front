@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { fireEvent, screen } from "@testing-library/react-native";
 import React from "react";
 import { renderWithProviders } from "../../mocks/renderWithProviders";

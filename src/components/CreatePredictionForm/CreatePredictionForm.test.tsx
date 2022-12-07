@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
 import * as ImagePicker from "expo-image-picker";
 import { type ImagePickerResult } from "expo-image-picker";
