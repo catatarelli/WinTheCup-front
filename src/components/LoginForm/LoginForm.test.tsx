@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react-native";
 import LoginFrom from "./LoginForm";

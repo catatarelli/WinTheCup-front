@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
 import { View, Modal, Image } from "react-native";
 import gif from "../../../assets/spinning-ball1.gif";

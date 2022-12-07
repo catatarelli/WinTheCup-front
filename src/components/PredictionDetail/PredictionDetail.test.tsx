@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { screen, fireEvent } from "@testing-library/react-native";
 import React from "react";
 import { getRandomPrediction } from "../../mocks/predictionsFactory";

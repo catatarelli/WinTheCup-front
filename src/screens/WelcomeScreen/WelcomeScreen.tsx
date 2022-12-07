@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import {
   ImageBackground,
   SafeAreaView,

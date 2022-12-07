@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { render, screen } from "@testing-library/react-native";
 import React from "react";
 import Loading from "./Loading";

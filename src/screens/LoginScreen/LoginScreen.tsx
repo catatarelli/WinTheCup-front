@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { ImageBackground, SafeAreaView, ScrollView, Image } from "react-native";
 import React from "react";
 import screenStyles from "../../styles/screen.styles";
