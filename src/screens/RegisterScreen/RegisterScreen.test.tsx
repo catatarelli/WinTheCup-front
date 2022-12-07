@@ -29,5 +29,16 @@ describe("Given a RegisterScreen component", () => {
 
       expect(displayedImage).toBeDefined();
     });
+
+    test("Then it should match the snapshot", () => {
+      const screen = render(
+        <Provider store={store}>
+          <NavigationContainer>
+            <RegisterScreen />
+          </NavigationContainer>
+        </Provider>
+      );
+      expect(screen).toMatchSnapshot();
+    });
   });
 });

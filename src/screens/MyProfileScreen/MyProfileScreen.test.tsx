@@ -33,5 +33,16 @@ describe("Given a MyProfileScreen component", () => {
 
       expect(title).toBeDefined();
     });
+
+    test("Then it should match the snapshot", () => {
+      const screen = render(
+        <Provider store={mockInitialStoreSuccessModal}>
+          <NavigationContainer>
+            <MyProfileScreen />
+          </NavigationContainer>
+        </Provider>
+      );
+      expect(screen).toMatchSnapshot();
+    });
   });
 });

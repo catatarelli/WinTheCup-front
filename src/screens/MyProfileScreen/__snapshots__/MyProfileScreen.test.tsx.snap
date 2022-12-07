@@ -1,0 +1,239 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a MyProfileScreen component When it's rendered Then it should match the snapshot 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "height": "100%",
+    }
+  }
+>
+  <View>
+    <RCTSafeAreaView
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "#3F3F3F",
+            "fontSize": 30,
+            "marginBottom": 10,
+            "marginTop": 50,
+          }
+        }
+      >
+        My Profile
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#EEEEE4",
+            "borderRadius": 15,
+            "display": "flex",
+            "elevation": 6,
+            "height": 612,
+            "margin": 10,
+            "marginBottom": 50,
+            "marginVertical": 15,
+            "paddingVertical": 15,
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 3,
+              "width": 0,
+            },
+            "shadowOpacity": 0.27,
+            "shadowRadius": 4.65,
+            "width": 321,
+          }
+        }
+      >
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "#3F3F3F",
+                "fontSize": 20,
+              }
+            }
+          >
+            Username
+          </Text>
+          <TextInput
+            maxLength={20}
+            onChangeText={[Function]}
+            style={
+              Object {
+                "borderColor": "#3F3F3F",
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "color": "#3F3F3F",
+                "fontSize": 20,
+                "height": 54,
+                "marginVertical": 10,
+                "padding": 10,
+                "width": 300,
+              }
+            }
+            testID="username"
+            textContentType="username"
+            value="luis123"
+          />
+          <Text
+            style={
+              Object {
+                "color": "#3F3F3F",
+                "fontSize": 20,
+              }
+            }
+          >
+            Password
+          </Text>
+          <TextInput
+            maxLength={20}
+            onChangeText={[Function]}
+            secureTextEntry={true}
+            style={
+              Object {
+                "borderColor": "#3F3F3F",
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "color": "#3F3F3F",
+                "fontSize": 20,
+                "height": 54,
+                "marginVertical": 10,
+                "padding": 10,
+                "width": 300,
+              }
+            }
+            testID="password"
+            textContentType="password"
+            value=""
+          />
+          <Text
+            style={
+              Object {
+                "color": "#3F3F3F",
+                "fontSize": 20,
+              }
+            }
+          >
+            Email
+          </Text>
+          <TextInput
+            maxLength={25}
+            onChangeText={[Function]}
+            style={
+              Object {
+                "borderColor": "#3F3F3F",
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "color": "#3F3F3F",
+                "fontSize": 20,
+                "height": 54,
+                "marginVertical": 10,
+                "padding": 10,
+                "width": 300,
+              }
+            }
+            testID="email"
+            textContentType="emailAddress"
+            value="luis@gmail.com"
+          />
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#3F3F3F",
+              "borderRadius": 20,
+              "color": "#fff",
+              "height": 57,
+              "justifyContent": "center",
+              "marginBottom": 10,
+              "marginTop": 10,
+              "marginVertical": 25,
+              "opacity": 0.8,
+              "padding": 6,
+              "width": 160,
+              "zIndex": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#fff",
+                "fontSize": 20,
+              }
+            }
+            testID="saveChanges"
+          >
+            Save changes
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#EEEEE4",
+              "borderColor": "#8A1538",
+              "borderRadius": 20,
+              "borderWidth": 3,
+              "color": "#fff",
+              "height": 57,
+              "justifyContent": "center",
+              "marginBottom": 10,
+              "marginTop": 120,
+              "marginVertical": 25,
+              "opacity": 0.8,
+              "padding": 6,
+              "width": 160,
+              "zIndex": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#8A1538",
+                "fontSize": 20,
+              }
+            }
+          >
+            Log out
+          </Text>
+        </View>
+      </View>
+    </RCTSafeAreaView>
+  </View>
+</RCTScrollView>
+`;

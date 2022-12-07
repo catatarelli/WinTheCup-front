@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a PredictionDetailScreen component When it's rendered Then it should match the snapshot 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "height": "100%",
+    }
+  }
+>
+  <View>
+    <RCTSafeAreaView
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "#3F3F3F",
+            "fontSize": 30,
+            "marginBottom": 10,
+            "marginTop": 50,
+          }
+        }
+      >
+        Prediction Detail
+      </Text>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#EEEEE4",
+            "borderRadius": 15,
+            "display": "flex",
+            "elevation": 6,
+            "height": 625,
+            "justifyContent": "space-between",
+            "margin": 10,
+            "marginBottom": 50,
+            "paddingBottom": 10,
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 3,
+              "width": 0,
+            },
+            "shadowOpacity": 0.27,
+            "shadowRadius": 4.65,
+            "width": 321,
+          }
+        }
+        testID="predictionDetail"
+      >
+        <Image
+          source={
+            Object {
+              "uri": undefined,
+            }
+          }
+          style={
+            Object {
+              "borderTopLeftRadius": 15,
+              "borderTopRightRadius": 15,
+              "height": 164,
+              "resizeMode": "cover",
+              "width": 321,
+              "zIndex": 100,
+            }
+          }
+          testID="predictionPicture"
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 20,
+                "marginBottom": 10,
+              }
+            }
+          >
+            Argentina vs Mexico
+          </Text>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "space-around",
+                "marginBottom": 10,
+                "width": 210,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "borderColor": "#3F3F3F",
+                  "borderWidth": 1,
+                  "fontSize": 20,
+                  "height": 45,
+                  "paddingHorizontal": 10,
+                  "paddingVertical": 5,
+                  "textAlign": "center",
+                  "width": 45,
+                }
+              }
+            >
+              3
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "borderColor": "#3F3F3F",
+                  "borderWidth": 1,
+                  "fontSize": 20,
+                  "height": 45,
+                  "paddingHorizontal": 10,
+                  "paddingVertical": 5,
+                  "textAlign": "center",
+                  "width": 45,
+                }
+              }
+            >
+              2
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "space-around",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "marginVertical": 5,
+                }
+              }
+            >
+              Red cards
+            </Text>
+            <Text
+              style={
+                Object {
+                  "borderColor": "#3F3F3F",
+                  "borderWidth": 1,
+                  "fontSize": 20,
+                  "height": 45,
+                  "paddingHorizontal": 10,
+                  "paddingVertical": 5,
+                  "textAlign": "center",
+                  "width": 45,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "marginVertical": 5,
+                }
+              }
+            >
+              Yellow cards
+            </Text>
+            <Text
+              style={
+                Object {
+                  "borderColor": "#3F3F3F",
+                  "borderWidth": 1,
+                  "fontSize": 20,
+                  "height": 45,
+                  "paddingHorizontal": 10,
+                  "paddingVertical": 5,
+                  "textAlign": "center",
+                  "width": 45,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "marginVertical": 5,
+                }
+              }
+            >
+              Penalties
+            </Text>
+            <Text
+              style={
+                Object {
+                  "borderColor": "#3F3F3F",
+                  "borderWidth": 1,
+                  "fontSize": 20,
+                  "height": 45,
+                  "paddingHorizontal": 10,
+                  "paddingVertical": 5,
+                  "textAlign": "center",
+                  "width": 45,
+                }
+              }
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-around",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#3F3F3F",
+                "borderRadius": 20,
+                "color": "#fff",
+                "height": 57,
+                "justifyContent": "center",
+                "marginBottom": 10,
+                "marginTop": 0,
+                "marginVertical": 25,
+                "opacity": 0.8,
+                "padding": 6,
+                "width": 120,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#fff",
+                  "fontSize": 20,
+                }
+              }
+              testID="editButton"
+            >
+              Edit
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#3F3F3F",
+                "borderRadius": 20,
+                "color": "#fff",
+                "height": 57,
+                "justifyContent": "center",
+                "marginBottom": 10,
+                "marginTop": 0,
+                "marginVertical": 25,
+                "opacity": 0.8,
+                "padding": 6,
+                "width": 120,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#fff",
+                  "fontSize": 20,
+                }
+              }
+              testID="deleteButton"
+            >
+              Delete
+            </Text>
+          </View>
+        </View>
+      </View>
+    </RCTSafeAreaView>
+  </View>
+</RCTScrollView>
+`;
