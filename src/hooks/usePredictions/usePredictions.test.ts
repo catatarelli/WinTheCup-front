@@ -302,7 +302,7 @@ describe("Given the custom hook usePredictions", () => {
         hideLoadingActionCreator()
       );
       expect(dispatchSpy).toHaveBeenNthCalledWith(
-        3,
+        4,
         openModalActionCreator({
           modal: "Prediction deleted",
           isError: false,

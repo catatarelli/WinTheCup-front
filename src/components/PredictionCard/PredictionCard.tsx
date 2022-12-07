@@ -18,8 +18,7 @@ const PredictionCard = ({
   prediction: { match, goalsTeam1, goalsTeam2, backupPicture, id },
 }: PredictionCardProps): JSX.Element => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
-  const { getPredictionById, deletePrediction, getPredictions } =
-    usePredictions();
+  const { getPredictionById, deletePrediction } = usePredictions();
 
   const matchAndDate = match.split("-");
 
@@ -30,7 +29,6 @@ const PredictionCard = ({
 
   const handleDelete = () => {
     deletePrediction(id);
-    getPredictions();
   };
 
   return (

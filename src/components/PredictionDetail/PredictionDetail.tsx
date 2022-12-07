@@ -25,13 +25,12 @@ const PredictionDetail = ({
   },
 }: PredictionCardProps): JSX.Element => {
   const matchAndDate = match.split("-");
-  const { deletePrediction, getPredictions } = usePredictions();
+  const { deletePrediction } = usePredictions();
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
   const handleDelete = () => {
     deletePrediction(id);
     navigation.navigate(Routes.myPredictions);
-    getPredictions();
   };
 
   const handleEdit = () => {
