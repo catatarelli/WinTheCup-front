@@ -18,6 +18,7 @@ import type {
   UpdatePredicitonStructure,
 } from "../../redux/features/predictions/predictionsTypes";
 import {
+  deletePredictionActionCreator,
   loadMorePredictionsActionCreator,
   loadOnePredictionActionCreator,
   loadPredictionsActionCreator,
@@ -101,12 +102,16 @@ const usePredictions = () => {
     dispatch(showLoadingActionCreator());
 
     try {
-      await axios.post(`${REACT_APP_API_URL}/predictions/create`, prediction, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const newPrediction = await axios.post<PredictionStructure>(
+        `${REACT_APP_API_URL}/predictions/create`,
+        prediction,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       dispatch(hideLoadingActionCreator());
       dispatch(
@@ -115,7 +120,8 @@ const usePredictions = () => {
           isError: false,
         })
       );
-      navigation.navigate(Routes.myPredictions);
+      dispatch(loadOnePredictionActionCreator(newPrediction.data));
+      navigation.navigate(Routes.predictionDetail);
     } catch {
       dispatch(hideLoadingActionCreator());
       dispatch(
@@ -141,6 +147,7 @@ const usePredictions = () => {
       );
 
       dispatch(hideLoadingActionCreator());
+      dispatch(deletePredictionActionCreator(predictionId));
       dispatch(
         openModalActionCreator({
           modal: "Prediction deleted",
@@ -165,7 +172,7 @@ const usePredictions = () => {
   ) => {
     dispatch(showLoadingActionCreator());
     try {
-      await axios.patch(
+      const newPrediction = await axios.patch(
         `${REACT_APP_API_URL}/predictions/update/${predictionId}`,
         prediction,
         {
@@ -184,7 +191,8 @@ const usePredictions = () => {
         })
       );
 
-      navigation.navigate(Routes.myPredictions);
+      dispatch(loadOnePredictionActionCreator(newPrediction.data));
+      navigation.navigate(Routes.predictionDetail);
     } catch {
       dispatch(hideLoadingActionCreator());
 
