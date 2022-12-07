@@ -32,16 +32,5 @@ describe("Given a MyPredictionsScreen", () => {
       expect(renderedText).toBeDefined();
       expect(renderedPredictions).toHaveLength(10);
     });
-
-    test("Then it should match the snapshot", () => {
-      const screen = render(
-        <Provider store={mockInitialStoreSuccessModal}>
-          <NavigationContainer>
-            <MyPredictionsScreen />
-          </NavigationContainer>
-        </Provider>
-      );
-      expect(screen).toMatchSnapshot();
-    });
   });
 });
