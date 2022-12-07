@@ -4,6 +4,7 @@ import loadOnePredictionReducer from "./loadOnePredictionReducer/loadOnePredicti
 import loadMorePredictionsReducer from "./loadMorePredictionsReducer/loadMorePredictionsReducer";
 import type { PredictionsState } from "./predictionsTypes";
 import resetPredictionsReducer from "./resetPredictionsReducer/resetPredictionsReducer";
+import deletePredictionReducer from "./deletePredictionReducer/deletePredictionReducer";
 
 export const predictionsInitialState: PredictionsState = {
   predictions: [],
@@ -27,6 +28,7 @@ const predictionsSlice = createSlice({
     loadPredictionsReducer,
     loadOnePredictionReducer,
     loadMorePredictionsReducer,
+    deletePredictionReducer,
     resetPredictionsReducer,
   },
 });
@@ -36,5 +38,6 @@ export const {
   loadPredictionsReducer: loadPredictionsActionCreator,
   loadOnePredictionReducer: loadOnePredictionActionCreator,
   loadMorePredictionsReducer: loadMorePredictionsActionCreator,
+  deletePredictionReducer: deletePredictionActionCreator,
   resetPredictionsReducer: resetPredictionsActionCreator,
 } = predictionsSlice.actions;
