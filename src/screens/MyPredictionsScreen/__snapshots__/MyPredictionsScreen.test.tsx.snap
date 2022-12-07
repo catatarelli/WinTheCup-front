@@ -259,123 +259,123 @@ exports[`Given a MyPredictionsScreen When it is rendered Then it should match th
           Array [
             Object {
               "backupPicure": "https://loremflickr.com/640/480/sports",
-              "createdBy": "R'*T7oUGv6",
-              "goalsTeam1": 2,
-              "goalsTeam2": 1,
-              "id": "N3;0\\"&C)?}",
+              "createdBy": "mqO$N\${Uou",
+              "goalsTeam1": 4,
+              "goalsTeam2": 2,
+              "id": "{\\\\28=\`AMc4",
               "match": "Argentina vs England",
-              "penalties": 4,
+              "penalties": 8,
               "picture": 1,
-              "redCards": 3,
-              "yellowCards": 2,
+              "redCards": 4,
+              "yellowCards": 5,
             },
             Object {
               "backupPicure": "https://loremflickr.com/640/480/sports",
-              "createdBy": "Ym:Baf:=\\"!",
-              "goalsTeam1": 4,
-              "goalsTeam2": 9,
-              "id": "y+VEUL.%JH",
+              "createdBy": "O(zYoePO<V",
+              "goalsTeam1": 5,
+              "goalsTeam2": 0,
+              "id": "(m/zN-?$Wk",
               "match": "Argentina vs England",
               "penalties": 0,
-              "picture": 1,
-              "redCards": 10,
-              "yellowCards": 1,
-            },
-            Object {
-              "backupPicure": "https://loremflickr.com/640/480/sports",
-              "createdBy": "n5-u>mS'TM",
-              "goalsTeam1": 5,
-              "goalsTeam2": 1,
-              "id": "WD*^k^24\\"h",
-              "match": "Argentina vs England",
-              "penalties": 1,
-              "picture": 1,
-              "redCards": 5,
-              "yellowCards": 9,
-            },
-            Object {
-              "backupPicure": "https://loremflickr.com/640/480/sports",
-              "createdBy": "bvVWK9S+Dn",
-              "goalsTeam1": 7,
-              "goalsTeam2": 6,
-              "id": "&Yz1]1%#J^",
-              "match": "Argentina vs England",
-              "penalties": 9,
-              "picture": 1,
-              "redCards": 9,
-              "yellowCards": 9,
-            },
-            Object {
-              "backupPicure": "https://loremflickr.com/640/480/sports",
-              "createdBy": "l@3.t\\"0Xk(",
-              "goalsTeam1": 1,
-              "goalsTeam2": 4,
-              "id": "@!50j[9pa#",
-              "match": "Argentina vs England",
-              "penalties": 7,
-              "picture": 1,
-              "redCards": 7,
-              "yellowCards": 6,
-            },
-            Object {
-              "backupPicure": "https://loremflickr.com/640/480/sports",
-              "createdBy": "Mb_GMnuKd,",
-              "goalsTeam1": 7,
-              "goalsTeam2": 1,
-              "id": "m38W<WqU\\"6",
-              "match": "Argentina vs England",
-              "penalties": 2,
-              "picture": 1,
-              "redCards": 10,
-              "yellowCards": 10,
-            },
-            Object {
-              "backupPicure": "https://loremflickr.com/640/480/sports",
-              "createdBy": "8xmJ8Za\`P,",
-              "goalsTeam1": 3,
-              "goalsTeam2": 9,
-              "id": "DBJWr/.*,L",
-              "match": "Argentina vs England",
-              "penalties": 3,
               "picture": 1,
               "redCards": 0,
               "yellowCards": 0,
             },
             Object {
               "backupPicure": "https://loremflickr.com/640/480/sports",
-              "createdBy": "&AWdq%0o\\\\+",
-              "goalsTeam1": 4,
-              "goalsTeam2": 3,
-              "id": "]F%6Tl-8&i",
+              "createdBy": "tY9V(}36-%",
+              "goalsTeam1": 7,
+              "goalsTeam2": 0,
+              "id": "p\\\\H<hpry9Y",
               "match": "Argentina vs England",
-              "penalties": 2,
+              "penalties": 5,
               "picture": 1,
-              "redCards": 6,
+              "redCards": 4,
               "yellowCards": 8,
             },
             Object {
               "backupPicure": "https://loremflickr.com/640/480/sports",
-              "createdBy": "<%=E'p7s+N",
+              "createdBy": "j$SwD&8,'M",
               "goalsTeam1": 1,
-              "goalsTeam2": 3,
-              "id": "d$$K/?.5l6",
-              "match": "Argentina vs England",
-              "penalties": 7,
-              "picture": 1,
-              "redCards": 9,
-              "yellowCards": 6,
-            },
-            Object {
-              "backupPicure": "https://loremflickr.com/640/480/sports",
-              "createdBy": "w+1{n:UAyG",
-              "goalsTeam1": 3,
-              "goalsTeam2": 8,
-              "id": "Ee$e[vS>Zg",
+              "goalsTeam2": 6,
+              "id": "e=6f?M/a\\"!",
               "match": "Argentina vs England",
               "penalties": 8,
               "picture": 1,
-              "redCards": 4,
-              "yellowCards": 5,
+              "redCards": 0,
+              "yellowCards": 8,
+            },
+            Object {
+              "backupPicure": "https://loremflickr.com/640/480/sports",
+              "createdBy": ",\\\\RdNfoj+J",
+              "goalsTeam1": 9,
+              "goalsTeam2": 2,
+              "id": "\`WLk{v2\\"d:",
+              "match": "Argentina vs England",
+              "penalties": 9,
+              "picture": 1,
+              "redCards": 8,
+              "yellowCards": 8,
+            },
+            Object {
+              "backupPicure": "https://loremflickr.com/640/480/sports",
+              "createdBy": "I*Pcf&?G#h",
+              "goalsTeam1": 8,
+              "goalsTeam2": 3,
+              "id": "*rj1D9N]\`5",
+              "match": "Argentina vs England",
+              "penalties": 7,
+              "picture": 1,
+              "redCards": 10,
+              "yellowCards": 9,
+            },
+            Object {
+              "backupPicure": "https://loremflickr.com/640/480/sports",
+              "createdBy": "bGy<D?:0^u",
+              "goalsTeam1": 2,
+              "goalsTeam2": 8,
+              "id": "'Y?r@|872R",
+              "match": "Argentina vs England",
+              "penalties": 4,
+              "picture": 1,
+              "redCards": 10,
+              "yellowCards": 4,
+            },
+            Object {
+              "backupPicure": "https://loremflickr.com/640/480/sports",
+              "createdBy": "N{Qw|Fn'4|",
+              "goalsTeam1": 7,
+              "goalsTeam2": 9,
+              "id": "TCPU@WpRUW",
+              "match": "Argentina vs England",
+              "penalties": 4,
+              "picture": 1,
+              "redCards": 2,
+              "yellowCards": 4,
+            },
+            Object {
+              "backupPicure": "https://loremflickr.com/640/480/sports",
+              "createdBy": "SK8PZiP|5/",
+              "goalsTeam1": 9,
+              "goalsTeam2": 1,
+              "id": ",u:0)nT_Ff",
+              "match": "Argentina vs England",
+              "penalties": 3,
+              "picture": 1,
+              "redCards": 9,
+              "yellowCards": 10,
+            },
+            Object {
+              "backupPicure": "https://loremflickr.com/640/480/sports",
+              "createdBy": "kwYo-z1uXR",
+              "goalsTeam1": 1,
+              "goalsTeam2": 4,
+              "id": "R}x-jS9:5%",
+              "match": "Argentina vs England",
+              "penalties": 8,
+              "picture": 1,
+              "redCards": 3,
+              "yellowCards": 8,
             },
           ]
         }
@@ -665,217 +665,6 @@ exports[`Given a MyPredictionsScreen When it is rendered Then it should match th
                         }
                       }
                     >
-                      2
-                    </Text>
-                    <Text
-                      style={
-                        Object {
-                          "fontSize": 16,
-                        }
-                      }
-                    />
-                    <Text
-                      style={
-                        Object {
-                          "borderColor": "#3F3F3F",
-                          "borderWidth": 1,
-                          "fontSize": 20,
-                          "paddingHorizontal": 10,
-                          "paddingVertical": 5,
-                          "textAlign": "center",
-                        }
-                      }
-                    >
-                      1
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "display": "flex",
-                    "justifyContent": "space-around",
-                  }
-                }
-              >
-                <View
-                  accessible={true}
-                  collapsable={false}
-                  focusable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "opacity": 1,
-                    }
-                  }
-                >
-                  <Text
-                    testID="deleteButton"
-                  >
-                    <RNSVGSvgView
-                      align="xMidYMid"
-                      bbHeight="30"
-                      bbWidth="30"
-                      focusable={false}
-                      height={30}
-                      meetOrSlice={0}
-                      minX={0}
-                      minY={0}
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                            "borderWidth": 0,
-                          },
-                          Object {},
-                          Object {
-                            "flex": 0,
-                            "height": 30,
-                            "width": 30,
-                          },
-                        ]
-                      }
-                      vbHeight={512}
-                      vbWidth={448}
-                      width={30}
-                    >
-                      <RNSVGGroup>
-                        <RNSVGPath
-                          d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm79 143c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
-                          fill={
-                            Object {
-                              "payload": 4282335039,
-                              "type": 0,
-                            }
-                          }
-                          propList={
-                            Array [
-                              "fill",
-                            ]
-                          }
-                        />
-                      </RNSVGGroup>
-                    </RNSVGSvgView>
-                  </Text>
-                </View>
-              </View>
-            </View>
-          </View>
-          <View
-            onLayout={[Function]}
-            style={null}
-          >
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#EEEEE4",
-                  "borderRadius": 15,
-                  "display": "flex",
-                  "elevation": 6,
-                  "flexDirection": "row",
-                  "height": 100,
-                  "justifyContent": "space-between",
-                  "margin": 10,
-                  "paddingRight": 10,
-                  "shadowColor": "#000",
-                  "shadowOffset": Object {
-                    "height": 3,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0.27,
-                  "shadowRadius": 4.65,
-                  "width": 350,
-                  "zIndex": 0,
-                }
-              }
-              testID="predictionCard"
-            >
-              <Image
-                source={
-                  Object {
-                    "uri": undefined,
-                  }
-                }
-                style={
-                  Object {
-                    "borderBottomLeftRadius": 15,
-                    "borderTopLeftRadius": 15,
-                    "height": 100,
-                    "resizeMode": "cover",
-                    "width": 90,
-                    "zIndex": 100,
-                  }
-                }
-                testID="predictionPicture"
-              />
-              <View
-                accessible={true}
-                collapsable={false}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-                testID="toDetail"
-              >
-                <View
-                  style={
-                    Object {
-                      "alignItems": "center",
-                      "display": "flex",
-                      "justifyContent": "space-between",
-                      "paddingVertical": 10,
-                    }
-                  }
-                >
-                  <Text
-                    style={
-                      Object {
-                        "fontSize": 16,
-                      }
-                    }
-                  >
-                    Argentina vs England
-                  </Text>
-                  <View
-                    style={
-                      Object {
-                        "alignItems": "center",
-                        "display": "flex",
-                        "flexDirection": "row",
-                        "justifyContent": "space-around",
-                        "marginTop": 10,
-                        "width": 160,
-                      }
-                    }
-                  >
-                    <Text
-                      style={
-                        Object {
-                          "borderColor": "#3F3F3F",
-                          "borderWidth": 1,
-                          "fontSize": 20,
-                          "paddingHorizontal": 10,
-                          "paddingVertical": 5,
-                          "textAlign": "center",
-                        }
-                      }
-                    >
                       4
                     </Text>
                     <Text
@@ -897,7 +686,7 @@ exports[`Given a MyPredictionsScreen When it is rendered Then it should match th
                         }
                       }
                     >
-                      9
+                      2
                     </Text>
                   </View>
                 </View>
@@ -1108,7 +897,7 @@ exports[`Given a MyPredictionsScreen When it is rendered Then it should match th
                         }
                       }
                     >
-                      1
+                      0
                     </Text>
                   </View>
                 </View>
@@ -1299,6 +1088,217 @@ exports[`Given a MyPredictionsScreen When it is rendered Then it should match th
                       }
                     >
                       7
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 16,
+                        }
+                      }
+                    />
+                    <Text
+                      style={
+                        Object {
+                          "borderColor": "#3F3F3F",
+                          "borderWidth": 1,
+                          "fontSize": 20,
+                          "paddingHorizontal": 10,
+                          "paddingVertical": 5,
+                          "textAlign": "center",
+                        }
+                      }
+                    >
+                      0
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "display": "flex",
+                    "justifyContent": "space-around",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Text
+                    testID="deleteButton"
+                  >
+                    <RNSVGSvgView
+                      align="xMidYMid"
+                      bbHeight="30"
+                      bbWidth="30"
+                      focusable={false}
+                      height={30}
+                      meetOrSlice={0}
+                      minX={0}
+                      minY={0}
+                      style={
+                        Array [
+                          Object {
+                            "backgroundColor": "transparent",
+                            "borderWidth": 0,
+                          },
+                          Object {},
+                          Object {
+                            "flex": 0,
+                            "height": 30,
+                            "width": 30,
+                          },
+                        ]
+                      }
+                      vbHeight={512}
+                      vbWidth={448}
+                      width={30}
+                    >
+                      <RNSVGGroup>
+                        <RNSVGPath
+                          d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm79 143c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
+                          fill={
+                            Object {
+                              "payload": 4282335039,
+                              "type": 0,
+                            }
+                          }
+                          propList={
+                            Array [
+                              "fill",
+                            ]
+                          }
+                        />
+                      </RNSVGGroup>
+                    </RNSVGSvgView>
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#EEEEE4",
+                  "borderRadius": 15,
+                  "display": "flex",
+                  "elevation": 6,
+                  "flexDirection": "row",
+                  "height": 100,
+                  "justifyContent": "space-between",
+                  "margin": 10,
+                  "paddingRight": 10,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 3,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.27,
+                  "shadowRadius": 4.65,
+                  "width": 350,
+                  "zIndex": 0,
+                }
+              }
+              testID="predictionCard"
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": undefined,
+                  }
+                }
+                style={
+                  Object {
+                    "borderBottomLeftRadius": 15,
+                    "borderTopLeftRadius": 15,
+                    "height": 100,
+                    "resizeMode": "cover",
+                    "width": 90,
+                    "zIndex": 100,
+                  }
+                }
+                testID="predictionPicture"
+              />
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="toDetail"
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "display": "flex",
+                      "justifyContent": "space-between",
+                      "paddingVertical": 10,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 16,
+                      }
+                    }
+                  >
+                    Argentina vs England
+                  </Text>
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "display": "flex",
+                        "flexDirection": "row",
+                        "justifyContent": "space-around",
+                        "marginTop": 10,
+                        "width": 160,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "borderColor": "#3F3F3F",
+                          "borderWidth": 1,
+                          "fontSize": 20,
+                          "paddingHorizontal": 10,
+                          "paddingVertical": 5,
+                          "textAlign": "center",
+                        }
+                      }
+                    >
+                      1
                     </Text>
                     <Text
                       style={
@@ -1509,7 +1509,7 @@ exports[`Given a MyPredictionsScreen When it is rendered Then it should match th
                         }
                       }
                     >
-                      1
+                      9
                     </Text>
                     <Text
                       style={
@@ -1530,7 +1530,429 @@ exports[`Given a MyPredictionsScreen When it is rendered Then it should match th
                         }
                       }
                     >
-                      4
+                      2
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "display": "flex",
+                    "justifyContent": "space-around",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Text
+                    testID="deleteButton"
+                  >
+                    <RNSVGSvgView
+                      align="xMidYMid"
+                      bbHeight="30"
+                      bbWidth="30"
+                      focusable={false}
+                      height={30}
+                      meetOrSlice={0}
+                      minX={0}
+                      minY={0}
+                      style={
+                        Array [
+                          Object {
+                            "backgroundColor": "transparent",
+                            "borderWidth": 0,
+                          },
+                          Object {},
+                          Object {
+                            "flex": 0,
+                            "height": 30,
+                            "width": 30,
+                          },
+                        ]
+                      }
+                      vbHeight={512}
+                      vbWidth={448}
+                      width={30}
+                    >
+                      <RNSVGGroup>
+                        <RNSVGPath
+                          d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm79 143c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
+                          fill={
+                            Object {
+                              "payload": 4282335039,
+                              "type": 0,
+                            }
+                          }
+                          propList={
+                            Array [
+                              "fill",
+                            ]
+                          }
+                        />
+                      </RNSVGGroup>
+                    </RNSVGSvgView>
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#EEEEE4",
+                  "borderRadius": 15,
+                  "display": "flex",
+                  "elevation": 6,
+                  "flexDirection": "row",
+                  "height": 100,
+                  "justifyContent": "space-between",
+                  "margin": 10,
+                  "paddingRight": 10,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 3,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.27,
+                  "shadowRadius": 4.65,
+                  "width": 350,
+                  "zIndex": 0,
+                }
+              }
+              testID="predictionCard"
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": undefined,
+                  }
+                }
+                style={
+                  Object {
+                    "borderBottomLeftRadius": 15,
+                    "borderTopLeftRadius": 15,
+                    "height": 100,
+                    "resizeMode": "cover",
+                    "width": 90,
+                    "zIndex": 100,
+                  }
+                }
+                testID="predictionPicture"
+              />
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="toDetail"
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "display": "flex",
+                      "justifyContent": "space-between",
+                      "paddingVertical": 10,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 16,
+                      }
+                    }
+                  >
+                    Argentina vs England
+                  </Text>
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "display": "flex",
+                        "flexDirection": "row",
+                        "justifyContent": "space-around",
+                        "marginTop": 10,
+                        "width": 160,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "borderColor": "#3F3F3F",
+                          "borderWidth": 1,
+                          "fontSize": 20,
+                          "paddingHorizontal": 10,
+                          "paddingVertical": 5,
+                          "textAlign": "center",
+                        }
+                      }
+                    >
+                      8
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 16,
+                        }
+                      }
+                    />
+                    <Text
+                      style={
+                        Object {
+                          "borderColor": "#3F3F3F",
+                          "borderWidth": 1,
+                          "fontSize": 20,
+                          "paddingHorizontal": 10,
+                          "paddingVertical": 5,
+                          "textAlign": "center",
+                        }
+                      }
+                    >
+                      3
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "display": "flex",
+                    "justifyContent": "space-around",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Text
+                    testID="deleteButton"
+                  >
+                    <RNSVGSvgView
+                      align="xMidYMid"
+                      bbHeight="30"
+                      bbWidth="30"
+                      focusable={false}
+                      height={30}
+                      meetOrSlice={0}
+                      minX={0}
+                      minY={0}
+                      style={
+                        Array [
+                          Object {
+                            "backgroundColor": "transparent",
+                            "borderWidth": 0,
+                          },
+                          Object {},
+                          Object {
+                            "flex": 0,
+                            "height": 30,
+                            "width": 30,
+                          },
+                        ]
+                      }
+                      vbHeight={512}
+                      vbWidth={448}
+                      width={30}
+                    >
+                      <RNSVGGroup>
+                        <RNSVGPath
+                          d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm79 143c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
+                          fill={
+                            Object {
+                              "payload": 4282335039,
+                              "type": 0,
+                            }
+                          }
+                          propList={
+                            Array [
+                              "fill",
+                            ]
+                          }
+                        />
+                      </RNSVGGroup>
+                    </RNSVGSvgView>
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#EEEEE4",
+                  "borderRadius": 15,
+                  "display": "flex",
+                  "elevation": 6,
+                  "flexDirection": "row",
+                  "height": 100,
+                  "justifyContent": "space-between",
+                  "margin": 10,
+                  "paddingRight": 10,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 3,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.27,
+                  "shadowRadius": 4.65,
+                  "width": 350,
+                  "zIndex": 0,
+                }
+              }
+              testID="predictionCard"
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": undefined,
+                  }
+                }
+                style={
+                  Object {
+                    "borderBottomLeftRadius": 15,
+                    "borderTopLeftRadius": 15,
+                    "height": 100,
+                    "resizeMode": "cover",
+                    "width": 90,
+                    "zIndex": 100,
+                  }
+                }
+                testID="predictionPicture"
+              />
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="toDetail"
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "display": "flex",
+                      "justifyContent": "space-between",
+                      "paddingVertical": 10,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "fontSize": 16,
+                      }
+                    }
+                  >
+                    Argentina vs England
+                  </Text>
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "display": "flex",
+                        "flexDirection": "row",
+                        "justifyContent": "space-around",
+                        "marginTop": 10,
+                        "width": 160,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "borderColor": "#3F3F3F",
+                          "borderWidth": 1,
+                          "fontSize": 20,
+                          "paddingHorizontal": 10,
+                          "paddingVertical": 5,
+                          "textAlign": "center",
+                        }
+                      }
+                    >
+                      2
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "fontSize": 16,
+                        }
+                      }
+                    />
+                    <Text
+                      style={
+                        Object {
+                          "borderColor": "#3F3F3F",
+                          "borderWidth": 1,
+                          "fontSize": 20,
+                          "paddingHorizontal": 10,
+                          "paddingVertical": 5,
+                          "textAlign": "center",
+                        }
+                      }
+                    >
+                      8
                     </Text>
                   </View>
                 </View>
@@ -1741,217 +2163,6 @@ exports[`Given a MyPredictionsScreen When it is rendered Then it should match th
                         }
                       }
                     >
-                      1
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "display": "flex",
-                    "justifyContent": "space-around",
-                  }
-                }
-              >
-                <View
-                  accessible={true}
-                  collapsable={false}
-                  focusable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "opacity": 1,
-                    }
-                  }
-                >
-                  <Text
-                    testID="deleteButton"
-                  >
-                    <RNSVGSvgView
-                      align="xMidYMid"
-                      bbHeight="30"
-                      bbWidth="30"
-                      focusable={false}
-                      height={30}
-                      meetOrSlice={0}
-                      minX={0}
-                      minY={0}
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                            "borderWidth": 0,
-                          },
-                          Object {},
-                          Object {
-                            "flex": 0,
-                            "height": 30,
-                            "width": 30,
-                          },
-                        ]
-                      }
-                      vbHeight={512}
-                      vbWidth={448}
-                      width={30}
-                    >
-                      <RNSVGGroup>
-                        <RNSVGPath
-                          d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm79 143c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
-                          fill={
-                            Object {
-                              "payload": 4282335039,
-                              "type": 0,
-                            }
-                          }
-                          propList={
-                            Array [
-                              "fill",
-                            ]
-                          }
-                        />
-                      </RNSVGGroup>
-                    </RNSVGSvgView>
-                  </Text>
-                </View>
-              </View>
-            </View>
-          </View>
-          <View
-            onLayout={[Function]}
-            style={null}
-          >
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#EEEEE4",
-                  "borderRadius": 15,
-                  "display": "flex",
-                  "elevation": 6,
-                  "flexDirection": "row",
-                  "height": 100,
-                  "justifyContent": "space-between",
-                  "margin": 10,
-                  "paddingRight": 10,
-                  "shadowColor": "#000",
-                  "shadowOffset": Object {
-                    "height": 3,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0.27,
-                  "shadowRadius": 4.65,
-                  "width": 350,
-                  "zIndex": 0,
-                }
-              }
-              testID="predictionCard"
-            >
-              <Image
-                source={
-                  Object {
-                    "uri": undefined,
-                  }
-                }
-                style={
-                  Object {
-                    "borderBottomLeftRadius": 15,
-                    "borderTopLeftRadius": 15,
-                    "height": 100,
-                    "resizeMode": "cover",
-                    "width": 90,
-                    "zIndex": 100,
-                  }
-                }
-                testID="predictionPicture"
-              />
-              <View
-                accessible={true}
-                collapsable={false}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-                testID="toDetail"
-              >
-                <View
-                  style={
-                    Object {
-                      "alignItems": "center",
-                      "display": "flex",
-                      "justifyContent": "space-between",
-                      "paddingVertical": 10,
-                    }
-                  }
-                >
-                  <Text
-                    style={
-                      Object {
-                        "fontSize": 16,
-                      }
-                    }
-                  >
-                    Argentina vs England
-                  </Text>
-                  <View
-                    style={
-                      Object {
-                        "alignItems": "center",
-                        "display": "flex",
-                        "flexDirection": "row",
-                        "justifyContent": "space-around",
-                        "marginTop": 10,
-                        "width": 160,
-                      }
-                    }
-                  >
-                    <Text
-                      style={
-                        Object {
-                          "borderColor": "#3F3F3F",
-                          "borderWidth": 1,
-                          "fontSize": 20,
-                          "paddingHorizontal": 10,
-                          "paddingVertical": 5,
-                          "textAlign": "center",
-                        }
-                      }
-                    >
-                      3
-                    </Text>
-                    <Text
-                      style={
-                        Object {
-                          "fontSize": 16,
-                        }
-                      }
-                    />
-                    <Text
-                      style={
-                        Object {
-                          "borderColor": "#3F3F3F",
-                          "borderWidth": 1,
-                          "fontSize": 20,
-                          "paddingHorizontal": 10,
-                          "paddingVertical": 5,
-                          "textAlign": "center",
-                        }
-                      }
-                    >
                       9
                     </Text>
                   </View>
@@ -2142,7 +2353,7 @@ exports[`Given a MyPredictionsScreen When it is rendered Then it should match th
                         }
                       }
                     >
-                      4
+                      9
                     </Text>
                     <Text
                       style={
@@ -2163,7 +2374,7 @@ exports[`Given a MyPredictionsScreen When it is rendered Then it should match th
                         }
                       }
                     >
-                      3
+                      1
                     </Text>
                   </View>
                 </View>
@@ -2374,218 +2585,7 @@ exports[`Given a MyPredictionsScreen When it is rendered Then it should match th
                         }
                       }
                     >
-                      3
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "display": "flex",
-                    "justifyContent": "space-around",
-                  }
-                }
-              >
-                <View
-                  accessible={true}
-                  collapsable={false}
-                  focusable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "opacity": 1,
-                    }
-                  }
-                >
-                  <Text
-                    testID="deleteButton"
-                  >
-                    <RNSVGSvgView
-                      align="xMidYMid"
-                      bbHeight="30"
-                      bbWidth="30"
-                      focusable={false}
-                      height={30}
-                      meetOrSlice={0}
-                      minX={0}
-                      minY={0}
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                            "borderWidth": 0,
-                          },
-                          Object {},
-                          Object {
-                            "flex": 0,
-                            "height": 30,
-                            "width": 30,
-                          },
-                        ]
-                      }
-                      vbHeight={512}
-                      vbWidth={448}
-                      width={30}
-                    >
-                      <RNSVGGroup>
-                        <RNSVGPath
-                          d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm79 143c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
-                          fill={
-                            Object {
-                              "payload": 4282335039,
-                              "type": 0,
-                            }
-                          }
-                          propList={
-                            Array [
-                              "fill",
-                            ]
-                          }
-                        />
-                      </RNSVGGroup>
-                    </RNSVGSvgView>
-                  </Text>
-                </View>
-              </View>
-            </View>
-          </View>
-          <View
-            onLayout={[Function]}
-            style={null}
-          >
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#EEEEE4",
-                  "borderRadius": 15,
-                  "display": "flex",
-                  "elevation": 6,
-                  "flexDirection": "row",
-                  "height": 100,
-                  "justifyContent": "space-between",
-                  "margin": 10,
-                  "paddingRight": 10,
-                  "shadowColor": "#000",
-                  "shadowOffset": Object {
-                    "height": 3,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0.27,
-                  "shadowRadius": 4.65,
-                  "width": 350,
-                  "zIndex": 0,
-                }
-              }
-              testID="predictionCard"
-            >
-              <Image
-                source={
-                  Object {
-                    "uri": undefined,
-                  }
-                }
-                style={
-                  Object {
-                    "borderBottomLeftRadius": 15,
-                    "borderTopLeftRadius": 15,
-                    "height": 100,
-                    "resizeMode": "cover",
-                    "width": 90,
-                    "zIndex": 100,
-                  }
-                }
-                testID="predictionPicture"
-              />
-              <View
-                accessible={true}
-                collapsable={false}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-                testID="toDetail"
-              >
-                <View
-                  style={
-                    Object {
-                      "alignItems": "center",
-                      "display": "flex",
-                      "justifyContent": "space-between",
-                      "paddingVertical": 10,
-                    }
-                  }
-                >
-                  <Text
-                    style={
-                      Object {
-                        "fontSize": 16,
-                      }
-                    }
-                  >
-                    Argentina vs England
-                  </Text>
-                  <View
-                    style={
-                      Object {
-                        "alignItems": "center",
-                        "display": "flex",
-                        "flexDirection": "row",
-                        "justifyContent": "space-around",
-                        "marginTop": 10,
-                        "width": 160,
-                      }
-                    }
-                  >
-                    <Text
-                      style={
-                        Object {
-                          "borderColor": "#3F3F3F",
-                          "borderWidth": 1,
-                          "fontSize": 20,
-                          "paddingHorizontal": 10,
-                          "paddingVertical": 5,
-                          "textAlign": "center",
-                        }
-                      }
-                    >
-                      3
-                    </Text>
-                    <Text
-                      style={
-                        Object {
-                          "fontSize": 16,
-                        }
-                      }
-                    />
-                    <Text
-                      style={
-                        Object {
-                          "borderColor": "#3F3F3F",
-                          "borderWidth": 1,
-                          "fontSize": 20,
-                          "paddingHorizontal": 10,
-                          "paddingVertical": 5,
-                          "textAlign": "center",
-                        }
-                      }
-                    >
-                      8
+                      4
                     </Text>
                   </View>
                 </View>
