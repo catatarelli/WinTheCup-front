@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a LoginScreen component When it's rendered Then it should match the snapshot 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      accessibilityIgnoresInvertColors={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "height": 1334,
+          "justifyContent": "center",
+          "resizeMode": "cover",
+          "width": 750,
+        }
+      }
+    >
+      <Image
+        source={1}
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            Object {
+              "height": 1334,
+              "width": 750,
+            },
+            undefined,
+          ]
+        }
+        testID="backgroudImage"
+      />
+      <RCTSafeAreaView
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 46,
+              "marginBottom": 50,
+              "marginTop": 100,
+              "width": 350,
+            }
+          }
+          testID="logo"
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#000",
+              "display": "flex",
+              "height": 450,
+              "opacity": 0.7,
+              "padding": 15,
+              "width": 375,
+            }
+          }
+        >
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#fff",
+                  "fontSize": 30,
+                }
+              }
+            >
+              Username
+            </Text>
+            <TextInput
+              maxLength={20}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderColor": "#fff",
+                  "borderStyle": "solid",
+                  "borderWidth": 2,
+                  "color": "#3F3F3F",
+                  "fontSize": 26,
+                  "height": 54,
+                  "marginVertical": 10,
+                  "padding": 10,
+                  "width": 300,
+                }
+              }
+              testID="username"
+              textContentType="username"
+              value=""
+            />
+          </View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#fff",
+                  "fontSize": 30,
+                }
+              }
+            >
+              Password
+            </Text>
+            <TextInput
+              maxLength={20}
+              onChangeText={[Function]}
+              secureTextEntry={true}
+              style={
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderColor": "#fff",
+                  "borderStyle": "solid",
+                  "borderWidth": 2,
+                  "color": "#3F3F3F",
+                  "fontSize": 26,
+                  "height": 54,
+                  "marginVertical": 10,
+                  "padding": 10,
+                  "width": 300,
+                }
+              }
+              testID="password"
+              textContentType="password"
+              value=""
+            />
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 20,
+                "color": "#fff",
+                "height": 57,
+                "justifyContent": "center",
+                "marginTop": 50,
+                "marginVertical": 25,
+                "opacity": 0.3,
+                "padding": 10,
+                "width": 266,
+              }
+            }
+          >
+            <Text
+              onPress={[Function]}
+              style={
+                Object {
+                  "fontSize": 30,
+                  "fontWeight": "500",
+                  "zIndex": 1,
+                }
+              }
+              testID="submitButton"
+            >
+              Log in
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "display": "flex",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#fff",
+                  "fontSize": 20,
+                  "marginRight": 15,
+                }
+              }
+            >
+              Don't have an account?
+            </Text>
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#fff",
+                    "fontSize": 20,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Join now
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RCTSafeAreaView>
+    </View>
+  </View>
+</RCTScrollView>
+`;

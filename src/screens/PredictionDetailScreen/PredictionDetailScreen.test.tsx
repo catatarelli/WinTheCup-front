@@ -30,5 +30,16 @@ describe("Given a PredictionDetailScreen component", () => {
       expect(title).toBeDefined();
       expect(prediction).toBeDefined();
     });
+
+    test("Then it should match the snapshot", () => {
+      const screen = render(
+        <Provider store={mockInitialStoreSuccessModal}>
+          <NavigationContainer>
+            <PredictionDetailScreen />
+          </NavigationContainer>
+        </Provider>
+      );
+      expect(screen).toMatchSnapshot();
+    });
   });
 });

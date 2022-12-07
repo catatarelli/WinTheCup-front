@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a WelcomeScreen component Then it should match the snapshot 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      accessibilityIgnoresInvertColors={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "height": 1334,
+          "justifyContent": "center",
+          "resizeMode": "cover",
+          "width": 750,
+        }
+      }
+    >
+      <Image
+        source={1}
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            Object {
+              "height": 1334,
+              "width": 750,
+            },
+            undefined,
+          ]
+        }
+        testID="backgroudImage"
+      />
+      <RCTSafeAreaView
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 46,
+              "marginBottom": 100,
+              "marginTop": 140,
+              "width": 350,
+            }
+          }
+          testID="logo"
+        />
+        <Text
+          style={
+            Object {
+              "color": "#fff",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "marginVertical": 20,
+            }
+          }
+        >
+          WORLD CUP PREDICTOR
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#fff",
+              "fontSize": 24,
+              "fontWeight": "bold",
+              "marginVertical": 10,
+            }
+          }
+        >
+          WHO'S YOUR CHAMPION?
+        </Text>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#fff",
+              "borderRadius": 20,
+              "color": "#fff",
+              "height": 57,
+              "justifyContent": "center",
+              "marginTop": 80,
+              "marginVertical": 25,
+              "opacity": 0.7,
+              "padding": 6,
+              "width": 266,
+              "zIndex": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 30,
+                "fontWeight": "500",
+                "zIndex": 1,
+              }
+            }
+            testID="loginButton"
+          >
+            Log in
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#fff",
+                "fontSize": 20,
+                "marginRight": 15,
+              }
+            }
+          >
+            Don't have an account?
+          </Text>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#fff",
+                  "fontSize": 20,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Join now
+            </Text>
+          </View>
+        </View>
+      </RCTSafeAreaView>
+    </View>
+  </View>
+</RCTScrollView>
+`;
