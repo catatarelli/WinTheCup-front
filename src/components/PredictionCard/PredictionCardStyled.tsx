@@ -3,6 +3,7 @@ import colors from "../../styles/colors.styles";
 
 const styles = StyleSheet.create({
   container: {
+    zIndex: 0,
     backgroundColor: colors.beige,
     borderRadius: 15,
     width: 350,
