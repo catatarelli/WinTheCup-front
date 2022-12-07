@@ -34,7 +34,10 @@ const listStyles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    width: 350,
+    width: 370,
+    paddingHorizontal: 10,
+
+    backgroundColor: colors.white,
   },
   removeFilter: {
     ...formStyles.button,
