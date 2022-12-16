@@ -66,12 +66,11 @@ const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
               value={value}
               items={countries}
               setValue={setValue}
-              onChangeSearchText={() => handleFilterChange(value)}
+              onChangeValue={() => handleFilterChange(value)}
               placeholder="Filter by country"
               dropDownDirection="BOTTOM"
               testID="dropdown"
               containerStyle={{ width: 190 }}
-              stickyHeader={true}
             />
             <TouchableOpacity
               style={listStyles.removeFilter}
