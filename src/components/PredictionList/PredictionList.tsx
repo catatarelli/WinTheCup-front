@@ -9,6 +9,7 @@ import {
   ImageBackground,
   Text,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import image from "../../../assets/ball-in-the-net.webp";
 import Routes from "../../navigation/routes";
@@ -57,35 +58,30 @@ const PredictionList = ({ predictions }: PredictionListProps): JSX.Element => {
       {predictions.length !== 0 ? (
         <View style={listStyles.container}>
           <Text style={headingStyles.pageTitle}>My Predictions</Text>
-
+          <View style={listStyles.filter}>
+            <DropDownPicker
+              listMode="MODAL"
+              open={open}
+              setOpen={setOpen}
+              value={value}
+              items={countries}
+              setValue={setValue}
+              onChangeSearchText={() => handleFilterChange(value)}
+              placeholder="Filter by country"
+              dropDownDirection="BOTTOM"
+              testID="dropdown"
+              containerStyle={{ width: 190 }}
+              stickyHeader={true}
+            />
+            <TouchableOpacity
+              style={listStyles.removeFilter}
+              onPress={handleFilterReset}
+              testID="removeFilter"
+            >
+              <Text style={listStyles.removeFilterText}>Remove filter</Text>
+            </TouchableOpacity>
+          </View>
           <FlatList
-            stickyHeaderIndices={[0]}
-            ListHeaderComponent={
-              <View style={listStyles.filter}>
-                <DropDownPicker
-                  listMode="SCROLLVIEW"
-                  open={open}
-                  setOpen={setOpen}
-                  value={value}
-                  items={countries}
-                  setValue={setValue}
-                  onChangeValue={() => handleFilterChange(value)}
-                  placeholder="Filter by country"
-                  dropDownDirection="BOTTOM"
-                  testID="dropdown"
-                  containerStyle={{ width: 190 }}
-                  stickyHeader={true}
-                />
-                <TouchableOpacity
-                  style={listStyles.removeFilter}
-                  onPress={handleFilterReset}
-                  testID="removeFilter"
-                >
-                  <Text style={listStyles.removeFilterText}>Remove filter</Text>
-                </TouchableOpacity>
-              </View>
-            }
-            ListHeaderComponentStyle={{ zIndex: 10 }}
             data={predictions}
             renderItem={renderItem}
             ListFooterComponent={
