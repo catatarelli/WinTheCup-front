@@ -9,7 +9,6 @@ import {
   ImageBackground,
   Text,
   TouchableOpacity,
-  ScrollView,
 } from "react-native";
 import image from "../../../assets/ball-in-the-net.webp";
 import Routes from "../../navigation/routes";
