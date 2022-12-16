@@ -36,7 +36,7 @@ const listStyles = StyleSheet.create({
     justifyContent: "space-between",
     width: 370,
     paddingHorizontal: 10,
-
+    zIndex: 100,
     backgroundColor: colors.white,
   },
   removeFilter: {
