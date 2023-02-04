@@ -25,3 +25,9 @@ The WIN THE CUP app is the perfect companion for anyone looking to add an extra 
 \- BACKEND: Express – Typescript - MongoDB – Mongoose – Jest - Supabase – Bcrypt - JSON Web Token – PostMan – ESLint – SonarCloud – Husky - Render
 
 \- Design: Figma
+
+## RUN THE APP:
+
+You will find all the dependencies at the package.json file. Run the command npm install in to install them.
+
+The command npm start runs the app in the development mode. Download Expo Go app in your phone, scan the QR generated in the console and try it out! The app will reload automatically if you make any changes.
